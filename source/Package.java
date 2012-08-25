@@ -1,14 +1,15 @@
 import java.util.EnumMap;
 
-enum scans {one};
+// enum for each occassion a package may or will be scanned
+enum packageScans {placeholder};
 class Package {
-	
+	static long NextID = 0;
+	long id;
 
-	//Destination destination;
 	Client addressee;
 	String streetAddress;
 	String postcode;
-	EnumMap scanHistory = new EnumMap(scans.class);
+	EnumMap<packageScans, Scan> scanHistory = new EnumMap<packageScans, Scan>(packageScans.class);
 
 	public Package(Client addressee, String Address) {
 
