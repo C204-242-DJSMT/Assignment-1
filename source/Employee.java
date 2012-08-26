@@ -2,7 +2,11 @@
 
 class Employee {
 	static long NextID;
-	long id;
+	final long id;
 
+	public Employee() {
+		this.id = NextID;
+		NextID++;
+	}
 
 }
