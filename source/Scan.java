@@ -15,7 +15,6 @@ class Scan {
 	public Scan(Employee scanner) {
 		this.scanner = scanner;
 		this.timeOfScan = new Date();
-
 		this.id = NextID;
 		NextID++;
 	}

@@ -9,7 +9,7 @@ enum BinScans {placeholder};
 /*
  * 
  */
-//Package and PackageBin may be able to support a common superclass or interface
+//Package and PackageBin may be able/need to support a common superclass or interface
 class PackageBin {
 	static private long NextID = 0;
 	final long id;

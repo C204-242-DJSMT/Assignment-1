@@ -9,7 +9,7 @@ class DataAdapter {
 	/*
  	* 
  	*/
-	public Package getPackageByID() {
+	public Package getPackageByID(long id) {
 		return null;
 	}
 
@@ -33,7 +33,7 @@ class DataAdapter {
 	/*
  	* 
  	*/
-	public Client getClientByID() {
+	public Client getClientByID(long id) {
 		return null;
 	}
 
@@ -56,7 +56,7 @@ class DataAdapter {
 	/*
  	* 
  	*/
-	public Employee getEmployeeByID() {
+	public Employee getEmployeeByID(long id) {
 		return null;
 	}
 
@@ -78,7 +78,7 @@ class DataAdapter {
 	/*
  	* 
  	*/
-	public PackageBin getBinByID() {
+	public PackageBin getBinByID(long id) {
 		return null;
 	}
 

@@ -26,7 +26,6 @@ class Package {
 		this.addressee = addressee;
 		this.streetAddress = streetAddress;
 		this.postcode = postcode;
-
 		this.id = NextID;
 		NextID++;
 	}
