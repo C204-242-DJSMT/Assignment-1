@@ -5,7 +5,7 @@ import java.util.regex.*;
  */
 class Client {
 	static private long NextID = 0;
-	static String nameRegex = "^\\w (\\w)+$";
+	static String nameRegex = "^(\\w)+ ((\\w)+)+$"; // Clients must be identified by atleast 2 words
 	final long id;
 	String name;
 

@@ -1,8 +1,15 @@
-@org.junit.Test(expected=IllegalArgumentException.class) public void testBadClientNames() {
-	new Client("hello")
-}
+import org.junit.Test;
+import java.util.ArrayList;
+//import static org.junit.Assert.*;
 
-@org.junit.Test
-public void testGoodClientNames() {
-	new Client("hello world")
+public class tests {
+	@Test(expected=IllegalArgumentException.class)
+	public void testBadClientNames() {
+		new Client("aaaaa");
+	}
+
+	@Test
+	public void testGoodClientNames() {
+		new Client("duncan willcock");
+	}
 }
