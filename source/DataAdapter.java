@@ -9,14 +9,14 @@ class DataAdapter {
 	/*
  	* 
  	*/
-	public Package getPackageByID(long id) {
+	public static Package getPackageByID(long id) {
 		return null;
 	}
 
 	/*
  	* 
  	*/
-	public ArrayList<Package> getPackages() {
+	public static ArrayList<Package> getPackages() {
 		return allPackages;
 	}
 
@@ -24,7 +24,7 @@ class DataAdapter {
 	 * Adds a package to the list if it is a valid object and not conflicting with the current list contets.
 	 * Return true if it was successfully added to the list.
 	 */
-	public boolean addPackage(Package p) {
+	public static boolean addPackage(Package p) {
 		return false;
 	}
 
@@ -33,21 +33,21 @@ class DataAdapter {
 	/*
  	* 
  	*/
-	public Client getClientByID(long id) {
+	public static Client getClientByID(long id) {
 		return null;
 	}
 
 	/*
  	* 
  	*/
-	public ArrayList<Client> getClients() {
+	public static ArrayList<Client> getClients() {
 		return allClients;
 	}
 
 	/*
 	 * 
 	 */
-	public boolean addClient(Client c) {
+	public static boolean addClient(Client c) {
 		return false;
 	}
 
@@ -56,21 +56,21 @@ class DataAdapter {
 	/*
  	* 
  	*/
-	public Employee getEmployeeByID(long id) {
+	public static Employee getEmployeeByID(long id) {
 		return null;
 	}
 
 	/*
  	* 
  	*/
-	public ArrayList<Employee> getEmployees() {
+	public static ArrayList<Employee> getEmployees() {
 		return allEmployees;
 	}
 
 	/*
 	 * 
 	 */
-	public boolean addEmployee(Employee e) {
+	public static boolean addEmployee(Employee e) {
 		return false;
 	}
 
@@ -78,21 +78,21 @@ class DataAdapter {
 	/*
  	* 
  	*/
-	public PackageBin getBinByID(long id) {
+	public static PackageBin getBinByID(long id) {
 		return null;
 	}
 
 	/*
  	* 
  	*/
-	public ArrayList<PackageBin> getBins() {
+	public static ArrayList<PackageBin> getBins() {
 		return allPackageBins;
 	}
 
 	/*
 	 * 
 	 */
-	public boolean addBin(PackageBin c) {
+	public static boolean addBin(PackageBin c) {
 		return false;
 	}
 

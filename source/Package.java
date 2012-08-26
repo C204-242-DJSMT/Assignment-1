@@ -10,7 +10,7 @@ class Package {
 	final long id;
 
 	Client sender;
-	Client addressee;
+	Client addressee; //null if not a client
 	String streetAddress;
 	String postcode;
 	EnumMap<packageScans, Scan> scanHistory = new EnumMap<packageScans, Scan>(packageScans.class);
@@ -28,5 +28,6 @@ class Package {
 		this.postcode = postcode;
 		this.id = NextID;
 		NextID++;
+		DataAdapter.addPackage(this);
 	}
 }

@@ -24,8 +24,9 @@ class PackageBin {
 		if(destinations != null && destinations.size() > 0)
 			this.destinationCities = new ArrayList<String>(destinations);
 		else
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("No destination cities provided");
 		this.id = NextID;
 		NextID++;
+		DataAdapter.addBin(this);
 	}
 }

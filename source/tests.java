@@ -1,5 +1,4 @@
-import java.util.Arrays;
-import java.util.Collection;
+import java.util.*;
  
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,9 +10,12 @@ import org.junit.runners.Parameterized.Parameters;
 public class tests {
  
 	 private String name;
+	 final String[] address = {"10 example street", "1234"};
+	 ArrayList<String[]> addresses = new ArrayList<String[]>();
  
 	 public tests(String name) {
 	    this.name = name;
+	    addresses.add(address);
 	 }
  
 	 @Parameters
@@ -24,7 +26,7 @@ public class tests {
  
 	 @Test (expected = IllegalArgumentException.class)
 	 public void testBadClientNames() {
-	   new Client(this.name);
+	   new Client(this.name, addresses);
 	 }
  
  

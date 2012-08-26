@@ -19,5 +19,6 @@ class Employee {
 		this.role = role;
 		this.id = NextID;
 		NextID++;
+		DataAdapter.addEmployee(this);
 	}
 }
