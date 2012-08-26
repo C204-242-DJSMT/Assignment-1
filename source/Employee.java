@@ -1,12 +1,23 @@
+/*
+ * 
+ */
+enum EmployeeRoles {Driver, AccountManager, Sorter, TransportManager}
 
-
+/*
+ * 
+ */
 class Employee {
-	static long NextID;
-	final long id;
+	static private long NextID = 0;
 
-	public Employee() {
+	final long id;
+	EmployeeRoles role;
+
+	/*
+	 * 
+	 */
+	public Employee(EmployeeRoles role) {
+		this.role = role;
 		this.id = NextID;
 		NextID++;
 	}
-
 }

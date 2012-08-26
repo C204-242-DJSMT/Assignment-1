@@ -1,21 +1,33 @@
 import java.util.EnumMap;
-
-// enum for each occassion a package may or will be scanned
+ 
+/*
+ * Enumeration for each occassion a package may or must be scanned.
+ */
 enum packageScans {placeholder};
 //Package and PackageBin may be able to support a common superclass or interface
 class Package {
-	static long NextID = 0;
+	static private long NextID = 0;
 	final long id;
 
+	Client sender;
 	Client addressee;
 	String streetAddress;
 	String postcode;
 	EnumMap<packageScans, Scan> scanHistory = new EnumMap<packageScans, Scan>(packageScans.class);
 
-	public Package(Client addressee, String Address) {
+	/*
+	 * 
+	 */
+	public Package(Client sender, Client addressee, String streetAddress, String postcode) {
+		if (sender == null || addressee == null || streetAddress == null || postcode == null)
+			throw new IllegalArgumentException();
 
+		this.sender = sender;
+		this.addressee = addressee;
+		this.streetAddress = streetAddress;
+		this.postcode = postcode;
 
 		this.id = NextID;
-		NextID ++;
+		NextID++;
 	}
 }
