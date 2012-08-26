@@ -25,7 +25,7 @@ class City {
 	name
 
 }
-class Destination {
+class Destination {  //This can be combined into the package class itself
 	Client - null if non client
 	string Address
 	string postcode
@@ -50,7 +50,7 @@ class Driver extends Employee{
 
 static class DataAdapter {
 	static ArrayLists of Packages, clients, cities, bins, employees
-	static methods to access them
+	static methods to access them getList, addItem 
 }
 
 enum employee roles
