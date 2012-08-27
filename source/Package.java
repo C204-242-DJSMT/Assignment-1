@@ -3,7 +3,7 @@ import java.util.EnumMap;
 /*
  * Enumeration for each occassion a package may or must be scanned.
  */
-enum PackageScans {placeholder};
+enum ScanTypes {placeholder};
 //Package and PackageBin may be able to support a common superclass or interface
 class Package {
 	static private long NextID = 0;
@@ -13,11 +13,12 @@ class Package {
 	Client addressee; // Can be null if not a client
 	String streetAddress;
 	String postcode;
+	String destinationCity;
 	String senderAddress;
 	String senderPostcode;
-	EnumMap<PackageScans, Scan> scanHistory = new EnumMap<PackageScans, Scan>(PackageScans.class);
+	EnumMap<ScanTypes, Scan> scanHistory = new EnumMap<ScanTypes, Scan>(ScanTypes.class);
 
-	void scan(PackageScans scanType, Employee scanner) {
+	void scan(ScanTypes scanType, Employee scanner) {
 		if (this.scanHistory.get(scanType == null))
 			this.scanHistory.put(scanType, new Scan(scanner));
 		else
@@ -27,14 +28,15 @@ class Package {
 	/*
 	 * 
 	 */
-	public Package(Client sender, Client addressee, String streetAddress, String postcode) {
-		if (sender == null || streetAddress == null || postcode == null)
+	public Package(Client sender, Client addressee, String streetAddress, String postcode, String destinationCity) {
+		if (sender == null || streetAddress == null || postcode == null || destinationCity == null)
 			throw new IllegalArgumentException();
 
 		this.sender = sender;
 		this.addressee = addressee;
 		this.streetAddress = streetAddress;
 		this.postcode = postcode;
+		this.destinationCity = destinationCity;
 		this.id = NextID;
 		NextID++;
 		DataAdapter.addPackage(this);
