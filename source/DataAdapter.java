@@ -16,9 +16,9 @@ class DataAdapter {
 	/*
  	* 
  	*/
-	public static ArrayList<Package> getPackages() {
-		return allPackages;
-	}
+	// public static ArrayList<Package> getPackages() {
+	// 	return allPackages;
+	// }
 
 	/*
 	 * Adds a package to the list if it is a valid object and not conflicting with the current list contets.
@@ -40,9 +40,9 @@ class DataAdapter {
 	/*
  	* 
  	*/
-	public static ArrayList<Client> getClients() {
-		return allClients;
-	}
+	// public static ArrayList<Client> getClients() {
+	// 	return allClients;
+	// }
 
 	/*
 	 * 
@@ -63,9 +63,9 @@ class DataAdapter {
 	/*
  	* 
  	*/
-	public static ArrayList<Employee> getEmployees() {
-		return allEmployees;
-	}
+	// public static ArrayList<Employee> getEmployees() {
+	// 	return allEmployees;
+	// }
 
 	/*
 	 * 
@@ -85,9 +85,9 @@ class DataAdapter {
 	/*
  	* 
  	*/
-	public static ArrayList<PackageBin> getBins() {
-		return allPackageBins;
-	}
+	// public static ArrayList<PackageBin> getBins() {
+	// 	return allPackageBins;
+	// }
 
 	/*
 	 * 
