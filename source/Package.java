@@ -1,9 +1,6 @@
-import java.util.EnumMap;
+import java.util.ArrayList;
  
-/*
- * Enumeration for each occassion a package may or must be scanned.
- */
-enum ScanTypes {placeholder};
+
 //Package and PackageBin may be able to support a common superclass or interface
 class Package {
 	static private long NextID = 0;
@@ -16,13 +13,11 @@ class Package {
 	String destinationCity;
 	String senderAddress;
 	String senderPostcode;
-	EnumMap<ScanTypes, Scan> scanHistory = new EnumMap<ScanTypes, Scan>(ScanTypes.class);
+	// Chronologicl list of each time the package is scanned
+	ArrayList<Scan> scanHistory = new ArrayList<Scan>();
 
-	void scan(ScanTypes scanType, Employee scanner) {
-		if (this.scanHistory.get(scanType == null))
-			this.scanHistory.put(scanType, new Scan(scanner));
-		else
-			throw new IllegalArgumentException("Package already contains a record for that scan");
+	void scan(ScanEvents event, Employee scanner) {
+		
 	}
 
 	/*

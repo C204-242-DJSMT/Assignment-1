@@ -11,7 +11,8 @@ class PackageBin {
 	ArrayList<Package> contents = new ArrayList<Package>();
 	// List of 1 or more cities contents of the bin are destined for.
 	ArrayList<String> destinationCities;
-	EnumMap<ScanTypes, Scan> scanHistory = new EnumMap<ScanTypes, Scan>(ScanTypes.class);
+	// Chronologicl list of each time the bin is scanned
+	ArrayList<Scan> scanHistory = new ArrayList<Scan>();
 
 	/*
 	 * 
@@ -29,12 +30,8 @@ class PackageBin {
 	/**
 	 *
 	 */
-	void scan(ScanTypes scanType, Employee scanner) {
-		if (this.scanHistory.get(scanType == null))
-			this.scanHistory.put(scanType, new Scan(scanner));
-		else
-			throw new IllegalArgumentException("Package already contains a record for that scan");
-
+	void scan(ScanEvents scanType, Employee scanner) {
+		
 		// Apply the scan to the bin's contents
 		for (Package p: this.contents) {
 			p.Scan(scanType, scanner);
