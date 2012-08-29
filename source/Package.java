@@ -6,18 +6,31 @@ class Package {
 	static private long NextID = 0;
 	final long id;
 
-	Client sender;
-	Client addressee; // Can be null if not a client
+	final Client sender;
+	final Client addressee; // Can be null if not a client
 	String streetAddress;
 	String postcode;
 	String destinationCity;
-	String senderAddress;
-	String senderPostcode;
+	final String senderAddress;
+	final String senderPostcode;
 	// Chronologicl list of each time the package is scanned
 	ArrayList<Scan> scanHistory = new ArrayList<Scan>();
 
+	/**
+	 *
+	 */
 	void scan(ScanEvents event, Employee scanner) {
-		
+		Scan s = new Scan(event, scanner);
+		this.scanHistory.add(s);
+	}
+
+	/**
+	 *
+	 */
+	void scan(Scan s) {
+		if (s == null)
+			throw new IllegalArgumentException();
+		this.scanHistory.add(s);
 	}
 
 	/*
@@ -35,5 +48,18 @@ class Package {
 		this.id = NextID;
 		NextID++;
 		DataAdapter.addPackage(this);
+	}
+
+	/**
+	 * Changes the recieving address of the package to another associated with the addressee.
+	 */
+	boolean reroute(String[] address) {
+		if (this.addressee.hasAddress(address)) {
+			this.streetAddress = address[0];
+			this.postcode = address[1];
+			this.destinationCity = address[2];
+			return true;
+		}
+		return false;
 	}
 }

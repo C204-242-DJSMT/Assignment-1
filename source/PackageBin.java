@@ -8,11 +8,11 @@ import java.util.*;
 class PackageBin {
 	static private long NextID = 0;
 	final long id;
-	ArrayList<Package> contents = new ArrayList<Package>();
+	private ArrayList<Package> contents = new ArrayList<Package>();
 	// List of 1 or more cities contents of the bin are destined for.
-	ArrayList<String> destinationCities;
+	private ArrayList<String> destinationCities;
 	// Chronologicl list of each time the bin is scanned
-	ArrayList<Scan> scanHistory = new ArrayList<Scan>();
+	private ArrayList<Scan> scanHistory = new ArrayList<Scan>();
 
 	/*
 	 * 
@@ -28,25 +28,26 @@ class PackageBin {
 	}
 
 	/**
-	 *
+	 * 
 	 */
 	void scan(ScanEvents scanType, Employee scanner) {
-		
+		Scan s = new Scan(event, scanner);
+		this.scanHistory.add(s);
 		// Apply the scan to the bin's contents
 		for (Package p: this.contents) {
-			p.Scan(scanType, scanner);
+			p.Scan(s);
 		}
 	}
-
 
 	/**
 	 *
 	 */
-	boolean addPackage(Package p) {
+	boolean addPackage(Package p, Employee e) {
 		if (this.contents.contains(p) || p == null)
 			throw new IllegalArgumentException();
 		if (!this.destinationCities.contains(p.destinationCity))
 			return false;
+		p.scan(e, ScanEvents.addToBin);
 		this.contents.add(p);
 		return true;
 	}

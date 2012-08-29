@@ -9,17 +9,18 @@ class Client {
 	static String nameRegex = "^(\\w)+ ((\\w)+)+$"; // Clients must be identified by at least 2 words
 	final long id;
 	String name;
-	ArrayList<String[]> addresses = new ArrayList<String[]>(); // All address/postcode pairs client associates with themself. Must always have 1 or more elements.
+	ArrayList<String[]> addresses = new ArrayList<String[]>(); // All address/postcode/city tuples client associates with themself. Must always have 1 or more elements.
 
 	/**
 	 *
 	 */
 	public boolean addNewAddress(String[] address) {
-		if (address == null || address.length != 2 || address[0].length() == 0 || address[1].length() == 0 || address[0] == null | address[1] == null) {
+		if (address == null || address.length != 3 || address[0].length() == 0 || address[1].length() == 0 || address[2].length() == 0 || address[0] == null 
+			|| address[1] == null || address[2] == null) {
 			throw new IllegalArgumentException("Client addresses must have both street address and postcode");
 		}
-		for (String[] s: this.addresses) {
-			if (s[0].equals(address[0]) && s[1].equals(address[0])) {
+		for (String[] s: this.addresses) { // Check if the address is already asociated with the client
+			if (s[0].equals(address[0]) && s[1].equals(address[1]) && s[2].equals(address[2])) {
 				return false;
 			}
 		}
@@ -34,6 +35,21 @@ class Client {
 		// Must not leave the Client with no addresses
 		assert (this.addresses.size() > 0);
 	}
+
+	public boolean hasAddress(String[] address) {
+		if (address == null || address.length != 3 || address[0].length() == 0 || address[1].length() == 0 || address[2].length() == 0 || address[0] == null 
+			|| address[1] == null || address[2] == null) {
+			throw new IllegalArgumentException("Client addresses must have both street address and postcode");
+		}
+
+		for (String[] s: this.addresses) { // Check if the address is already asociated with the client
+			if (s[0].equals(address[0]) && s[1].equals(address[1]) && s[2].equals(address[2])) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 	/**
 	 * 
 	 */
