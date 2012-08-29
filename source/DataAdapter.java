@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+import java.util.*;
 
 /*
  * 
@@ -10,9 +10,22 @@ class DataAdapter {
  	* 
  	*/
 	public static Package getPackageByID(long id) {
+		for (Package p : allPackages)
+			if (p.id == id)
+				return p;
 		return null;
 	}
 
+	/**
+	 * Returns a list of all packages whose last scan was before a time.
+	 */
+	public static ArrayList<Package> getOlderPackages(Date time) {
+		ArrayList<Package> result = new ArrayList<Package>();
+		for (Package p : allPackages) {
+			if (p.scanHistory.get(p.scanHistory.size() - 1).time.before(time))
+				result.add(p);
+		}
+	}
 	/*
  	* 
  	*/

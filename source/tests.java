@@ -10,7 +10,7 @@ import org.junit.runners.Parameterized.Parameters;
 public class tests {
  
 	 private String name;
-	 final String[] address = {"10 example street", "1234"};
+	 String[] address = {"10 example street", "1234", "Hamilton"};
 	 ArrayList<String[]> addresses = new ArrayList<String[]>();
  
 	 public tests(String name) {
@@ -20,7 +20,12 @@ public class tests {
  
 	 @Parameters
 	 public static Collection<Object[]> data() {
-	   Object[][] data = new Object[][] { { "a" }, { "aa" }, { "aa " }, { "72wr6evw" } };
+	   Object[][] data = new Object[][] { 
+	   	{ "a" }, 
+	   	{ "aa" }, 
+	   	{ "aa " }, 
+	   	{ "72wr6evw" } 
+	   };
 	   return Arrays.asList(data);
 	 }
  

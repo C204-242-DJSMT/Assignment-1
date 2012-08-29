@@ -1,10 +1,12 @@
 import java.util.ArrayList;
  
-
+/**
+ *
+ */
 //Package and PackageBin may be able to support a common superclass or interface
 class Package {
 	static private long NextID = 0;
-	final long id;
+	public final long id;
 
 	final Client sender;
 	final Client addressee; // Can be null if not a client
@@ -13,7 +15,7 @@ class Package {
 	String destinationCity;
 	final String senderAddress;
 	final String senderPostcode;
-	// Chronologicl list of each time the package is scanned
+	// Chronological list of each time the package is scanned
 	ArrayList<Scan> scanHistory = new ArrayList<Scan>();
 
 	/**
@@ -54,7 +56,7 @@ class Package {
 	 * Changes the recieving address of the package to another associated with the addressee.
 	 */
 	boolean reroute(String[] address) {
-		if (this.addressee.hasAddress(address)) {
+		if (this.addressee.hasAddress(address)) { //hasAddress contains all the necessary checking of the address parameter
 			this.streetAddress = address[0];
 			this.postcode = address[1];
 			this.destinationCity = address[2];

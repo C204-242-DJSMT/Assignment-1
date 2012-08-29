@@ -75,8 +75,8 @@ class Client {
 	/**
 	 * returns a list of all packages addresses to this client
 	 */
-	ArrayList<Package> findIncomingPackages() {
+	// ArrayList<Package> findIncomingPackages() {
 
-		return null;
-	}
+	// 	return null;
+	// }
 }

@@ -11,7 +11,7 @@ enum ScanEvents {dropOff, pickUp, takeFromVehicle, addToVehicle, delivered, addT
 class Scan {
 	static private long NextID = 0;
 	final long id;
-	public final Date timeOfScan;
+	public final Date time;
 	public final Employee scanner;
 	final ScanEvents event;
 
@@ -21,7 +21,7 @@ class Scan {
 	public Scan(ScanEvents event, Employee scanner) {
 		this.scanner = scanner;
 		this.event = event;
-		this.timeOfScan = new Date();
+		this.time = new Date();
 		this.id = NextID;
 		NextID++;
 	}
