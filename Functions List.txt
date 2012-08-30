@@ -23,4 +23,4 @@ Duncan
 - hasn't been scanned for x period
 - some way aorund regular constraints to fix stuff
 
-next meeting 2 o'clock tuesday with planbs of your components
+next meeting 2 o'clock tuesday with plans of your components
