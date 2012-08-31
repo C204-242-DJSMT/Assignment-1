@@ -53,4 +53,4 @@ static class DataAdapter {
 	static methods to access them getList, addItem 
 }
 
-enum employee roles
+enum employeeRoles

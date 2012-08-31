@@ -9,12 +9,13 @@ class Package {
 	public final long id;
 
 	final Client sender;
-	final Client addressee; // Can be null if not a client
+	final Client addressee; // Can be null if not a client. If non-null address information must be associated with that client.
 	String streetAddress;
 	String postcode;
 	String destinationCity;
+	// Human readable repesentation of the sender's return address.
 	final String senderAddress;
-	final String senderPostcode;
+	private boolean awaitingPickup;
 	// Chronological list of each time the package is scanned
 	ArrayList<Scan> scanHistory = new ArrayList<Scan>();
 
@@ -23,6 +24,10 @@ class Package {
 	 */
 	void scan(ScanEvents event, Employee scanner) {
 		Scan s = new Scan(event, scanner);
+		if (event == ScanEvents.pickUp) {
+			assert (this.awaitingPickup);
+			this.awaitingPickup = false;
+		}
 		this.scanHistory.add(s);
 	}
 
@@ -38,8 +43,9 @@ class Package {
 	/*
 	 * 
 	 */
-	public Package(Client sender, Client addressee, String streetAddress, String postcode, String destinationCity) {
-		if (sender == null || streetAddress == null || postcode == null || destinationCity == null)
+	public Package(Client sender, Client addressee, String streetAddress, String postcode, String destinationCity, String senderAddress, boolean pickup) {
+		if (sender == null || streetAddress == null || postcode == null || destinationCity == null || senderAddress == null
+			|| sender.length == 0 || streetAddress.length == 0 || postcode.length == 0 || destinationCity.length == 0 || senderAddress.length == 0)
 			throw new IllegalArgumentException();
 
 		this.sender = sender;
@@ -47,6 +53,8 @@ class Package {
 		this.streetAddress = streetAddress;
 		this.postcode = postcode;
 		this.destinationCity = destinationCity;
+		this.awaitingPickup = pickup;
+		this.senderAddress = senderAddress;
 		this.id = NextID;
 		NextID++;
 		DataAdapter.addPackage(this);

@@ -3,7 +3,7 @@ import java.util.Date;
 /*
  * Enumeration for each occassion a package may or must be scanned.
  */
-enum ScanEvents {dropOff, pickUp, takeFromVehicle, addToVehicle, delivered, addToBin, takeFromBin };
+enum ScanEvents { dropOff, pickUp, takeFromVehicle, addToVehicle, delivered, addToBin, takeFromBin };
 
 /*
  * 

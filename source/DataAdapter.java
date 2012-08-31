@@ -1,3 +1,4 @@
+
 import java.util.*;
 
 /*
@@ -17,15 +18,23 @@ class DataAdapter {
 	}
 
 	/**
-	 * Returns a list of all packages whose last scan was before a time.
+	 * Returns a list of all undelivered packages whose last scan was before a time.
 	 */
 	public static ArrayList<Package> getOlderPackages(Date time) {
 		ArrayList<Package> result = new ArrayList<Package>();
 		for (Package p : allPackages) {
-			if (p.scanHistory.get(p.scanHistory.size() - 1).time.before(time))
+			if (p.scanHistory == null)
 				result.add(p);
+			else {
+				Scan lastScan = p.scanHistory.get(p.scanHistory.size() - 1);
+				if (lastScan.time.before(time) && lastScan.event != ScanEvents.delivered)
+					result.add(p);
+			}
 		}
+		return result;
 	}
+
+
 	/*
  	* 
  	*/

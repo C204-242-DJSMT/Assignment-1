@@ -3,6 +3,8 @@ import java.util.ArrayList;
 
 /**
  * 
+ *
+ * Duncan Willcock
  */
 class Client {
 	static private long NextID = 0;
@@ -36,6 +38,11 @@ class Client {
 		assert (this.addresses.size() > 0);
 	}
 
+	/**
+	 * Check if the client has an address associated with
+	 *
+	 * Duncan Willcock
+	 */
 	public boolean hasAddress(String[] address) {
 		if (address == null || address.length != 3 || address[0].length() == 0 || address[1].length() == 0 || address[2].length() == 0 || address[0] == null 
 			|| address[1] == null || address[2] == null) {
@@ -58,7 +65,7 @@ class Client {
 			this.name = name;
 		else
 			throw new IllegalArgumentException("Client\'s name must be a String of at least 3 characters");
-		if (addresses.size() == 0)
+		if (addresses == null || addresses.size() == 0)
 			throw new IllegalArgumentException("Client must have at least 1 associated address");
 		
 		for (String[] s : addresses) {

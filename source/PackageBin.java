@@ -30,12 +30,12 @@ class PackageBin {
 	/**
 	 * 
 	 */
-	void scan(ScanEvents scanType, Employee scanner) {
+	void scan(ScanEvents event, Employee scanner) {
 		Scan s = new Scan(event, scanner);
 		this.scanHistory.add(s);
 		// Apply the scan to the bin's contents
 		for (Package p: this.contents) {
-			p.Scan(s);
+			p.scan(s);
 		}
 	}
 
@@ -47,7 +47,7 @@ class PackageBin {
 			throw new IllegalArgumentException();
 		if (!this.destinationCities.contains(p.destinationCity))
 			return false;
-		p.scan(e, ScanEvents.addToBin);
+		p.scan(ScanEvents.addToBin, e);
 		this.contents.add(p);
 		return true;
 	}
