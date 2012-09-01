@@ -3,6 +3,10 @@
  */
 enum EmployeeRoles {Driver, AccountManager, Sorter, TransportManager}
 
+// switch 
+//employee role. driver or accountmanage(me) 
+ //case 
+
 /*
  * 
  */
