@@ -28,9 +28,20 @@ class DataAdapter {
 				result.add(p);
 
 		return result;
-
 	}
-	
+
+	/**
+	 * Returns a list of all packages that have  been scanned as delivered.
+	 */
+	public static ArrayList<Package> getDeliveredPackages() {
+		ArrayList<Package> result = new ArrayList<Package>();
+		for (Package p:allPackages)
+			if(p.scanHistory.get(p.scanHistory.size() - 1).event == ScanEvents.delivered)
+				result.add(p);
+
+		return result;
+	}
+
 	/**
 	 * Returns a list of all undelivered packages whose last scan was before a time.
 	 */
@@ -48,6 +59,22 @@ class DataAdapter {
 		return result;
 	}
 
+	/**
+	 * Returns a list of all undelivered packages whose last scan was after a time.
+	 */
+	public static ArrayList<Package> getNewerPackages(Date time) {
+		ArrayList<Package> result = new ArrayList<Package>();
+		for (Package p : allPackages) {
+			if (p.scanHistory == null)
+				result.add(p);
+			else {
+				Scan lastScan = p.scanHistory.get(p.scanHistory.size() - 1);
+				if (lastScan.time.after(time) && lastScan.event != ScanEvents.delivered)
+					result.add(p);
+			}
+		}
+		return result;
+	}
 
 	/*
  	* 
