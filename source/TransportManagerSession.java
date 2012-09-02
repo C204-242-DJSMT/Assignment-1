@@ -6,6 +6,8 @@ import java.util.*;
 
 /**
  * 
+ * 
+ * Duncan Willcock
  */
 public class TransportManagerSession extends JFrame {
     private Employee user;
@@ -18,7 +20,9 @@ public class TransportManagerSession extends JFrame {
     private JScrollPane jScrollPane2;
     private JTextArea jTextArea1;
 
-    /** Creates new form TransportManagerSession */
+    /** 
+     *
+     */
     public TransportManagerSession(Employee user) {
         if (user == null || user.role != EmployeeRoles.TransportManager)
             throw new IllegalArgumentException();
