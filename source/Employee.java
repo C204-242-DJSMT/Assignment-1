@@ -3,9 +3,6 @@
  */
 enum EmployeeRoles {Driver, AccountManager, Sorter, TransportManager}
 
-// switch 
-//employee role. driver or accountmanage(me) 
- //case 
 
 /*
  * 
@@ -21,7 +18,7 @@ class Employee {
 	 * 
 	 */
 	public Employee(EmployeeRoles role, String username) {
-		if (username == null || username.length == 0) //must also check username is not already in use
+		if (username == null || username.length() == 0) //must also check username is not already in use
 			throw new IllegalArgumentException();
 		this.role = role;
 		this.username = username;

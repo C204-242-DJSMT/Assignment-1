@@ -17,6 +17,20 @@ class DataAdapter {
 		return null;
 	}
 
+
+	/**
+	 * Returns a list of all packages that have not been scanned as delivered.
+	 */
+	public static ArrayList<Package> getUndeliveredPackages() {
+		ArrayList<Package> result = new ArrayList<Package>();
+		for (Package p:allPackages)
+			if(p.scanHistory.get(p.scanHistory.size() - 1).event != ScanEvents.delivered)
+				result.add(p);
+
+		return result;
+
+	}
+	
 	/**
 	 * Returns a list of all undelivered packages whose last scan was before a time.
 	 */
