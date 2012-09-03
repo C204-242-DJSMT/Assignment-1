@@ -149,7 +149,7 @@ public class LoginForm extends javax.swing.JFrame {
     }
 
     private void button_closeActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        System.exit(0);
     }
 
     /**
