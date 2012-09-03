@@ -169,4 +169,19 @@ class DataAdapter {
 		return false;
 	}
 
+	private static ArrayList<String> employeePasswords = new ArrayList<String>();
+
+	public static Employee verifyEmployee(String username, String password) {
+		for (int i = 0; i <= allEmployees.size();i++) {
+			if (username == allEmployees.get(i).username && password == employeePasswords.get(i))
+				return allEmployees.get(i);
+
+
+		}
+		return null;
+	}
+	public static void addPassword(String password) {
+		employeePasswords.add(password);
+	}
+
 }

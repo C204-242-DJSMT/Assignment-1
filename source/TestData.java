@@ -14,7 +14,7 @@ class TestData {
 		Package p3 = new Package(c3, null, "jsfdsjhdjhshdj", "sjfdbsjbdjs", "ajjdhbajdahhd", "sjbjsbdjgsgdjsgjdgjgsdjgsdgsjd", false);
 		Package p4 = new Package(c0, null, "jsfdsjhdjhshdj", "sjfdbsjbdjs", "ajjdhbajdahhd", "sjbjsbdjgsgdjsgjdgjgsdjgsdgsjd", false);
 
-		Employee e1 = new Employee(EmployeeRoles.Driver, "dmkw1");
+		Employee e1 = new Employee(EmployeeRoles.Driver, "dmkw1", "test");
 
 		p0.scan(ScanEvents.takeFromVehicle, e1);
 		p1.scan(ScanEvents.addToVehicle, e1);
