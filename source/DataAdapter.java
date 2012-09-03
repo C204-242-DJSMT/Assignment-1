@@ -51,6 +51,10 @@ class DataAdapter {
 			if (p.scanHistory == null)
 				result.add(p);
 			else {
+				if (p.scanHistory.size() == 0) {
+					result.add(p);
+					continue;
+				}
 				Scan lastScan = p.scanHistory.get(p.scanHistory.size() - 1);
 				if (lastScan.time.before(time) && lastScan.event != ScanEvents.delivered)
 					result.add(p);
@@ -88,7 +92,13 @@ class DataAdapter {
 	 * Return true if it was successfully added to the list.
 	 */
 	public static boolean addPackage(Package p) {
-		return false;
+		if (p == null)
+			throw new IllegalArgumentException();
+		if (allPackages.contains(p))
+			return false;
+		allPackages.add(p);
+		return true;
+
 	}
 
 	private static ArrayList<Client> allClients = new ArrayList<Client>();

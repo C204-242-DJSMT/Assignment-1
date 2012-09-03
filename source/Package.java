@@ -72,4 +72,25 @@ class Package {
 		}
 		return false;
 	}
+
+	/**
+	 *
+	 */
+	public Scan lastScan() {
+		if (this.scanHistory.size() == 0)
+			return null;
+		return this.scanHistory.get(this.scanHistory.size() - 1);
+	}
+
+	/**
+	 *
+	 */
+	public String toString() {
+		String result = "";
+		result += this.sender.toString();
+		if (this.scanHistory.size() > 0)
+			result += "   " + this.lastScan().toString();
+
+		return result;
+	}
 }

@@ -19,10 +19,16 @@ class Scan {
 	 * 
 	 */
 	public Scan(ScanEvents event, Employee scanner) {
+		if (scanner == null)
+			throw new IllegalArgumentException();
 		this.scanner = scanner;
 		this.event = event;
 		this.time = new Date();
 		this.id = NextID;
 		NextID++;
+	}
+
+	public String toString() {
+		return this.time.toString() + "  " + this.event.toString();
 	}
 }

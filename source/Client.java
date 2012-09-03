@@ -86,4 +86,8 @@ class Client {
 
 	// 	return null;
 	// }
+
+	public String toString() {
+		return this.name;
+	}
 }
