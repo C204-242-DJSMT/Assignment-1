@@ -7,7 +7,12 @@ import javax.swing.*;
  * @author Mathew
  */
 public class DriverForm extends javax.swing.JFrame {
-
+    
+    /*
+     * global variable for this form
+     * Stores list info
+     * stores driver info
+    */
     static String[] data = null;
     static Driver driver;
        
@@ -125,14 +130,23 @@ public class DriverForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+ /*
+ * Updates the list of packages
+ */    
     private void buttonUpdateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonUpdateMouseClicked
        UpdateTable();
     }//GEN-LAST:event_buttonUpdateMouseClicked
 
+   /*
+    * Creates a file of the manifest
+    */
     private void buttonfileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonfileMouseClicked
-       createFile();
+       driver.createFile();
     }//GEN-LAST:event_buttonfileMouseClicked
 
+    /*
+     * Logs out of the driver section
+     */
     private void buttonLogOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonLogOutMouseClicked
         /*         
          * login.show();
@@ -140,26 +154,38 @@ public class DriverForm extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_buttonLogOutMouseClicked
 
+    /*
+     * Method for updateing the list on the UI for the manifest
+     */
     private void UpdateTable(){
 		try{
+                        //Gets all packages scheduled for pickup and delivery
 			ArrayList<Package> list = driver.getVehicleManifest();
+                        
+                        //If no packages to be pickup and delivered displays appropriate message
 			if(list == null){				
 				listbox.clearSelection();
                                 data[0] = "No Packages";                                
-                                listbox.setListData(data);
+                                listbox = new JList(data);
 			}
-			else{
-				
+			else{	
+                            //clears things in the Jlist and sets up a counter
                             listbox.clearSelection();
 				int n = 0;
+                                /*
+                                 * goes through each package in the list
+                                 * gathers the required information and adds it to an string array 
+                                 * increments counter
+                                 */
 				while(n < list.size()){
 					String line = String.valueOf(list.get(n).id) + "\t" + list.get(n).streetAddress + "\t" + list.get(n).destinationCity 
 							+ "\t" + list.get(n).status + "\n";
 					data[n] = line;
 					n++;
 				}
+                                //creates a new JList containg the pacakge information
 				listbox = new JList(data);
-				listbox.setVisible(true);
+				
 			}
 		}
 		catch(Exception e){
@@ -167,46 +193,7 @@ public class DriverForm extends javax.swing.JFrame {
 		}
 	}
 	
-	private static void createFile(){
-		try{
-		BufferedWriter writer = new BufferedWriter(new FileWriter("Manifest.txt"));
-		ArrayList<Package> list = driver.getVehicleManifest();
-		
-		String header = "Package ID" + "\t" + "Street Address" + "\t" + "City" + "\t" + "Status" + "\n" + "\n";
-		writer.write("To Deliver:" + "\n");
-		writer.write(header);
-		writefile(writer, "Deliver", list);
- 		writer.write("To Pick Up:" + "\n");
- 		writer.write(header);
- 		writefile(writer, "Pick Up", list);
-                writer.flush();
-                writer.close();
-		}
-		catch(Exception e){
-			System.err.println(e.getMessage());
-		}
-	}
-	
-	private static void writefile(BufferedWriter w, String s, ArrayList<Package> list) throws IOException{
-		try{
-			
-			if(list != null){
-				for(Package p: list){
-					if(p.status.equals(s)){
-						String line = String.valueOf(p.id) + "\t" + p.streetAddress + "\t" + p.destinationCity + "\t" + p.status + "\n";
-						w.write(line);
-					}
-				}	
-			}
-			
-		}
-		catch(IOException ex){
-			System.err.println("Error in writing to file");
-		}
-		catch(Exception e){
-			System.err.println(e.getMessage());
-		}
-	}
+   
     
     /**
      * @param args the command line arguments
@@ -238,8 +225,10 @@ public class DriverForm extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(DriverForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        
+        //Creates a new driver and creates the manifest file
         driver = new Driver("ABC123");
-        createFile();
+        driver.createFile();
         /*
          * Create and display the form
          */
