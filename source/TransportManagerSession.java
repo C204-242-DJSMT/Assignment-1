@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.util.*;
 import java.awt.event.*;
+import java.awt.*;
 /*
  * 
  */
@@ -56,6 +57,7 @@ public class TransportManagerSession extends JFrame {
         jTextArea1 = new JTextArea();
         jScrollPane2 = new JScrollPane();
         jList1 = new JList();
+        //jList1.setSize(1000, 500);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -79,6 +81,8 @@ public class TransportManagerSession extends JFrame {
         //     public Object getElementAt(int i) { return strings[i]; }
         // });
         jScrollPane2.setViewportView(jList1);
+        jScrollPane2.setPreferredSize(new Dimension(200,200));
+        jList1.setFixedCellWidth(400);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
