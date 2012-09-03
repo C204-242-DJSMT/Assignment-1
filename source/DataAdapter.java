@@ -79,7 +79,26 @@ class DataAdapter {
 		}
 		return result;
 	}
-
+	
+	/*
+	 * Gets packages by status
+	 * used to get packages requiring pickup
+	 */
+	public static ArrayList<Package> getPackagePickUp(){
+		ArrayList<Package> p = new ArrayList<Package>();		
+		if(allPackages == null){
+			return null;
+		}
+		else{
+			for(Package k: allPackages){
+				if(k.awaitingPickup == true){
+					p.add(k);
+				}
+			}
+			return p;
+		}
+	}
+	
 	/*
  	* 
  	*/
@@ -164,7 +183,20 @@ class DataAdapter {
 	public static PackageBin getBinByID(long id) {
 		return null;
 	}
-
+	
+	/*
+	 * Gets bins in a specified vehicle
+	 */	
+	public static ArrayList<PackageBin> getBinByVehicle(String v){
+		ArrayList<PackageBin> temp = new ArrayList<PackageBin>();
+		for(PackageBin b: allPackageBins){
+			if(b.vehicleID == v){
+				temp.add(b);
+			}			
+		}
+		return temp;		
+	}
+	
 	/*
  	* 
  	*/
