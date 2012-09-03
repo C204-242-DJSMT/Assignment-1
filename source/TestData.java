@@ -15,11 +15,15 @@ class TestData {
 		Package p4 = new Package(c0, null, "jsfdsjhdjhshdj", "sjfdbsjbdjs", "ajjdhbajdahhd", "sjbjsbdjgsgdjsgjdgjgsdjgsdgsjd", false);
 
 		Employee e1 = new Employee(EmployeeRoles.TransportManager, "dmkw1", "test");
+		Employee e2 = new Employee(EmployeeRoles.Sorter, "test0", "0test");
+		Employee e3 = new Employee(EmployeeRoles.Sorter, "test1", "1test");
 
 		p0.scan(ScanEvents.takeFromVehicle, e1);
 		p1.scan(ScanEvents.addToVehicle, e1);
 		p2.scan(ScanEvents.pickUp, e1);
 		p3.scan(ScanEvents.dropOff, e1);
 		p4.scan(ScanEvents.addToBin, e1);
+
+		System.out.println("done");
 	}
 }

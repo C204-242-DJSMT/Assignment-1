@@ -13,16 +13,12 @@ enum EmployeeRoles {Driver, AccountManager, Sorter, TransportManager}
 class Employee {
 	static private long NextID = 0;
 
-	 long id;
+	long id;
 	EmployeeRoles role;
-	 String username;
+	String username;
 
 
-		
-    
-  
-	
-	 
+
 	 
 	public Employee(EmployeeRoles role, String username, String password) {
 		if (username == null || username.length() == 0) //must also check username is not already in use

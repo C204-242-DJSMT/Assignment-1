@@ -143,8 +143,8 @@ class DataAdapter {
 	/*
 	 * 
 	 */
-	public static boolean addEmployee(Employee e) {
-		return false;
+	public static void addEmployee(Employee e) {
+		allEmployees.add(e);
 	}
 
 	private static ArrayList<PackageBin> allPackageBins = new ArrayList<PackageBin>();
@@ -172,8 +172,10 @@ class DataAdapter {
 	private static ArrayList<String> employeePasswords = new ArrayList<String>();
 
 	public static Employee verifyEmployee(String username, String password) {
+		System.out.println(employeePasswords.size());
 		for (int i = 0; i < allEmployees.size();i++) {
-			if (username == allEmployees.get(i).username && password == employeePasswords.get(i))
+			System.out.println(allEmployees.get(i).username + "  " + employeePasswords.get(i));
+			if (username.equals(allEmployees.get(i).username) && password.equals(employeePasswords.get(i)))
 				return allEmployees.get(i);
 
 
@@ -182,6 +184,7 @@ class DataAdapter {
 	}
 	public static void addPassword(String password) {
 		employeePasswords.add(password);
+		System.out.println(employeePasswords.size());
 	}
 
 }
