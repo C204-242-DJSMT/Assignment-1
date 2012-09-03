@@ -121,7 +121,12 @@ class DataAdapter {
 	 * 
 	 */
 	public static boolean addClient(Client c) {
-		return false;
+		if (c == null)
+			throw new IllegalArgumentException();
+		if (allClients.contains(c))
+			return false;
+		allClients.add(c);
+		return true;
 	}
 
 	private static ArrayList<Employee> allEmployees = new ArrayList<Employee>();
@@ -143,8 +148,13 @@ class DataAdapter {
 	/*
 	 * 
 	 */
-	public static void addEmployee(Employee e) {
+	public static boolean addEmployee(Employee e) {
+		if (e == null)
+			throw new IllegalArgumentException();
+		if (allEmployees.contains(e))
+			return false;
 		allEmployees.add(e);
+		return true;
 	}
 
 	private static ArrayList<PackageBin> allPackageBins = new ArrayList<PackageBin>();
@@ -165,8 +175,13 @@ class DataAdapter {
 	/*
 	 * 
 	 */
-	public static boolean addBin(PackageBin c) {
-		return false;
+	public static boolean addBin(PackageBin b) {
+		if (b == null)
+			throw new IllegalArgumentException();
+		if (allPackageBins.contains(b))
+			return false;
+		allPackageBins.add(b);
+		return true;
 	}
 
 	private static ArrayList<String> employeePasswords = new ArrayList<String>();
