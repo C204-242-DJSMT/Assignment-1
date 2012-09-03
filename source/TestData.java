@@ -14,9 +14,9 @@ class TestData {
 		Package p3 = new Package(c3, null, "jsfdsjhdjhshdj", "sjfdbsjbdjs", "ajjdhbajdahhd", "sjbjsbdjgsgdjsgjdgjgsdjgsdgsjd", false);
 		Package p4 = new Package(c0, null, "jsfdsjhdjhshdj", "sjfdbsjbdjs", "ajjdhbajdahhd", "sjbjsbdjgsgdjsgjdgjgsdjgsdgsjd", false);
 
-		Employee e1 = new Employee(EmployeeRoles.TransportManager, "dmkw1", "test");
-		Employee e2 = new Employee(EmployeeRoles.Sorter, "test0", "0test");
-		Employee e3 = new Employee(EmployeeRoles.Sorter, "test1", "1test");
+		Employee e1 = new Employee(EmployeeRoles.TransportManager, "dmkw1", "test001");
+		Employee e2 = new Employee(EmployeeRoles.Sorter, "test0", "0test002");
+		Employee e3 = new Employee(EmployeeRoles.Sorter, "test1", "1test003");
 
 		p0.scan(ScanEvents.takeFromVehicle, e1);
 		p1.scan(ScanEvents.addToVehicle, e1);

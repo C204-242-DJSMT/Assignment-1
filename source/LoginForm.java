@@ -145,7 +145,8 @@ public class LoginForm extends javax.swing.JFrame {
          }
          else 
             System.out.println("not found");
-       
+       //make a string 
+        
     }
 
     private void button_closeActionPerformed(java.awt.event.ActionEvent evt) {
