@@ -120,8 +120,8 @@ class DataAdapter {
 
 	private static ArrayList<String> employeePasswords = new ArrayList<String>();
 
-	public Employee verifyEmployee(String username, String password) {
-		for (int i = 0; i <= allEmployees.size();i++) {
+	public static Employee verifyEmployee(String username, String password) {
+		for (int i = 0; i < allEmployees.size();i++) {
 			if (username == allEmployees.get(i).username && password == employeePasswords.get(i))
 				return allEmployees.get(i);
 
@@ -129,6 +129,7 @@ class DataAdapter {
 		}
 		return null;
 	}
+
 	public static void addPassword(String password) {
 		employeePasswords.add(password);
 	}

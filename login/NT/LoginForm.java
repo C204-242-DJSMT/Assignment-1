@@ -56,7 +56,7 @@ public class LoginForm extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
     private void initComponents() {
-
+        //test.init.
         label_username = new javax.swing.JLabel();
         label_password = new javax.swing.JLabel();
         button_login = new javax.swing.JButton();
@@ -131,15 +131,17 @@ public class LoginForm extends javax.swing.JFrame {
     }// </editor-fold>
 
     private void button_loginActionPerformed(java.awt.event.ActionEvent evt) {
-       String user=textbox_username.getText();
+        String usrnme=textbox_username.getText();
         String pwd= new String (textbox_password.getPassword());
-        Employee user = verifyEmployee(user, pwd);
-        if (user != null){
+         Employee user = DataAdapter.verifyEmployee(usrnme, pwd);
+       if (user != null){
             if (user.role == EmployeeRoles.TransportManager) {
-                this.setVisible(false);
+                //this.setVisible(false);
                 new TransportManagerSession().setVisible(true);
             }
-        }
+            else {System.out.println("s");}
+         }
+       
     }
 
     private void button_closeActionPerformed(java.awt.event.ActionEvent evt) {
@@ -150,6 +152,8 @@ public class LoginForm extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+
+        TestData.init();
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
