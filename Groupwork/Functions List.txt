@@ -1,0 +1,26 @@
+Josh
+- register user/edit details
+- login (secure)
+- send
+
+Matthew
+- obtain vehicle manifest
+- obtain list of packages scheduled for pickup
+- scan on delivery, on acceptance and pickup
+
+Janik
+- Give new bin destination city/cities 
+- scan package check it can go in given bin
+- scan bin whenever it moves and apply scan to all contents
+
+Nigel
+- scan package when leaving/entering storing facilty
+- employee login to access appropriate functions 
+- get package info for given account holder and all their addresses
+
+Duncan
+- pick up inconsistencies - packages whose scans don't match the bin or haven't been scanned...
+- hasn't been scanned for x period
+- some way aorund regular constraints to fix stuff
+
+next meeting 2 o'clock tuesday with plans of your components
