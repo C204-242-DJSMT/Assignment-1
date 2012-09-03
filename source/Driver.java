@@ -7,8 +7,8 @@ class Driver extends Employee {
 	/*
 	 * 
 	 */
-	public Driver() {
-		super(EmployeeRoles.Driver);
+	public Driver(String username, String password) {
+		super(EmployeeRoles.Driver, username, password);
 	}
 
 	/*

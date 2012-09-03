@@ -6,6 +6,7 @@ import java.util.*;
  */
 class DataAdapter {
 	private static ArrayList<Package> allPackages = new ArrayList<Package>();
+	private static ArrayList<Package> oldPackages = new ArrayList<Package>();
 
 	/*
  	* 
@@ -45,7 +46,7 @@ class DataAdapter {
 	/**
 	 * Returns a list of all undelivered packages whose last scan was before a time.
 	 */
-	public static ArrayList<Package> getOlderPackages(Date time) {
+	public static ArrayList<Package> getOlderPackages(Calendar time) {
 		ArrayList<Package> result = new ArrayList<Package>();
 		for (Package p : allPackages) {
 			if (p.scanHistory == null)
@@ -65,8 +66,10 @@ class DataAdapter {
 
 	/**
 	 * Returns a list of all undelivered packages whose last scan was after a time.
+	 *
+	 * Duncan Willcock
 	 */
-	public static ArrayList<Package> getNewerPackages(Date time) {
+	public static ArrayList<Package> getNewerPackages(Calendar time) {
 		ArrayList<Package> result = new ArrayList<Package>();
 		for (Package p : allPackages) {
 			if (p.scanHistory == null)
@@ -80,12 +83,6 @@ class DataAdapter {
 		return result;
 	}
 
-	/*
- 	* 
- 	*/
-	// public static ArrayList<Package> getPackages() {
-	// 	return allPackages;
-	// }
 
 	/*
 	 * Adds a package to the list if it is a valid object and not conflicting with the current list contets.

@@ -62,7 +62,9 @@ public class TransportManagerSession extends JFrame {
         btnOldPackages.setText("Timed out packages");
         btnOldPackages.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
-                jList1.setListData(new Vector(DataAdapter.getOlderPackages(new Date())));
+                Calendar c = new GregorianCalendar();
+                c.setTime(new Date());
+                jList1.setListData(new Vector(DataAdapter.getOlderPackages(c)));
             }
         });
         jButton2.setText("jButton2");
