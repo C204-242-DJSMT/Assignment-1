@@ -187,9 +187,9 @@ class DataAdapter {
 	private static ArrayList<String> employeePasswords = new ArrayList<String>();
 
 	public static Employee verifyEmployee(String username, String password) {
-		System.out.println(employeePasswords.size());
+		//System.out.println(employeePasswords.size());
 		for (int i = 0; i < allEmployees.size();i++) {
-			System.out.println(allEmployees.get(i).username + "  " + employeePasswords.get(i));
+			//System.out.println(allEmployees.get(i).username + "  " + employeePasswords.get(i));
 			if (username.equals(allEmployees.get(i).username) && password.equals(employeePasswords.get(i)))
 				return allEmployees.get(i);
 
@@ -199,7 +199,7 @@ class DataAdapter {
 	}
 	public static void addPassword(String password) {
 		employeePasswords.add(password);
-		System.out.println(employeePasswords.size());
+		//System.out.println(employeePasswords.size());
 	}
 
 }

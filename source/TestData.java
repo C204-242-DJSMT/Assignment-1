@@ -24,6 +24,6 @@ class TestData {
 		p3.scan(ScanEvents.dropOff, e1);
 		p4.scan(ScanEvents.addToBin, e1);
 
-		System.out.println("done");
+		//System.out.println("done");
 	}
 }
