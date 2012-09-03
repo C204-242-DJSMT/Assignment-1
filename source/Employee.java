@@ -13,7 +13,7 @@ enum EmployeeRoles {Driver, AccountManager, Sorter, TransportManager}
  */
 class Employee {
 	static private long NextID = 0;
-	private static 	String regex = "^[\\w][\\w][\\w][\\w][\\w][\\w]+$";
+	private static String regex = "^[\\w]{6,}"; // six or more 'word' characters
 	long id;
 	EmployeeRoles role;
 	String username;
