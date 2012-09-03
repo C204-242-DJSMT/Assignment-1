@@ -1,3 +1,4 @@
+import java.util.regex.*;
 /*
  * 
  */
@@ -12,7 +13,7 @@ enum EmployeeRoles {Driver, AccountManager, Sorter, TransportManager}
  */
 class Employee {
 	static private long NextID = 0;
-
+	private static 	String regex = "^[\\w][\\w][\\w][\\w][\\w][\\w]+$";
 	long id;
 	EmployeeRoles role;
 	String username;
@@ -25,7 +26,7 @@ class Employee {
 	 * Duncan Willcock
 	 */
 	public Employee(EmployeeRoles role, String username, String password) {
-		if (username == null || username.length() == 0) //must also check username is not already in use
+		if (password == null || !Pattern.matches(regex, password) || username == null || username.length() == 0)
 			throw new IllegalArgumentException();
 		this.role = role;
 		this.username = username;
