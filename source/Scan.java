@@ -1,13 +1,13 @@
 import java.util.*;
 
-/*
+/**
  * Enumeration for each occassion a package may or must be scanned.
  * 
  * Duncan Willcock
  */
 enum ScanEvents { dropOff, pickUp, takeFromVehicle, addToVehicle, delivered, addToBin, takeFromBin, enterFacility, leaveFacility };
 
-/*
+/**
  * 
  *
  * Duncan Willcock
@@ -19,7 +19,7 @@ class Scan {
 	public final Employee scanner;
 	final ScanEvents event;
 
-	/*
+	/**
 	 * 
 	 *
 	 * Duncan Willcock
@@ -35,7 +35,7 @@ class Scan {
 		NextID++;
 	}
 
-	/*
+	/**
 	 * 
 	 *
 	 * Duncan Willcock

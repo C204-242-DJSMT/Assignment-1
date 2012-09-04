@@ -1,17 +1,20 @@
-
 import java.util.*;
 
-/*
+/**
  * 
+ *
+ * Duncan Willcock
  */
 class DataAdapter {
 	private static ArrayList<Package> allPackages = new ArrayList<Package>();
 	private static ArrayList<Package> oldPackages = new ArrayList<Package>();
 	private static ArrayList<Package> lostPackages = new ArrayList<Package>();
 
-	/*
- 	* 
- 	*/
+	/**
+ 	 *
+ 	 *
+ 	 * Duncan Willcock 
+ 	 */
 	public static Package getPackageByID(long id) {
 		for (Package p : allPackages)
 			if (p.id == id)
@@ -22,6 +25,8 @@ class DataAdapter {
 
 	/**
 	 * Returns a list of all packages that have not been scanned as delivered.
+	 *
+	 * Duncan Willcock
 	 */
 	public static ArrayList<Package> getUndeliveredPackages() {
 		ArrayList<Package> result = new ArrayList<Package>();
@@ -34,6 +39,8 @@ class DataAdapter {
 
 	/**
 	 * Returns a list of all packages that have  been scanned as delivered.
+	 *
+	 * Duncan Willcock
 	 */
 	public static ArrayList<Package> getDeliveredPackages() {
 		ArrayList<Package> result = new ArrayList<Package>();
@@ -46,6 +53,8 @@ class DataAdapter {
 
 	/**
 	 * Returns a list of all undelivered packages whose last scan was before a time.
+	 *
+	 * Duncan Willcock
 	 */
 	public static ArrayList<Package> getOlderPackages(Calendar time) {
 		ArrayList<Package> result = new ArrayList<Package>();
@@ -102,18 +111,12 @@ class DataAdapter {
 			return p;
 		}
 	}
-	
-	/*
- 	* 
- 	*/
-	// public static ArrayList<Package> getPackages() {
-	// 	return allPackages;
-	// }
-//>>>>>>> ebb380a5f0c312a69149454e1496031f94217641
 
 	/*
 	 * Adds a package to the list if it is a valid object and not conflicting with the current list contets.
 	 * Return true if it was successfully added to the list.
+	 *
+	 * Duncan Willcock
 	 */
 	public static boolean addPackage(Package p) {
 		if (p == null)
@@ -130,19 +133,15 @@ class DataAdapter {
 	/*
  	* 
  	*/
-	public static Client getClientByID(long id) {
-		return null;
-	}
-
-	/*
- 	* 
- 	*/
-	// public static ArrayList<Client> getClients() {
-	// 	return allClients;
+	// public static Client getClientByID(long id) {
+	// 	return null;
 	// }
 
-	/*
-	 * 
+
+	/**
+	 *
+	 *
+	 * Duncan Willcock 
 	 */
 	public static boolean addClient(Client c) {
 		if (c == null)
@@ -157,20 +156,18 @@ class DataAdapter {
 
 	/*
  	* 
+ 	*
+ 	* Duncan Willcock
  	*/
 	public static Employee getEmployeeByID(long id) {
 		return null;
 	}
 
-	/*
- 	* 
- 	*/
-	// public static ArrayList<Employee> getEmployees() {
-	// 	return allEmployees;
-	// }
 
-	/*
+	/**
 	 * 
+	 *
+	 * Duncan Willcock
 	 */
 	public static boolean addEmployee(Employee e) {
 		if (e == null)
@@ -182,14 +179,8 @@ class DataAdapter {
 	}
 
 	private static ArrayList<PackageBin> allPackageBins = new ArrayList<PackageBin>();
-	/*
- 	* 
- 	*/
-	public static PackageBin getBinByID(long id) {
-		return null;
-	}
 	
-	/*
+	/**
 	 * Gets bins in a specified vehicle
 	 */	
 	public static ArrayList<PackageBin> getBinByVehicle(String v){
@@ -202,15 +193,12 @@ class DataAdapter {
 		return temp;		
 	}
 	
-	/*
- 	* 
- 	*/
-	// public static ArrayList<PackageBin> getBins() {
-	// 	return allPackageBins;
-	// }
 
-	/*
+
+	/**
 	 * 
+	 *
+	 * Duncan Willcock
 	 */
 	public static boolean addBin(PackageBin b) {
 		if (b == null)
@@ -223,17 +211,25 @@ class DataAdapter {
 
 	private static ArrayList<String> employeePasswords = new ArrayList<String>();
 
+	/**
+	 *
+	 *
+	 *
+	 */
+
 	public static Employee verifyEmployee(String username, String password) {
 		//System.out.println(employeePasswords.size());
 		for (int i = 0; i < allEmployees.size();i++) {
 			//System.out.println(allEmployees.get(i).username + "  " + employeePasswords.get(i));
 			if (username.equals(allEmployees.get(i).username) && password.equals(employeePasswords.get(i)))
 				return allEmployees.get(i);
-
-
 		}
 		return null;
 	}
+
+	/**
+	  *
+	  */
 	public static void addPassword(String password) {
 		employeePasswords.add(password);
 		//System.out.println(employeePasswords.size());
