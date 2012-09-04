@@ -8,6 +8,7 @@ import java.util.*;
 class PackageBin {
 	static private long NextID = 0;
 	final long id;
+	public String vehicleID;
 	private ArrayList<Package> contents = new ArrayList<Package>();
 	// List of 1 or more cities contents of the bin are destined for.
 	private ArrayList<String> destinationCities;

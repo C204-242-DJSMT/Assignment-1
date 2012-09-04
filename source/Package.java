@@ -47,6 +47,7 @@ class Package {
 		if (sender == null || streetAddress == null || postcode == null || destinationCity == null || senderAddress == null
 			 || streetAddress.length() == 0 || postcode.length() == 0 || destinationCity.length() == 0 || senderAddress.length() == 0)
 			throw new IllegalArgumentException();
+	
 
 		this.sender = sender;
 		this.addressee = addressee;
