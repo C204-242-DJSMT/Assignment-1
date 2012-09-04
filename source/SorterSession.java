@@ -1,4 +1,8 @@
-/*
+import javax.swing.*;
+import javax.swing.event.*;
+import java.util.*;
+import java.awt.event.*;
+import java.awt.*;/*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
@@ -171,7 +175,7 @@ public class SorterSession extends javax.swing.JFrame {
     private void RefreshButtonActionPerformed(java.awt.event.ActionEvent evt) {                                              
         // TODO add your handling code here:
       //  listbox_clients.setListData(new Vector(DataAdapter.findName(name)));
-        BinList.setListData(new Vector(DataAdapter.findBin(id)));
+        BinList.setListData(new Vector(DataAdapter.findBin()));
     }
 
     /**

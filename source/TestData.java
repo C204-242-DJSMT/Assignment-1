@@ -4,6 +4,7 @@ class TestData {
 	
 
 	public static ArrayList<Package> packages = new ArrayList<Package>();
+	public static ArrayList<PackageBin> packagebins = new ArrayList<PackageBin>();
 
 	public static void init(){
 		ArrayList<String[]> addresses = new ArrayList<String[]>();
@@ -16,8 +17,11 @@ class TestData {
 		packages.add(new Package(c1, null, "street", "postcode", "CITY", "return", false));
 		packages.add(new Package(c0, null, "street", "postcode", "CITY", "return", false));
 		packages.add(new Package(c2, null, "street", "postcode", "CITY", "return", true));
-				packages.add(new Package(c3, null, "street", "postcode", "CITY", "return", false));
+		packages.add(new Package(c3, null, "street", "postcode", "CITY", "return", false));
 		packages.add(new Package(c0, null, "street", "postcode", "CITY", "return", false));
+
+		//how to take in an array of strings
+		//packagebins.add(new PackageBin("The Moon"));
 
 		Employee e1 = new Employee(EmployeeRoles.TransportManager, "dmkw1", "test001");
 		Employee e2 = new Employee(EmployeeRoles.Sorter, "test0", "0test002");
