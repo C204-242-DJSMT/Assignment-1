@@ -252,4 +252,15 @@ class DataAdapter {
 				}
 	return result;
 }
+
+	public static ArrayList<PackageBin> findBin(long id)
+	{	
+		ArrayList<PackageBin> result = new ArrayList<PackageBin>();
+			for(PackageBin d : allPackageBins )
+			{
+				if (d.id(id))
+					result.add(d);
+				}
+	return result;
+}
 }
