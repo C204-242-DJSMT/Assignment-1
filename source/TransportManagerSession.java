@@ -3,9 +3,7 @@ import javax.swing.event.*;
 import java.util.*;
 import java.awt.event.*;
 import java.awt.*;
-/*
- * 
- */
+
 
 /**
  * 
@@ -26,6 +24,8 @@ public class TransportManagerSession extends JFrame {
 
     /** 
      *
+     *
+     * Duncan Willcock
      */
     public TransportManagerSession(Employee user) {
         if (user == null || user.role != EmployeeRoles.TransportManager)
