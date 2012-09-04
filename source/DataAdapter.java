@@ -7,6 +7,7 @@ import java.util.*;
 class DataAdapter {
 	private static ArrayList<Package> allPackages = new ArrayList<Package>();
 	private static ArrayList<Package> oldPackages = new ArrayList<Package>();
+	private static ArrayList<Package> lostPackages = new ArrayList<Package>();
 
 	/*
  	* 
@@ -82,9 +83,6 @@ class DataAdapter {
 		}
 		return result;
 	}
-<<<<<<< HEAD
-
-=======
 	
 	/*
 	 * Gets packages by status
@@ -111,7 +109,7 @@ class DataAdapter {
 	// public static ArrayList<Package> getPackages() {
 	// 	return allPackages;
 	// }
->>>>>>> ebb380a5f0c312a69149454e1496031f94217641
+//>>>>>>> ebb380a5f0c312a69149454e1496031f94217641
 
 	/*
 	 * Adds a package to the list if it is a valid object and not conflicting with the current list contets.
