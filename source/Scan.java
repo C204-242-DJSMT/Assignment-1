@@ -2,11 +2,15 @@ import java.util.*;
 
 /*
  * Enumeration for each occassion a package may or must be scanned.
+ * 
+ * Duncan Willcock
  */
 enum ScanEvents { dropOff, pickUp, takeFromVehicle, addToVehicle, delivered, addToBin, takeFromBin, enterFacility, leaveFacility };
 
 /*
  * 
+ *
+ * Duncan Willcock
  */
 class Scan {
 	static private long NextID = 0;
@@ -17,6 +21,8 @@ class Scan {
 
 	/*
 	 * 
+	 *
+	 * Duncan Willcock
 	 */
 	public Scan(ScanEvents event, Employee scanner) {
 		if (scanner == null)
@@ -29,14 +35,12 @@ class Scan {
 		NextID++;
 	}
 
+	/*
+	 * 
+	 *
+	 * Duncan Willcock
+	 */
 	public String toString() {
-		String formattedTime = "";
-		formattedTime += this.time.DAY_OF_MONTH + "/";
-		formattedTime += this.time.MONTH + "/";
-		formattedTime += this.time.YEAR + "   ";
-		formattedTime += this.time.HOUR + ":";
-		formattedTime += this.time.MINUTE;
-
-		return formattedTime + "  " + this.event.toString();
+		return this.time.getTime().toLocaleString() + "  " + this.event.toString();
 	}
 }
