@@ -1,8 +1,8 @@
 import javax.swing.*;
+import javax.swing.event.*;
 import java.util.*;
 import java.awt.event.*;
 import java.awt.*;
-/*
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -64,6 +64,13 @@ public class AccountManagerSession extends javax.swing.JFrame {
                 button_getActionPerformed(evt);
             }
         });
+
+            ListSelectionListener listSelectionListener = new ListSelectionListener() {
+            public void valueChanged(ListSelectionEvent event) {
+                jListPackagesActionPertformed(event);
+            }
+        };
+    listbox_clients.addListSelectionListener(listSelectionListener);
 
         label_clientname.setText("Client Name");
 
@@ -153,6 +160,13 @@ public class AccountManagerSession extends javax.swing.JFrame {
         listbox_clients.setListData(new Vector(DataAdapter.findName(name)));
     }
 
+      private void jListPackagesActionPertformed(ListSelectionEvent event) {
+        int index = listbox_clients.getSelectedIndex();
+        if (index >= 0)
+            listbox_address.setListData(new Vector(this.packages.get(index).addresses));
+
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -203,5 +217,6 @@ public class AccountManagerSession extends javax.swing.JFrame {
     private javax.swing.JList listbox_clients;
     private javax.swing.JList listbox_package;
     private javax.swing.JTextField textbox_clientname;
+     private ArrayList<Client> packages;
     // End of variables declaration
 }

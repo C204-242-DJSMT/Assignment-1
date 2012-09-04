@@ -33,8 +33,8 @@ public class LoginForm extends javax.swing.JFrame {
                 break;
                          
             case Sorter: 
-               // SorterSession page=new SorterSession();
-          //  page.setVisible(true);
+               SorterSession page3=new SorterSession();
+          page3.setVisible(true);
             break;
                 
 
@@ -145,6 +145,11 @@ public class LoginForm extends javax.swing.JFrame {
              if (user.role == EmployeeRoles.AccountManager) {
                 //this.setVisible(false);
                 new AccountManagerSession().setVisible(true);
+            }
+            else {System.out.println("s");}
+            if (user.role == EmployeeRoles.Sorter) {
+                //this.setVisible(false);
+                new SorterSession().setVisible(true);
             }
             else {System.out.println("s");}
          }
