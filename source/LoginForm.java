@@ -28,8 +28,8 @@ public class LoginForm extends javax.swing.JFrame {
                 break;
                     
             case AccountManager:
-                //AccountManagerSession page=new AccountManagerSession();
-            //page.setVisible(true);
+                 AccountManagerSession page2=new AccountManagerSession();
+            page2.setVisible(true);
                 break;
                          
             case Sorter: 
@@ -140,6 +140,11 @@ public class LoginForm extends javax.swing.JFrame {
             if (user.role == EmployeeRoles.TransportManager) {
                 //this.setVisible(false);
                 new TransportManagerSession().setVisible(true);
+            }
+            else {System.out.println("s");}
+             if (user.role == EmployeeRoles.AccountManager) {
+                //this.setVisible(false);
+                new AccountManagerSession().setVisible(true);
             }
             else {System.out.println("s");}
          }

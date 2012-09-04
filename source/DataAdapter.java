@@ -242,4 +242,14 @@ class DataAdapter {
 		//System.out.println(employeePasswords.size());
 	}
 
+	public static ArrayList<Client> findName(String name)
+	{	
+		ArrayList<Client> result = new ArrayList<Client>();
+			for(Client c : allClients )
+			{
+				if (c.name.startsWith(name))
+					result.add(c);
+				}
+	return result;
+}
 }
