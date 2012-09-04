@@ -227,7 +227,9 @@ class DataAdapter {
 		employeePasswords.add(password);
 		//System.out.println(employeePasswords.size());
 	}
-
+	/**
+	  *N
+	  */ 
 	public static ArrayList<Client> findName(String name)
 	{	
 		ArrayList<Client> result = new ArrayList<Client>();
@@ -238,6 +240,19 @@ class DataAdapter {
 				}
 	return result;
 }
+//N
+	public static ArrayList<Client> getAddressByName(String a){
+		ArrayList<Client> result = new ArrayList<Client>();
+		for(Client b: allClients){
+			if(b.name == a){
+				result.add(b);
+			}			
+		}
+		return result;		
+	}
+		
+
+
 
 	public static ArrayList<PackageBin> findBin()
 	{	
