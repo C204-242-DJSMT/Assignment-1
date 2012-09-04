@@ -15,7 +15,7 @@ class Package {
 	String destinationCity;
 	// Human readable repesentation of the sender's return address.
 	final String senderAddress;
-	private boolean awaitingPickup;
+	public boolean awaitingPickup;
 	// Chronological list of each time the package is scanned
 	ArrayList<Scan> scanHistory = new ArrayList<Scan>();
 
