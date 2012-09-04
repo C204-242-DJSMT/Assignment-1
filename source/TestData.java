@@ -1,7 +1,7 @@
 import java.util.*;
 class TestData {
 
-	static public Date testTime;
+	
 
 	public static ArrayList<Package> packages = new ArrayList<Package>();
 
@@ -13,12 +13,11 @@ class TestData {
 		Client c1 = new Client("client one",addresses);
 		Client c2 = new Client("client two",addresses);
 		Client c3 = new Client("client three",addresses);
-		packages.add(new Package(c1, null, "jsfdsjhdjhshdj", "sjfdbsjbdjs", "ajjdhbajdahhd", "sjbjsbdjgsgdjsgjdgjgsdjgsdgsjd", false));
-		packages.add(new Package(c0, null, "jsfdsjhdjhshdj", "sjfdbsjbdjs", "ajjdhbajdahhd", "sjbjsbdjgsgdjsgjdgjgsdjgsdgsjd", false));
-		packages.add(new Package(c2, null, "jsfdsjhdjhshdj", "sjfdbsjbdjs", "ajjdhbajdahhd", "sjbjsbdjgsgdjsgjdgjgsdjgsdgsjd", true));
-		testTime = new Date();
-		packages.add(new Package(c3, null, "jsfdsjhdjhshdj", "sjfdbsjbdjs", "ajjdhbajdahhd", "sjbjsbdjgsgdjsgjdgjgsdjgsdgsjd", false));
-		packages.add(new Package(c0, null, "jsfdsjhdjhshdj", "sjfdbsjbdjs", "ajjdhbajdahhd", "sjbjsbdjgsgdjsgjdgjgsdjgsdgsjd", false));
+		packages.add(new Package(c1, null, "street", "postcode", "CITY", "return", false));
+		packages.add(new Package(c0, null, "street", "postcode", "CITY", "return", false));
+		packages.add(new Package(c2, null, "street", "postcode", "CITY", "return", true));
+				packages.add(new Package(c3, null, "street", "postcode", "CITY", "return", false));
+		packages.add(new Package(c0, null, "street", "postcode", "CITY", "return", false));
 
 		Employee e1 = new Employee(EmployeeRoles.TransportManager, "dmkw1", "test001");
 		Employee e2 = new Employee(EmployeeRoles.Sorter, "test0", "0test002");

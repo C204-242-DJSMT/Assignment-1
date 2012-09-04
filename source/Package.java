@@ -88,9 +88,11 @@ class Package {
 	 */
 	public String toString() {
 		String result = "";
-		result += this.sender.toString();
-		if (this.scanHistory.size() > 0)
-			result += "   " + this.lastScan().toString();
+		result += this.id + " ";
+		result += "from: " + this.sender.toString() + " to: ";
+		// if (this.scanHistory.size() > 0)
+		// 	result += "   " + this.lastScan().toString();
+		result += this.streetAddress + " " + this.destinationCity + " " + this.postcode;
 
 		return result;
 	}

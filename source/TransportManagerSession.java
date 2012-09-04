@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.event.*;
 import java.util.*;
 import java.awt.event.*;
 import java.awt.*;
@@ -17,10 +18,11 @@ public class TransportManagerSession extends JFrame {
     private JButton jButton2;
     private JButton jButton3;
     private JButton jButton4;
-    private JList jList1;
+    private JList jListPackages;
     private JScrollPane jScrollPane1;
     private JScrollPane jScrollPane2;
-    private JTextArea jTextArea1;
+    private JList jListScans;
+    private ArrayList<Package> packages;
 
     /** 
      *
@@ -44,17 +46,14 @@ public class TransportManagerSession extends JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
-        
-
         btnOldPackages = new JButton();
         jButton2 = new JButton();
         jButton3 = new JButton();
         jButton4 = new JButton();
         jScrollPane1 = new JScrollPane();
-        jTextArea1 = new JTextArea();
+        jListScans = new JList();
         jScrollPane2 = new JScrollPane();
-        jList1 = new JList();
+        jListPackages = new JList();
         //jList1.setSize(1000, 500);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -62,27 +61,33 @@ public class TransportManagerSession extends JFrame {
         btnOldPackages.setText("Timed out packages");
         btnOldPackages.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
-                Calendar c = new GregorianCalendar();
-                c.setTime(new Date());
-                jList1.setListData(new Vector(DataAdapter.getOlderPackages(c)));
+                buttonOldPackagesActionPerformed(event);
             }
         });
+
+        ListSelectionListener listSelectionListener = new ListSelectionListener() {
+            public void valueChanged(ListSelectionEvent event) {
+                jListPackagesActionPertformed(event);
+            }
+        };
+    jListPackages.addListSelectionListener(listSelectionListener);
+        
         jButton2.setText("jButton2");
         jButton3.setText("jButton3");
         jButton4.setText("jButton4");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        
 
         // jList1.setModel(new javax.swing.AbstractListModel() {
         //     String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
         //     public int getSize() { return strings.length; }
         //     public Object getElementAt(int i) { return strings[i]; }
         // });
-        jScrollPane2.setViewportView(jList1);
+        jScrollPane2.setViewportView(jListPackages);
         jScrollPane2.setPreferredSize(new Dimension(200,200));
-        jList1.setFixedCellWidth(400);
+        jListPackages.setFixedCellWidth(400);
+
+        jScrollPane1.setViewportView(jListScans);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -90,9 +95,9 @@ public class TransportManagerSession extends JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(111, 111, 111)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(142, 142, 142)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -124,7 +129,19 @@ public class TransportManagerSession extends JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
+    private void buttonOldPackagesActionPerformed(java.awt.event.ActionEvent evt) {
+        Calendar c = new GregorianCalendar();
+                c.setTime(new Date());
+                this.packages = DataAdapter.getOlderPackages(c);
+                jListPackages.setListData(new Vector(this.packages)); 
+    }
+
+    private void jListPackagesActionPertformed(ListSelectionEvent event) {
+        int index = jListPackages.getSelectedIndex();
+        if (index >= 0)
+            jListScans.setListData(new Vector(this.packages.get(index).scanHistory));
+
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     
     // End of variables declaration//GEN-END:variables

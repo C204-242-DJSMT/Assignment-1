@@ -7,7 +7,15 @@ import java.util.*;
  */
 class DataAdapter {
 	private static ArrayList<Package> allPackages = new ArrayList<Package>();
+
+	/**
+	* Packages that have been identified potentialy lost due to long period since last scan but not acted on.
+	*/
 	private static ArrayList<Package> oldPackages = new ArrayList<Package>();
+	
+	/**
+	 * Packages that have been officially recorded as lost.
+	 */
 	private static ArrayList<Package> lostPackages = new ArrayList<Package>();
 
 	/**
@@ -21,7 +29,6 @@ class DataAdapter {
 				return p;
 		return null;
 	}
-
 
 	/**
 	 * Returns a list of all packages that have not been scanned as delivered.
@@ -38,7 +45,7 @@ class DataAdapter {
 	}
 
 	/**
-	 * Returns a list of all packages that have  been scanned as delivered.
+	 * Returns a list of all packages that have been scanned as delivered.
 	 *
 	 * Duncan Willcock
 	 */

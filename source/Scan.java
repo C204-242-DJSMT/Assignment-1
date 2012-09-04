@@ -5,7 +5,7 @@ import java.util.*;
  * 
  * Duncan Willcock
  */
-enum ScanEvents { dropOff, pickUp, takeFromVehicle, addToVehicle, delivered, addToBin, takeFromBin, enterFacility, leaveFacility };
+enum ScanEvents { dropOff, pickUp, takeFromVehicle, addToVehicle, delivered, addToBin, takeFromBin, enterFacility, leaveFacility, lost };
 
 /**
  * 
