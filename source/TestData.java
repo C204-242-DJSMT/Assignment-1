@@ -27,6 +27,7 @@ class TestData {
 		Employee e2 = new Employee(EmployeeRoles.Sorter, "test0", "0test002");
 		Employee e3 = new Employee(EmployeeRoles.Sorter, "test1", "1test003");
 		Employee e4 = new Employee(EmployeeRoles.AccountManager, "test5", "test005");
+		Employee e5 = new Employee(EmployeeRoles.Driver, "test5", "test006");
 
 		packages.get(0).scan(ScanEvents.takeFromVehicle, e1);
 		packages.get(1).scan(ScanEvents.addToVehicle, e1);
