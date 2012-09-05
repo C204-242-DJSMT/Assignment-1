@@ -156,14 +156,35 @@ public class AccountManagerSession extends javax.swing.JFrame {
     private void button_getActionPerformed(java.awt.event.ActionEvent evt) {
 
         String name=textbox_clientname.getText();
-
-        listbox_clients.setListData(new Vector(DataAdapter.findName(name)));
+        clientlist = DataAdapter.findName(name);
+        listbox_clients.setListData(new Vector(this.clientlist));
     }
 
       private void jListPackagesActionPertformed(ListSelectionEvent event) {
+        ArrayList<String[]> addresses = new ArrayList<String[]>();
+        Vector v = new Vector();
+
         int index = listbox_clients.getSelectedIndex();
         if (index >= 0)
-            listbox_address.setListData(new Vector(this.packages.get(index).addresses));
+           // listbox_address.setListData(new Vector(DataAdapter.findName(name)));
+           // listbox_address.setListData(new Vector(this.clients.get(index)));
+          
+            addresses = clientlist.get(index).addresses;
+            Vector<String> formattedAddresses = new Vector<String>();
+            
+                for(String[] s : addresses )
+            {
+            String line;
+            assert (s.length == 3);
+            line = s[0] + " " +  s[1] + " " + s[2] ;
+            formattedAddresses.add(line);
+
+             listbox_address.setListData(formattedAddresses);
+            }
+                    
+
+       //allclients
+       //getAddressByName()
 
     }
 
@@ -217,6 +238,6 @@ public class AccountManagerSession extends javax.swing.JFrame {
     private javax.swing.JList listbox_clients;
     private javax.swing.JList listbox_package;
     private javax.swing.JTextField textbox_clientname;
-     private ArrayList<Client> packages;
+     private ArrayList<Client> clientlist;
     // End of variables declaration
 }
