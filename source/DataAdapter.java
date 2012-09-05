@@ -149,6 +149,10 @@ class DataAdapter {
  	* Duncan Willcock
  	*/
 	public static Employee getEmployeeByID(long id) {
+		for (Employee e : allEmployees)
+			if (e.id == id)
+				return e;
+
 		return null;
 	}
 
