@@ -41,14 +41,15 @@ public class TMTesting {
 	 		}
 
 	 // tests to test normal function of query methods
+	 @Test public void test2() {
+		DataAdapter.getOlderPackages(testTime);
+	}
 	@Test public void test1() {
 		
 		assertTrue(DataAdapter.getPackageByID(0) != null);
 	}
 
-	@Test public void test2() {
-		DataAdapter.getOlderPackages(testTime);
-	}
+	
 
 	@Test public void test4() {
 		testTime.setTime(new Date());
@@ -67,4 +68,41 @@ public class TMTesting {
 	@Test (expected=IllegalArgumentException.class) public void test7() {
 		new TransportManagerSession(null);
 	}
+
+	@Test (expected=IllegalArgumentException.class) public void test10() {
+		new TransportManagerSession(null);
+	}
+
+	// Test lost/found methods
+	@Test (expected=IllegalArgumentException.class) public void test8() {
+		DataAdapter.recordLostPackage(DataAdapter.getPackageByID(0));
+	}
+
+	@Test (expected=IllegalArgumentException.class) public void test9() {
+		DataAdapter.recordFoundPackage(DataAdapter.getPackageByID(0));
+	}
+
+	@Test (expected=IllegalArgumentException.class) public void test11() {
+		DataAdapter.recordLostPackage(null);
+	}
+
+	@Test (expected=IllegalArgumentException.class) public void test12() {
+		DataAdapter.recordFoundPackage(null);
+	}
+
+	@Test public void test13() {
+		Package p = DataAdapter.getPackageByID(1);
+		Employee e = DataAdapter.getEmployeeByID(0);
+		p.scan(ScanEvents.lost, e);
+		DataAdapter.recordLostPackage(p);
+	}
+
+	@Test public void test14() {
+		Package p = DataAdapter.getPackageByID(1);
+		Employee e = DataAdapter.getEmployeeByID(0);
+		p.scan(ScanEvents.lost, e);
+		p.scan(ScanEvents.found, e);
+		DataAdapter.recordFoundPackage(p);
+	}
+
 }

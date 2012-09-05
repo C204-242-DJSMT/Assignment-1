@@ -27,6 +27,14 @@ class DataAdapter {
 		for (Package p : allPackages)
 			if (p.id == id)
 				return p;
+
+		for (Package p : lostPackages)
+			if (p.id == id)
+				return p;
+
+		for (Package p : oldPackages)
+			if (p.id == id)
+				return p;
 		return null;
 	}
 
