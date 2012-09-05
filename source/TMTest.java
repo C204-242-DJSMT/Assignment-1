@@ -34,7 +34,7 @@ class TMTest {
         java.awt.EventQueue.invokeLater(new Runnable() {
 
             public void run() {
-                new TransportManagerSession().setVisible(true);
+                new TransportManagerSession(DataAdapter.getEmployeeByID(0)).setVisible(true);
             }
         });
     }

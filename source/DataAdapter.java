@@ -114,7 +114,22 @@ class DataAdapter {
 			return false;
 		allPackages.add(p);
 		return true;
+	}
 
+	/*
+	 * Adds a package to the list if it is a valid object and not conflicting with the current list contets.
+	 * Return true if it was successfully added to the list.
+	 *
+	 * Duncan Willcock
+	 */
+	public static boolean recordLostPackage(Package p) {
+		if (p == null || p.lastScan().event != ScanEvents.lost)
+			throw new IllegalArgumentException();
+		if (!allPackages.contains(p) || lostPackages.contains(p))
+			return false;
+		allPackages.remove(p);
+		lostPackages.add(p);
+		return true;
 	}
 
 	private static ArrayList<Client> allClients = new ArrayList<Client>();
