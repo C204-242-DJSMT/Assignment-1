@@ -34,9 +34,7 @@ public class TransportManagerSession extends JFrame {
         initComponents();
     }
 
-    public TransportManagerSession() {
-        initComponents();
-    }
+ 
 
     /** This method is called from within the constructor to
      * initialize the form.
