@@ -5,7 +5,7 @@ import java.util.*;
  * 
  * Duncan Willcock
  */
-enum ScanEvents { dropOff, pickUp, takeFromVehicle, addToVehicle, delivered, addToBin, takeFromBin, enterFacility, leaveFacility, lost };
+enum ScanEvents { dropOff, pickUp, takeFromVehicle, addToVehicle, delivered, addToBin, takeFromBin, enterFacility, leaveFacility, lost, found };
 
 /**
  * 
@@ -41,6 +41,6 @@ class Scan {
 	 * Duncan Willcock
 	 */
 	public String toString() {
-		return this.time.getTime().toLocaleString() + "  " + this.event.toString();
+		return this.time.getTime().toLocaleString() + "  " + this.event.toString() + "  " + this.scanner.id;
 	}
 }

@@ -29,6 +29,10 @@ class Package {
 			this.awaitingPickup = false;
 		}
 		this.scanHistory.add(s);
+		if (event == ScanEvents.lost) {
+			assert (this.lastScan().event != ScanEvents.lost);
+			DataAdapter.recordLostPackage(this);
+		}
 	}
 
 	/**
