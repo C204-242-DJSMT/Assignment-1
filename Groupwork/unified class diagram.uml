@@ -3255,7 +3255,7 @@
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">172</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">113</XPD:ATTR>
-<XPD:ATTR name="Height" type="integer">186</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">199</XPD:ATTR>
 <XPD:REF name="Model">8BDmKAD/mUuqExPiwd5CTAAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="3RW//8Vv20eLcBwuxAmqjAAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="VoriGX2EQ0GVYiFhD6QPbwAA">
@@ -3279,7 +3279,7 @@
 <XPD:OBJ name="OwnedViews[61]" type="UMLAssociationView" guid="/x+ZYUOLm0ab04ycDFBSuAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">96,492;72,357</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">96,492;74,370</XPD:ATTR>
 <XPD:REF name="Model">wPFheiZGBkaScKnKV0CrTAAA</XPD:REF>
 <XPD:REF name="Head">N2lfaYrFH0qwOsR399JnTAAA</XPD:REF>
 <XPD:REF name="Tail">E9trKh4u4EyBR2QmHS/rFQAA</XPD:REF>
@@ -4968,7 +4968,7 @@
 <XPD:REF name="Views[2]">CIxPQWSe6kq/Al8QsAuHLQAA</XPD:REF>
 <XPD:ATTR name="#Associations" type="integer">1</XPD:ATTR>
 <XPD:REF name="Associations[0]">RW2jl0iq2ESVv66eISVBWQAA</XPD:REF>
-<XPD:ATTR name="#Literals" type="integer">10</XPD:ATTR>
+<XPD:ATTR name="#Literals" type="integer">11</XPD:ATTR>
 <XPD:OBJ name="Literals[0]" type="UMLEnumerationLiteral" guid="AOHSsGaU80G1UpIPvj1t8gAA">
 <XPD:ATTR name="Name" type="string">pickup</XPD:ATTR>
 <XPD:REF name="Enumeration">8BDmKAD/mUuqExPiwd5CTAAA</XPD:REF>
@@ -5007,6 +5007,10 @@
 </XPD:OBJ>
 <XPD:OBJ name="Literals[9]" type="UMLEnumerationLiteral" guid="xPn/EaIJa0iWxX5l3S+YGgAA">
 <XPD:ATTR name="Name" type="string">lost</XPD:ATTR>
+<XPD:REF name="Enumeration">8BDmKAD/mUuqExPiwd5CTAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Literals[10]" type="UMLEnumerationLiteral" guid="HFRr2yDMPEa2Bcw4RUueYAAA">
+<XPD:ATTR name="Name" type="string">found</XPD:ATTR>
 <XPD:REF name="Enumeration">8BDmKAD/mUuqExPiwd5CTAAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
