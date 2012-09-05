@@ -19,34 +19,7 @@ public class LoginForm extends javax.swing.JFrame {
     Employee user;
 
 
-     public void NextPage() {
-        switch (user.role) {
-         case Driver:
-               //DriverSession page=new DriverSession();
-            //page.setVisible(true);
-
-                break;
-                    
-            case AccountManager:
-                 AccountManagerSession page2=new AccountManagerSession();
-            page2.setVisible(true);
-                break;
-                         
-            case Sorter: 
-               SorterSession page3=new SorterSession();
-          page3.setVisible(true);
-            break;
-                
-
-             case TransportManager: 
-                TransportManagerSession page=new TransportManagerSession();
-            page.setVisible(true);
-            break;
-                        
-            }
-        
-
-     }  
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -145,6 +118,11 @@ public class LoginForm extends javax.swing.JFrame {
              if (user.role == EmployeeRoles.AccountManager) {
                 //this.setVisible(false);
                 new AccountManagerSession().setVisible(true);
+            }
+            else {System.out.println("s");}
+             if (user.role == EmployeeRoles.Driver) {
+                //this.setVisible(false);
+                new DriverForm().setVisible(true);
             }
             else {System.out.println("s");}
             if (user.role == EmployeeRoles.Sorter) {
