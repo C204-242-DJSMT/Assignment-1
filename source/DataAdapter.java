@@ -1,17 +1,13 @@
 import java.util.*;
 
 /**
- * 
+ * Static interface class for retrieving/storing data in the system.
+ * Internal implementation should in fact be a set of database interactions, but externally this class is complete
  *
- * Duncan Willcock
+ * Duncan Willcock, Nigel Thomas, Mathew Andela
  */
 class DataAdapter {
 	private static ArrayList<Package> allPackages = new ArrayList<Package>();
-
-	/**
-	* Packages that have been identified potentialy lost due to long period since last scan but not acted on.
-	*/
-	private static ArrayList<Package> oldPackages = new ArrayList<Package>();
 	
 	/**
 	 * Packages that have been officially recorded as lost.
@@ -19,7 +15,8 @@ class DataAdapter {
 	private static ArrayList<Package> lostPackages = new ArrayList<Package>();
 
 	/**
- 	 *
+ 	 * Returns the package with a given ID from any of the collections of Packages.
+ 	 * Returns null if  package with the supplied id is not found.
  	 *
  	 * Duncan Willcock 
  	 */
@@ -32,9 +29,6 @@ class DataAdapter {
 			if (p.id == id)
 				return p;
 
-		for (Package p : oldPackages)
-			if (p.id == id)
-				return p;
 		return null;
 	}
 
