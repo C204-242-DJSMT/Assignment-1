@@ -161,7 +161,7 @@ public class AccountManagerSession extends javax.swing.JFrame {
     }
 
       private void jListPackagesActionPertformed(ListSelectionEvent event) {
-        ArrayList<String[]> addresses = new ArrayList<String[]>();
+        
         Vector v = new Vector();
 
         int index = listbox_clients.getSelectedIndex();
@@ -169,10 +169,10 @@ public class AccountManagerSession extends javax.swing.JFrame {
            // listbox_address.setListData(new Vector(DataAdapter.findName(name)));
            // listbox_address.setListData(new Vector(this.clients.get(index)));
           
-            addresses = clientlist.get(index).addresses;
+            this.addresses = clientlist.get(index).addresses;
             Vector<String> formattedAddresses = new Vector<String>();
             
-                for(String[] s : addresses )
+                for(String[] s : this.addresses )
             {
             String line;
             assert (s.length == 3);
@@ -187,6 +187,22 @@ public class AccountManagerSession extends javax.swing.JFrame {
        //getAddressByName()
 
     }
+
+     private void listbox_packagesActionPertformed(ListSelectionEvent event) {
+                Vector<Package> temp = new Vector<Package>();
+              ArrayList<Package> packagess;
+        int index = listbox_address.getSelectedIndex();
+        int otherindex = listbox_clients.getSelectedIndex();
+        if (index >= 0){
+                   String[] address = this.addresses.get(index);
+                   packagess = DataAdapter.getPackageByAddress(clientlist.get(otherindex), address);
+                   for(Package p: packagess){
+                    temp.add(p);
+                   }
+                   listbox_package.setListData(temp);
+
+        }   
+}
 
     /**
      * @param args the command line arguments
@@ -239,5 +255,6 @@ public class AccountManagerSession extends javax.swing.JFrame {
     private javax.swing.JList listbox_package;
     private javax.swing.JTextField textbox_clientname;
      private ArrayList<Client> clientlist;
+     private ArrayList<String[]> addresses;
     // End of variables declaration
 }
