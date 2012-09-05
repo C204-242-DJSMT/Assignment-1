@@ -112,7 +112,7 @@ public class LoginForm extends javax.swing.JFrame {
        if (user != null){
             if (user.role == EmployeeRoles.TransportManager) {
                 //this.setVisible(false);
-                new TransportManagerSession().setVisible(true);
+                new TransportManagerSession(user).setVisible(true);
             }
             else {System.out.println("s");}
              if (user.role == EmployeeRoles.AccountManager) {
@@ -122,7 +122,7 @@ public class LoginForm extends javax.swing.JFrame {
             else {System.out.println("s");}
              if (user.role == EmployeeRoles.Driver) {
                 //this.setVisible(false);
-                new DriverForm().setVisible(true);
+                new DriverForm((Driver)user).setVisible(true);
             }
             else {System.out.println("s");}
             if (user.role == EmployeeRoles.Sorter) {
