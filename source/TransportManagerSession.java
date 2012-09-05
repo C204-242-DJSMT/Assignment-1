@@ -41,6 +41,7 @@ public class TransportManagerSession extends JFrame {
         btnOldPackages = new JButton();
         jButtonSetLost = new JButton();
         jButtonSetFound = new JButton();
+        jButtonShowLost = new JButton();
         jButtonExit = new JButton();
         jScrollPane1 = new JScrollPane();
         jListScans = new JList();
@@ -122,6 +123,8 @@ public class TransportManagerSession extends JFrame {
                         .addComponent(jButtonSetLost)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonSetFound)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonShowLost)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonExit))
                     .addGroup(layout.createSequentialGroup()
