@@ -7,8 +7,6 @@ import java.awt.*;
 
 /**
  * 
- * 
- * Duncan Willcock
  */
 public class TransportManagerSession extends JFrame {
     private Employee user;
@@ -25,8 +23,6 @@ public class TransportManagerSession extends JFrame {
 
     /** 
      *
-     *
-     * Duncan Willcock
      */
     public TransportManagerSession(Employee user) {
         if (user == null || user.role != EmployeeRoles.TransportManager)
@@ -144,12 +140,10 @@ public class TransportManagerSession extends JFrame {
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }
 
     /**
      *
-     *
-     * Duncan Willcock
      */
     private void buttonOldPackagesActionPerformed(ActionEvent event) {
         Calendar c = new GregorianCalendar();
@@ -163,8 +157,6 @@ public class TransportManagerSession extends JFrame {
 
     /**
      *
-     *
-     * Duncan Willcock
      */
     private void jListPackagesActionPertformed(ListSelectionEvent event) {
         int index = jListPackages.getSelectedIndex();
@@ -179,8 +171,6 @@ public class TransportManagerSession extends JFrame {
 
     /**
      *
-     *
-     * Duncan Willcock
      */
     private void buttonSetLostActionPerformed(ActionEvent event) {
         int index = jListPackages.getSelectedIndex();
@@ -196,9 +186,7 @@ public class TransportManagerSession extends JFrame {
     }
 
     /**
-     *
-     *
-     * Duncan Willcock
+     * 
      */
     private void buttonSetFoundActionPerformed(ActionEvent event) {
         int index = jListPackages.getSelectedIndex();
@@ -215,8 +203,6 @@ public class TransportManagerSession extends JFrame {
 
     /**
      *
-     *
-     * Duncan Willcock
      */
     private void buttonShowLostActionPerformed(ActionEvent event) {
         this.packages = DataAdapter.getLostPackages();

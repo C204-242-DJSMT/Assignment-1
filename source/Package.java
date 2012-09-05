@@ -2,8 +2,9 @@ import java.util.ArrayList;
  
 /**
  *
+ *
+ * Duncan Willcock
  */
-//Package and PackageBin may be able to support a common superclass or interface
 class Package {
 	static private long NextID = 0;
 	public final long id;
@@ -21,6 +22,8 @@ class Package {
 
 	/**
 	 *
+	 *
+	 * Duncan Willcock
 	 */
 	void scan(ScanEvents event, Employee scanner) {
 		Scan s = new Scan(event, scanner);

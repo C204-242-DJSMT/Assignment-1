@@ -9,7 +9,7 @@ enum EmployeeRoles {Driver, AccountManager, Sorter, TransportManager}
 /**
  * 
  *
- * Duncan Willcock
+ * 
  */
 class Employee {
 	static private long NextID = 0;
@@ -23,7 +23,7 @@ class Employee {
 	/**
 	 * Instantiates a new employee, adding them to DataAdapter.
 	 *
-	 * Duncan Willcock
+	 * 
 	 */
 	public Employee(EmployeeRoles role, String username, String password) {
 		if (password == null || !Pattern.matches(regex, password) || username == null || username.length() == 0)
