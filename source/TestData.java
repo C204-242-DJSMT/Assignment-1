@@ -8,14 +8,14 @@ class TestData {
 
 	public static void init(){
 		ArrayList<String[]> addresses = new ArrayList<String[]>();
-		String[] address = {"10 sdfsu fhu", "3025", "Hamilton"};
+		String[] address = {"10 ab", "3025", "Hamilton"};
 		addresses.add(address);
 		Client c0 = new Client("Duncan Willcock",addresses);
 		Client c1 = new Client("client one",addresses);
 		Client c2 = new Client("client two",addresses);
 		Client c3 = new Client("client three",addresses);
 		packages.add(new Package(c1, null, "street", "postcode", "CITY", "return", false));
-		packages.add(new Package(c0, null, "street", "postcode", "CITY", "return", false));
+		packages.add(new Package(c2, c0, "10 ab", "3025", "Hamilton", "return", false));
 		packages.add(new Package(c2, null, "street", "postcode", "CITY", "return", true));
 		packages.add(new Package(c3, null, "street", "postcode", "CITY", "return", false));
 		packages.add(new Package(c0, null, "street", "postcode", "CITY", "return", false));

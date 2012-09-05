@@ -256,14 +256,14 @@ class DataAdapter {
 	return result;
 }
 //N
-	public static ArrayList<Client> getAddressByName(String a){
-		ArrayList<Client> result = new ArrayList<Client>();
-		for(Client b: allClients){
-			if(b.name == a){
-				result.add(b);
+	public static ArrayList<Package> getPackageByAddress(Client c, String[] a){
+		ArrayList<Package> result = new ArrayList<Package>();
+		for(Package p: allPackages){
+			if(c == p.addressee && a[0].equals(p.streetAddress) && a[1].equals(p.postcode) && a[2].equals(p.destinationCity)){
+				result.add(p);
 			}			
 		}
-		return result;		
+		return result;	
 	}
 		
 

@@ -4,28 +4,38 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 /*
- * 
+ * Mathew Andela
  */
 class Driver extends Employee {
     
 	//stores the drivers vehicle id 
-	public String vehicleID;
+	private String vehicleID;
 	
         /*
          * Creates an instances of the driver
          */
-	public Driver(String v) {
-		super(EmployeeRoles.Driver);
+	public Driver(String v, String u, String p) {
+		super(EmployeeRoles.Driver,u, p);
                 //checks if the vehicle id is between 7 & 6 characters
                 //throws exception if it isn't
-		if(v.length()>7 || v.length()<6){
+		setVehicleID(v);
+	}
+
+        /*
+         * Sets vehicleID if driver changes their vehicle
+         */
+        public final void setVehicleID(String v){
+            assert(v != null);
+            if(v.length()>7 || v.length()<6){
 			throw new IllegalArgumentException("Vehicle ID must be 6 or 7 characters.");
 		}
 		else{			
 		vehicleID = v;
 		}
-	}
-
+        }
+        
+        
+        
 	/*
 	 * Gets all the packages in the drivers vehicle to be delivered and picked up
 	 */
@@ -37,7 +47,7 @@ class Driver extends Employee {
                 //Gets all the bins that are in the drivers vehicle
 		ArrayList<PackageBin> bins = DataAdapter.getBinByVehicle(vehicleID);
                 //checks if there is any bins in the vehicle
-		if(bins == null){
+		if(bins == null || bins.isEmpty()){
 			return null;
 		}
 		else{	
@@ -46,7 +56,8 @@ class Driver extends Employee {
                      * Adds them to our list of packages
                      */
 			for(PackageBin b: bins){
-				temp = b.contents;
+                                assert (b.contents.size() > 0);
+                                temp = b.contents;
 				for(Package p: temp){
 					packages.add(p);
 				}
@@ -57,7 +68,7 @@ class Driver extends Employee {
                  * And adds them to our list of packages
                  */
                 temp = DataAdapter.getPackagePickUp();
-			if(temp != null){
+			if(temp != null && !temp.isEmpty()){
 				for(Package p: temp){
 					packages.add(p);
 				}			
@@ -89,6 +100,7 @@ class Driver extends Employee {
                 writer.newLine();
                 //Writes all packages to be delivered by driver in first section of file
 		writefile(writer, false, list);
+                writer.newLine();
  		writer.write("To Pick Up:");
                 writer.newLine();
  		writer.write(header);
@@ -118,7 +130,7 @@ class Driver extends Employee {
                              * creates a new line
                              */
 				for(Package p: list){
-					if(p.awaitingPickup == s){
+                                       if(p.awaitingPickup == s){
 						String status;
 						if(s == true){
 							status = "Pick Up";
@@ -126,6 +138,7 @@ class Driver extends Employee {
 						else{
 							status = "Deliver";
 						}
+                                                assert(p.id > 0 && p.streetAddress != null && p.destinationCity != null);
 						String line = String.valueOf(p.id) + "\t" + p.streetAddress + "\t" + p.destinationCity + "\t" + status;
 						w.write(line);
 						w.newLine();
