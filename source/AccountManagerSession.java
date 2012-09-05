@@ -70,7 +70,13 @@ public class AccountManagerSession extends javax.swing.JFrame {
                 jListPackagesActionPertformed(event);
             }
         };
+         ListSelectionListener listSelectionListener1 = new ListSelectionListener() {
+            public void valueChanged(ListSelectionEvent event) {
+                listbox_packagesActionPertformed(event);
+            }
+        };
     listbox_clients.addListSelectionListener(listSelectionListener);
+     listbox_address.addListSelectionListener(listSelectionListener1);
 
         label_clientname.setText("Client Name");
 
@@ -189,6 +195,7 @@ public class AccountManagerSession extends javax.swing.JFrame {
     }
 
      private void listbox_packagesActionPertformed(ListSelectionEvent event) {
+        System.out.println("HELLO:");
                 Vector<Package> temp = new Vector<Package>();
               ArrayList<Package> packagess;
         int index = listbox_address.getSelectedIndex();
