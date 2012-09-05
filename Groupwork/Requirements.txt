@@ -1,0 +1,21 @@
+Identified stated requirements
+
+- edit details for existing customer (add/remove addresses) 
+- customer login (secure) 
+- send packages online 
+- send packages via drop off at SAE drop-off-points
+- obtain manifest of all packages in a vehicle 
+- obtain list of packages scheduled for pickup 
+- scan packages on delivery, on acceptance and pickup 
+- Create new bin and assign it destination city/cities 
+- scan package check it can go into given bin (both are addressed to the same city) 
+- scan bin whenever it moves in/out of facility/vehicle and apply scan to all contents 
+- scan package when leaving/entering storing facilty 
+- obtain list of packages addressed to given account holder at any their addresses 
+- Identify lost packages - hasn't been scanned for x period of time 
+- Notify transport managers of lost packages
+
+Identified unstated requirements
+- register new customer 
+- Flexible interface for transport managers to manipulate/modify the state of potentialy lost or misdirected packages 
+- employee login to access functions appropriate to that employee's role 
