@@ -5,13 +5,21 @@ import java.util.ArrayList;
 import javax.swing.ListModel;
 import javax.swing.event.ListDataListener;
 
-
-public class CurrentPackagesListModel implements ListModel {
+public class CurrentPackagesListModel implements ListModel<String> {
+	
+	private PackagesDataAdaptor _pda;
+	private ArrayList<String> _items = new ArrayList<String>();
 	
 	public CurrentPackagesListModel(PackagesDataAdaptor pda) {
-		
+		_pda = pda;
+		loadAllFromDataAdaptor();
 	}
 	
+	private void loadAllFromDataAdaptor() {
+		_items.clear();
+		PackageDataQuery query = _pda.getPackages();
+	}
+
 	@Override
 	public void addListDataListener(ListDataListener l) {
 		// TODO Auto-generated method stub
@@ -19,7 +27,7 @@ public class CurrentPackagesListModel implements ListModel {
 	}
 
 	@Override
-	public Object getElementAt(int index) {
+	public String getElementAt(int index) {
 		// TODO Auto-generated method stub
 		return null;
 	}

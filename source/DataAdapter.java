@@ -81,24 +81,6 @@ class DataAdapter {
 		return result;
 	}
 
-	/**
-	 * Returns a list of all undelivered packages whose last scan was after a time.
-	 *
-	 * Duncan Willcock
-	 */
-	public static ArrayList<Package> getNewerPackages(Calendar time) {
-		ArrayList<Package> result = new ArrayList<Package>();
-		for (Package p : allPackages) {
-			if (p.scanHistory == null)
-				result.add(p);
-			else {
-				Scan lastScan = p.scanHistory.get(p.scanHistory.size() - 1);
-				if (lastScan.time.after(time) && lastScan.event != ScanEvents.delivered)
-					result.add(p);
-			}
-		}
-		return result;
-	}
 	
 	/*
 	 * Gets packages by status
