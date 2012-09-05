@@ -1,9 +1,9 @@
 import java.util.ArrayList;
-import javax.swing.JList;
+import java.util.Vector;
 
 /**
  *
- * @author Mathew
+ * @author Mathew Andela
  */
 public class DriverForm extends javax.swing.JFrame {
     
@@ -12,7 +12,7 @@ public class DriverForm extends javax.swing.JFrame {
      * Stores list info
      * stores driver info
     */
-    static String[] data = null;
+    static Vector<String> data = new Vector<String>();
     static Driver driver;
        
     /**
@@ -154,18 +154,19 @@ public class DriverForm extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonLogOutMouseClicked
 
     /*
-     * Method for updateing the list on the UI for the manifest
+     * Method for updating the list on the UI for the manifest
      */
     private void UpdateTable(){
 		try{
                         //Gets all packages scheduled for pickup and delivery
-			ArrayList<Package> list = driver.getVehicleManifest();
-                        
+			ArrayList<Package> list = driver.getVehicleManifest();  
+                        assert(data != null);
+                        data.clear();                       
                         //If no packages to be pickup and delivered displays appropriate message
 			if(list == null){				
 				listbox.clearSelection();
-                                data[0] = "No Packages";                                
-                                listbox = new JList(data);
+                                data.add("No Packages");                                
+                                listbox.setListData(data);
 			}
 			else{	
                             //clears things in the Jlist and sets up a counter
@@ -184,13 +185,14 @@ public class DriverForm extends javax.swing.JFrame {
 					else{
 						status = "Deliver";
 					}
+                                        assert(list.get(n).id > 0 && list.get(n).streetAddress != null && list.get(n).destinationCity != null);
 					String line = String.valueOf(list.get(n).id) + "\t" + list.get(n).streetAddress + "\t" + list.get(n).destinationCity 
 							+ "\t" + status;
-					data[n] = line;
+					data.add(line);
 					n++;
 				}
                                 //creates a new JList containg the pacakge information
-				listbox = new JList(data);
+				listbox.setListData(data);
 				
 			}
 		}
@@ -233,8 +235,7 @@ public class DriverForm extends javax.swing.JFrame {
         //</editor-fold>
         
         //Creates a new driver and creates the manifest file
-        driver = new Driver("ABC123");
-        driver.createFile();
+        driver = new Driver("ABC123", "bts2", "gds443");
         /*
          * Create and display the form
          */
