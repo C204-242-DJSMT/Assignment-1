@@ -80,12 +80,19 @@ public class TransportManagerSession extends JFrame {
 
         jButtonSetFound.addActionListener(new ActionListener() {
            public void actionPerformed(ActionEvent event) {
-               buttonSetLostActionPerformed(event);
+               buttonSetFoundActionPerformed(event);
+          }
+       });
+
+        jButtonShowLost.addActionListener(new ActionListener() {
+           public void actionPerformed(ActionEvent event) {
+               buttonShowLostActionPerformed(event);
           }
        });
     jListPackages.addListSelectionListener(listSelectionListener);
         
         jButtonSetLost.setText("List as Lost");
+        jButtonShowLost.setText("Lost Packages");
         jButtonSetFound.setText("List as Found");
         jButtonExit.setText("Logout");
 
@@ -108,7 +115,9 @@ public class TransportManagerSession extends JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButtonSetLost, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnOldPackages, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButtonShowLost, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButtonSetFound, javax.swing.GroupLayout.Alignment.TRAILING)
+
                     .addComponent(jButtonExit, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -144,9 +153,12 @@ public class TransportManagerSession extends JFrame {
      */
     private void buttonOldPackagesActionPerformed(ActionEvent event) {
         Calendar c = new GregorianCalendar();
-                c.setTime(new Date());
-                this.packages = DataAdapter.getOlderPackages(c);
-                jListPackages.setListData(new Vector(this.packages)); 
+        c.setTime(new Date());
+        this.packages = DataAdapter.getOlderPackages(c);
+        jListPackages.setListData(new Vector(this.packages)); 
+        jButtonSetLost.setEnabled(this.packages.size() > 0);
+        jButtonSetFound.setEnabled(false);
+        jListScans.setListData(new Vector());
     }
 
     /**
@@ -158,10 +170,10 @@ public class TransportManagerSession extends JFrame {
         int index = jListPackages.getSelectedIndex();
         if (index >= 0) {
             jListScans.setListData(new Vector(this.packages.get(index).scanHistory));
-            this.jButtonSetLost.setEnabled(true);
+            
+            
         }
-        else 
-            this.jButtonSetLost.setEnabled(true);
+        
 
     }
 
@@ -178,6 +190,7 @@ public class TransportManagerSession extends JFrame {
                 p.scan(ScanEvents.lost, this.user);
                 this.packages.remove(p);
                 this.jListPackages.setListData(new Vector(this.packages));
+                jListScans.setListData(new Vector());
             }
         }
     }
@@ -191,8 +204,25 @@ public class TransportManagerSession extends JFrame {
         int index = jListPackages.getSelectedIndex();
         if (index >= 0) {
             Package p = this.packages.get(index);
-            if(p.lastScan().event == ScanEvents.lost)
+            if(p.lastScan().event == ScanEvents.lost) {
                 p.scan(ScanEvents.found, this.user);
+                this.packages.remove(p);
+                this.jListPackages.setListData(new Vector(this.packages));
+                jListScans.setListData(new Vector());
+            }
         }
+    }
+
+    /**
+     *
+     *
+     * Duncan Willcock
+     */
+    private void buttonShowLostActionPerformed(ActionEvent event) {
+        this.packages = DataAdapter.getLostPackages();
+        this.jListPackages.setListData (new Vector(this.packages));
+        jButtonSetLost.setEnabled(false);
+        jButtonSetFound.setEnabled(this.packages.size() > 0);
+        jListScans.setListData(new Vector());
     }
 }

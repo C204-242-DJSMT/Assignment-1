@@ -117,8 +117,7 @@ class DataAdapter {
 	}
 
 	/*
-	 * Adds a package to the list if it is a valid object and not conflicting with the current list contets.
-	 * Return true if it was successfully added to the list.
+	 * 
 	 *
 	 * Duncan Willcock
 	 */
@@ -132,14 +131,34 @@ class DataAdapter {
 		return true;
 	}
 
-	private static ArrayList<Client> allClients = new ArrayList<Client>();
+	/*
+	 * 
+	 *
+	 * Duncan Willcock
+	 */
+	public static boolean recordFoundPackage(Package p) {
+		if (p == null || p.lastScan().event != ScanEvents.found)
+			throw new IllegalArgumentException();
+		if (allPackages.contains(p) || !lostPackages.contains(p))
+			return false;
+		lostPackages.remove(p);
+		allPackages.add(p);
+		return true;
+	}
 
 	/*
- 	* 
- 	*/
-	// public static Client getClientByID(long id) {
-	// 	return null;
-	// }
+	 * Returns list of all packages recorded as lost.
+	 *
+	 * Duncan Willcock
+	 */
+	public static ArrayList<Package> getLostPackages() {
+		return lostPackages;
+	}
+
+
+	private static ArrayList<Client> allClients = new ArrayList<Client>();
+
+	
 
 
 	/**

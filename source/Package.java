@@ -33,6 +33,10 @@ class Package {
 			assert (this.lastScan().event != ScanEvents.lost);
 			DataAdapter.recordLostPackage(this);
 		}
+		else if (event == ScanEvents.found) {
+			assert (this.lastScan().event != ScanEvents.found);
+			DataAdapter.recordFoundPackage(this);
+		}
 	}
 
 	/**
