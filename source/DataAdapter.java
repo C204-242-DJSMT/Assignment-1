@@ -66,6 +66,8 @@ class DataAdapter {
 	 * Duncan Willcock
 	 */
 	public static ArrayList<Package> getOlderPackages(Calendar time) {
+		if (time == null)
+			throw new IllegalArgumentException();
 		ArrayList<Package> result = new ArrayList<Package>();
 		for (Package p : allPackages) {
 			if (p.scanHistory == null)
