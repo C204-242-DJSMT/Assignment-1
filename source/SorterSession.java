@@ -22,6 +22,9 @@ import java.awt.*;/*
  */
 public class SorterSession extends javax.swing.JFrame {
 
+    private ArrayList<PackageBin> packageBins;
+    private Employee user;
+
     /**
      * Creates new form SorterForm
      */
@@ -251,7 +254,12 @@ public class SorterSession extends javax.swing.JFrame {
         // TODO add your handling code here:
         // Moving the bin onto the Delivery vehicle
         // Change the scan history of the Bin and all the packages in it
-    }                                                   
+        int index = PackageBinList.getSelectedIndex();         
+    }                                                
+
+        //     int index = jListPackages.getSelectedIndex();
+        // if (index >= 0)
+        //     jListScans.setListData(new Vector(this.packages.get(index).scanHistory));   
 
     private void AcceptButtonActionPerformed(java.awt.event.ActionEvent evt) {                                             
         // TODO add your handling code here:
@@ -266,7 +274,7 @@ public class SorterSession extends javax.swing.JFrame {
 
     private void RefreshButtonActionPerformed(java.awt.event.ActionEvent evt) {                                              
         // TODO add your handling code here:
-        BinList.setListData(new Vector(DataAdapter.getAllBin()));
+       // BinList.setListData(new Vector(DataAdapter.getAllBin()));
         PackageList.setListData(new Vector(DataAdapter.getAllPackage()));
         PackageBinList.setListData(new Vector(DataAdapter.getAllBin()));
     }                                             

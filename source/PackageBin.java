@@ -13,7 +13,7 @@ class PackageBin {
 	// List of 1 or more cities contents of the bin are destined for.
 	private ArrayList<String> destinationCities;
 	// Chronologicl list of each time the bin is scanned
-	private ArrayList<Scan> scanHistory = new ArrayList<Scan>();
+	 ArrayList<Scan> scanHistory = new ArrayList<Scan>();
 
 	/*
 	 * 
@@ -63,8 +63,14 @@ class PackageBin {
 	public String toString() {
 		String result = "";
 		result += this.id + " ";
-		result += this.vehicleID + " " + this.contents;
+		result += this.vehicleID + " " + this.contents + " " + this.scanHistory;
 
 		return result;
+	}
+
+	public Scan lastScan() {
+		if (this.scanHistory.size() == 0)
+			return null;
+		return this.scanHistory.get(this.scanHistory.size() - 1);
 	}
 }

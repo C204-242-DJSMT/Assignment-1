@@ -33,6 +33,7 @@ class TestData {
 		packages.add(new Package(c0, null, "street", "postcode", "CITY", "return", false));
 
 		PackageBin b1 = new PackageBin(destinations);
+		PackageBin b2 = new PackageBin(destinations);
 		//packagebins.add(new PackageBin(b1, "FTP819", contents, destinationCities, scanHistory));
 
 		Employee e1 = new Employee(EmployeeRoles.TransportManager, "dmkw1", "test001");
@@ -46,6 +47,11 @@ class TestData {
 		packages.get(2).scan(ScanEvents.pickUp, e1);
 		packages.get(3).scan(ScanEvents.dropOff, e1);
 		packages.get(4).scan(ScanEvents.addToBin, e1);
+
+		// packagebins.get(0).scan(ScanEvents.pickUp, e2);
+		// packagebins.get(1).scan(ScanEvents.pickUp, e1);
+		// packagebins.get(2).scan(ScanEvents.pickUp, e1);
+		// packagebins.get(3).scan(ScanEvents.pickUp, e1);
 
 		//System.out.println("done");
 	}
