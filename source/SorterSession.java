@@ -2,20 +2,7 @@ import javax.swing.*;
 import javax.swing.event.*;
 import java.util.*;
 import java.awt.event.*;
-//<<<<<<< HEAD
 import java.awt.*;
-/*
-=======
-import java.awt.*;/*
-<<<<<<< HEAD
->>>>>>> 8f0b9759f6b2352d0527bf5d3811900debb05d44
-=======
-/*
->>>>>>> h
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
  *
  * @author Janik
@@ -41,30 +28,21 @@ public class SorterSession extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        BinList = new javax.swing.JList();
         BinsLabel = new javax.swing.JLabel();
         DestinationLabel = new javax.swing.JLabel();
         NewDestinationText = new javax.swing.JTextField();
-        AcceptButton = new javax.swing.JButton();
+        CreateButton = new javax.swing.JButton();
         PackagesLabel = new javax.swing.JLabel();
-        EnteringButton = new javax.swing.JButton();
-        ReadyDeliveryButton = new javax.swing.JButton();
+        MovetoVehicleButton = new javax.swing.JButton();
+        AddtoBinButton = new javax.swing.JButton();
         RemoveButton = new javax.swing.JButton();
         RefreshButton = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         PackageBinList = new javax.swing.JList();
         jScrollPane3 = new javax.swing.JScrollPane();
         PackageList = new javax.swing.JList();
-        DestinationlessLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        ListSelectionListener listSelectionListener = new ListSelectionListener() {
-            public void valueChanged(ListSelectionEvent event) {
-                BinListActionPertformed(event);
-            }
-        };
 
         ListSelectionListener listSelectionListener1 = new ListSelectionListener() {
             public void valueChanged(ListSelectionEvent event) {
@@ -78,41 +56,34 @@ public class SorterSession extends javax.swing.JFrame {
             }
         };
 
-        BinList.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "(none)" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane1.setViewportView(BinList);
-
         BinsLabel.setText("Bins");
 
         DestinationLabel.setText("Destination");
 
-        AcceptButton.setText("Accept");
-        AcceptButton.addActionListener(new java.awt.event.ActionListener() {
+        CreateButton.setText("Create New Bin");
+        CreateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AcceptButtonActionPerformed(evt);
+                CreateButtonActionPerformed(evt);
             }
         });
 
         PackagesLabel.setText("Packages");
 
-        EnteringButton.setText("Add to Bin");
-        EnteringButton.addActionListener(new java.awt.event.ActionListener() {
+        MovetoVehicleButton.setText("Move onto Vehicle");
+        MovetoVehicleButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EnteringButtonActionPerformed(evt);
+                MovetoVehicleButtonActionPerformed(evt);
             }
         });
 
-        ReadyDeliveryButton.setText("Move onto Vehicle");
-        ReadyDeliveryButton.addActionListener(new java.awt.event.ActionListener() {
+        AddtoBinButton.setText("Add to Bin");
+        AddtoBinButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ReadyDeliveryButtonActionPerformed(evt);
+                AddtoBinButtonActionPerformed(evt);
             }
         });
 
-        RemoveButton.setText("Remove from vehicle");
+        RemoveButton.setText("Remove from Vehicle");
         RemoveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RemoveButtonActionPerformed(evt);
@@ -140,8 +111,6 @@ public class SorterSession extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(PackageList);
 
-        DestinationlessLabel.setText("Bins (without a destination)");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -151,42 +120,34 @@ public class SorterSession extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(DestinationlessLabel))
-                        .addGap(52, 52, 52)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(DestinationLabel)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(NewDestinationText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(AcceptButton))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(ReadyDeliveryButton)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(RemoveButton)))
-                                .addGap(0, 19, Short.MAX_VALUE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(RefreshButton)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(EnteringButton))
+                                        .addComponent(AddtoBinButton))
                                     .addComponent(PackagesLabel))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(BinsLabel)
                                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap())))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(DestinationLabel)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(NewDestinationText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(CreateButton))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(MovetoVehicleButton)
+                                .addGap(18, 18, 18)
+                                .addComponent(RemoveButton)))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {AcceptButton, EnteringButton, NewDestinationText, ReadyDeliveryButton, RefreshButton, RemoveButton});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {AddtoBinButton, CreateButton, MovetoVehicleButton, NewDestinationText, RefreshButton, RemoveButton});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -194,45 +155,35 @@ public class SorterSession extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(RefreshButton)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(DestinationLabel)
-                    .addComponent(DestinationlessLabel))
+                .addComponent(DestinationLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(NewDestinationText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(AcceptButton))
-                        .addGap(80, 80, 80)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(RemoveButton)
-                            .addComponent(ReadyDeliveryButton)))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(NewDestinationText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CreateButton))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(RemoveButton)
+                    .addComponent(MovetoVehicleButton))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(PackagesLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(BinsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(EnteringButton)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(41, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(69, 69, 69)
+                                .addComponent(AddtoBinButton))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(PackagesLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>
-    private void BinListActionPertformed(ListSelectionEvent event) { 
-    
-    }
 
     private void PackageListActionPertformed(ListSelectionEvent event) { 
     
@@ -242,39 +193,32 @@ public class SorterSession extends javax.swing.JFrame {
     
     }
 
-    private void EnteringButtonActionPerformed(java.awt.event.ActionEvent evt) {                                               
+    private void MovetoVehicleButtonActionPerformed(java.awt.event.ActionEvent evt) {                                               
+        // TODO add your handling code here:
+        // Moving the bin onto the Delivery vehicle
+        // Change the scan history of the Bin and all the packages in it
+        int index = PackageBinList.getSelectedIndex();   
+    }                                              
+
+    private void AddtoBinButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                    
         // TODO add your handling code here:
         // Adding Selected Package to selected Bin
         int selectedPackage = PackageList.getSelectedIndex();
         int selectedBin = PackageBinList.getSelectedIndex();
         // add selectedPackage into selectedBin
-    }                                              
+    }                                                   
 
-    private void ReadyDeliveryButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                    
+    private void CreateButtonActionPerformed(java.awt.event.ActionEvent evt) {                                             
         // TODO add your handling code here:
-        // Moving the bin onto the Delivery vehicle
-        // Change the scan history of the Bin and all the packages in it
-        int index = PackageBinList.getSelectedIndex();         
-    }                                                
-
-        //     int index = jListPackages.getSelectedIndex();
-        // if (index >= 0)
-        //     jListScans.setListData(new Vector(this.packages.get(index).scanHistory));   
-
-    private void AcceptButtonActionPerformed(java.awt.event.ActionEvent evt) {                                             
-        // TODO add your handling code here:
-        // Accept the enter destination and apply changes to bin and packages
+        // Creates new bin with entered destination
     }                                            
 
-    private void RemoveButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                
+    private void RemoveButtonActionPerformed(java.awt.event.ActionEvent evt) {                                             
         // TODO add your handling code here:
-        // Removes the Bin from the delivery vehicle
-        // Change the scan history of the Bin and all the packages in it
-    }                                               
+    }                                            
 
     private void RefreshButtonActionPerformed(java.awt.event.ActionEvent evt) {                                              
         // TODO add your handling code here:
-       // BinList.setListData(new Vector(DataAdapter.getAllBin()));
         PackageList.setListData(new Vector(DataAdapter.getAllPackage()));
         PackageBinList.setListData(new Vector(DataAdapter.getAllBin()));
     }                                             
@@ -314,22 +258,18 @@ public class SorterSession extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify
-    private javax.swing.JButton AcceptButton;
-    private javax.swing.JList BinList;
+    private javax.swing.JButton AddtoBinButton;
     private javax.swing.JLabel BinsLabel;
+    private javax.swing.JButton CreateButton;
     private javax.swing.JLabel DestinationLabel;
-    private javax.swing.JLabel DestinationlessLabel;
-    private javax.swing.JButton EnteringButton;
+    private javax.swing.JButton MovetoVehicleButton;
     private javax.swing.JTextField NewDestinationText;
     private javax.swing.JList PackageBinList;
     private javax.swing.JList PackageList;
     private javax.swing.JLabel PackagesLabel;
-    private javax.swing.JButton ReadyDeliveryButton;
     private javax.swing.JButton RefreshButton;
     private javax.swing.JButton RemoveButton;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private ArrayList<Package> packagelist;
     // End of variables declaration
 }
