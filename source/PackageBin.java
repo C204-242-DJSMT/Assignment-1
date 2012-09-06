@@ -59,4 +59,12 @@ class PackageBin {
 	boolean contains(Package p) {
 		return this.contents.contains(p);
 	}
+
+	public String toString() {
+		String result = "";
+		result += this.id + " ";
+		result += this.vehicleID + " " + this.contents;
+
+		return result;
+	}
 }

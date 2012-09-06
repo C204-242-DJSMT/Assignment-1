@@ -57,6 +57,24 @@ public class SorterSession extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        ListSelectionListener listSelectionListener = new ListSelectionListener() {
+            public void valueChanged(ListSelectionEvent event) {
+                BinListActionPertformed(event);
+            }
+        };
+
+        ListSelectionListener listSelectionListener1 = new ListSelectionListener() {
+            public void valueChanged(ListSelectionEvent event) {
+                PackageListActionPertformed(event);
+            }
+        };
+
+        ListSelectionListener listSelectionListener2 = new ListSelectionListener() {
+            public void valueChanged(ListSelectionEvent event) {
+                PackageBinListActionPertformed(event);
+            }
+        };
+
         BinList.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "(none)" };
             public int getSize() { return strings.length; }
@@ -209,15 +227,30 @@ public class SorterSession extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>
+    private void BinListActionPertformed(ListSelectionEvent event) { 
+    
+    }
+
+    private void PackageListActionPertformed(ListSelectionEvent event) { 
+    
+    }
+
+    private void PackageBinListActionPertformed(ListSelectionEvent event) { 
+    
+    }
 
     private void EnteringButtonActionPerformed(java.awt.event.ActionEvent evt) {                                               
         // TODO add your handling code here:
         // Adding Selected Package to selected Bin
+        int selectedPackage = PackageList.getSelectedIndex();
+        int selectedBin = PackageBinList.getSelectedIndex();
+        // add selectedPackage into selectedBin
     }                                              
 
     private void ReadyDeliveryButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                    
         // TODO add your handling code here:
         // Moving the bin onto the Delivery vehicle
+        // Change the scan history of the Bin and all the packages in it
     }                                                   
 
     private void AcceptButtonActionPerformed(java.awt.event.ActionEvent evt) {                                             
@@ -228,13 +261,14 @@ public class SorterSession extends javax.swing.JFrame {
     private void RemoveButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                
         // TODO add your handling code here:
         // Removes the Bin from the delivery vehicle
+        // Change the scan history of the Bin and all the packages in it
     }                                               
 
     private void RefreshButtonActionPerformed(java.awt.event.ActionEvent evt) {                                              
         // TODO add your handling code here:
-        BinList.setListData(new Vector(DataAdapter.findBin()));
-        //PackageList.setListData(new Vector(PackageBin.addPackage()));
-        PackageBinList.setListData(new Vector(DataAdapter.findBin()));
+        BinList.setListData(new Vector(DataAdapter.getAllBin()));
+        PackageList.setListData(new Vector(DataAdapter.getAllPackage()));
+        PackageBinList.setListData(new Vector(DataAdapter.getAllBin()));
     }                                             
 
     /**
@@ -288,5 +322,6 @@ public class SorterSession extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private ArrayList<Package> packagelist;
     // End of variables declaration
 }

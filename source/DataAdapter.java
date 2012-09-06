@@ -14,6 +14,7 @@ class DataAdapter {
 	 */
 	private static ArrayList<Package> lostPackages = new ArrayList<Package>();
 
+	private static ArrayList<PackageBin> allPackagesBins = new ArrayList<PackageBin>();
 	/**
  	 * Returns the package with a given ID from any of the collections of Packages.
  	 * Returns null if  package with the supplied id is not found.
@@ -302,9 +303,6 @@ class DataAdapter {
 		return result;	
 	}
 		
-
-
-
 	public static ArrayList<PackageBin> findBin()
 	{	
 		ArrayList<PackageBin> result = new ArrayList<PackageBin>();
@@ -313,5 +311,30 @@ class DataAdapter {
 					result.add(d);
 			}
 	return result;
+	}
+
+	public static ArrayList<Package> getAllPackage(){
+		ArrayList<Package> result = new ArrayList<Package>();
+		for(Package p: allPackages){
+			for (int i = p.scanHistory.size()-1; i>=0; i--) {
+				ScanEvents e = p.scanHistory.get(i).event;
+				if (e == ScanEvents.takeFromBin){
+					//out of Bin
+					result.add(p);
+					break;
+				}
+				if (e == ScanEvents.addToBin){
+					//InBin
+					break;
+				}
+			}
+			result.add(p);
+			//out of Bin		
+		}
+		return result;	
+	}
+
+	public static ArrayList<PackageBin> getAllBin(){
+			return new ArrayList <PackageBin> (allPackageBins);
 	}
 }

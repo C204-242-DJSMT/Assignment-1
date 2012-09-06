@@ -7,6 +7,18 @@ class TestData {
 	public static ArrayList<PackageBin> packagebins = new ArrayList<PackageBin>();
 
 	public static void init(){
+
+		ArrayList<String> destinations = new ArrayList<String>();
+		String destination = "Hamilton";
+		destinations.add(destination);
+
+		ArrayList<String> contents = new ArrayList<String>();
+		contents.add("drugs");
+		ArrayList<String> destinationCities = new ArrayList<String>();
+		destinationCities.add("Auckland");
+		ArrayList<String> scanHistory = new ArrayList<String>();
+		scanHistory.add("Here or there");
+
 		ArrayList<String[]> addresses = new ArrayList<String[]>();
 		String[] address = {"10 ab", "3025", "Hamilton"};
 		addresses.add(address);
@@ -20,8 +32,8 @@ class TestData {
 		packages.add(new Package(c3, null, "street", "postcode", "CITY", "return", false));
 		packages.add(new Package(c0, null, "street", "postcode", "CITY", "return", false));
 
-		//how to take in an array of strings
-		//packagebins.add(new PackageBin("The Moon"));
+		PackageBin b1 = new PackageBin(destinations);
+		//packagebins.add(new PackageBin(b1, "FTP819", contents, destinationCities, scanHistory));
 
 		Employee e1 = new Employee(EmployeeRoles.TransportManager, "dmkw1", "test001");
 		Employee e2 = new Employee(EmployeeRoles.Sorter, "test0", "0test002");
