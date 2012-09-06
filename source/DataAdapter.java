@@ -192,6 +192,13 @@ class DataAdapter {
 		return null;
 	}
 
+	public static Client getClientByID(long id) {
+		for (Client c : allClients)
+			if (c.id == id)
+				return c;
+
+		return null;
+	}
 
 	/**
 	 * 
@@ -247,6 +254,8 @@ class DataAdapter {
 	 */
 
 	public static Employee verifyEmployee(String username, String password) {
+		if ( username == null || password == null)
+			throw new IllegalArgumentException();
 		//System.out.println(employeePasswords.size());
 		for (int i = 0; i < allEmployees.size();i++) {
 			//System.out.println(allEmployees.get(i).username + "  " + employeePasswords.get(i));
@@ -268,6 +277,8 @@ class DataAdapter {
 	  */ 
 	public static ArrayList<Client> findName(String name)
 	{	
+		if (name == null)
+			throw new IllegalArgumentException();
 		ArrayList<Client> result = new ArrayList<Client>();
 			for(Client c : allClients )
 			{
@@ -278,6 +289,8 @@ class DataAdapter {
 }
 //N
 	public static ArrayList<Package> getPackageByAddress(Client c, String[] a){
+		if (c == null || a == null || a.length != 3)
+		throw new IllegalArgumentException();
 		ArrayList<Package> result = new ArrayList<Package>();
 		for(Package p: allPackages){
 			if(c == p.addressee && a[0].equals(p.streetAddress) && a[1].equals(p.postcode) && a[2].equals(p.destinationCity)){
