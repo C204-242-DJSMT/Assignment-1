@@ -25,7 +25,7 @@ class Scan {
 	 * Duncan Willcock
 	 */
 	public Scan(ScanEvents event, Employee scanner) {
-		if (scanner == null)
+		if (scanner == null || event == null)
 			throw new IllegalArgumentException();
 		this.scanner = scanner;
 		this.event = event;

@@ -51,13 +51,15 @@ public class TMTesting {
 
 	}
 
-	 // tests to test normal function of query methods
-	 @Test public void test2() {
+	// tests to test normal function of query methods
+	@Test 
+	public void test0() {
 		DataAdapter.getOlderPackages(testTime);
 	}
 
 	// Check the right-number packages are returned when using the pre calculated test time and these are the right packages
-	@Test public void test3() {
+	@Test 
+	public void test1() {
 		ArrayList<Package> result = DataAdapter.getOlderPackages(testTime);
 		assertTrue(result.size() == 3);
 		for (int i = 0; i < result.size(); i++) 
@@ -65,7 +67,8 @@ public class TMTesting {
 	}
 
 	// test that all 5 test packages are returned when comapring to the current time
-	@Test public void test15() {
+	@Test 
+	public void test2() {
 		Calendar c = new GregorianCalendar();
 		c.setTime(new Date());
 		ArrayList<Package> result = DataAdapter.getOlderPackages(c);
@@ -75,68 +78,84 @@ public class TMTesting {
 
 	}
 
-	@Test (expected=IllegalArgumentException.class) public void test16() {
+	@Test (expected=IllegalArgumentException.class) 
+	public void test3() {
 		DataAdapter.getOlderPackages(null);
 	}
 
-	@Test public void test1() {
-		
+	@Test 
+	public void test4() {
 		assertTrue(DataAdapter.getPackageByID(0) != null);
 	}	
 
-	@Test public void test17() {
-		
+	@Test 
+	public void test5() {
 		assertTrue(DataAdapter.getPackageByID(100) == null);
 	}	
 
-	@Test public void test4() {
+	@Test 
+	public void test6() {
 		testTime.setTime(new Date());
 		DataAdapter.getOlderPackages(testTime);
 	}
 
 	// 3 tests to test constructor constraints
-	@Test public void test5() {
+	@Test 
+	public void test7() {
 		new TransportManagerSession(DataAdapter.getEmployeeByID(0));
 	}
 
-	@Test (expected=IllegalArgumentException.class) public void test6() {
+	@Test (expected=IllegalArgumentException.class) 
+	public void test8() {
 		new TransportManagerSession(DataAdapter.getEmployeeByID(1));
 	}
 
-	@Test (expected=IllegalArgumentException.class) public void test7() {
+	@Test (expected=IllegalArgumentException.class) 
+	public void test9() {
 		new TransportManagerSession(null);
 	}
 
 	// Test lost/found methods
-	@Test (expected=IllegalArgumentException.class) public void test8() {
+	@Test (expected=IllegalArgumentException.class) 
+	public void test10() {
 		DataAdapter.recordLostPackage(DataAdapter.getPackageByID(0));
 	}
 
-	@Test (expected=IllegalArgumentException.class) public void test9() {
+	@Test (expected=IllegalArgumentException.class) 
+	public void test11() {
 		DataAdapter.recordFoundPackage(DataAdapter.getPackageByID(0));
 	}
 
-	@Test (expected=IllegalArgumentException.class) public void test11() {
+	@Test (expected=IllegalArgumentException.class) 
+	public void test12() {
 		DataAdapter.recordLostPackage(null);
 	}
 
-	@Test (expected=IllegalArgumentException.class) public void test12() {
+	@Test (expected=IllegalArgumentException.class) 
+	public void test13() {
 		DataAdapter.recordFoundPackage(null);
 	}
 
-	@Test public void test13() {
+	@Test 
+	public void test14() {
 		Package p = DataAdapter.getPackageByID(1);
 		Employee e = DataAdapter.getEmployeeByID(0);
 		p.scan(ScanEvents.lost, e);
 		DataAdapter.recordLostPackage(p);
 	}
 
-	@Test public void test14() {
+	@Test 
+	public void test15() {
 		Package p = DataAdapter.getPackageByID(1);
 		Employee e = DataAdapter.getEmployeeByID(0);
 		p.scan(ScanEvents.lost, e);
 		p.scan(ScanEvents.found, e);
 		DataAdapter.recordFoundPackage(p);
+	}
+	@Test (expected=IllegalArgumentException.class) 
+	public void test16() {
+		Employee e = DataAdapter.getEmployeeByID(0);
+		new Scan(null, e);
 	}
 
 }
