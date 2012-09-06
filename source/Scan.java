@@ -5,10 +5,10 @@ import java.util.*;
  * 
  * Duncan Willcock
  */
-enum ScanEvents { dropOff, pickUp, takeFromVehicle, addToVehicle, delivered, addToBin, takeFromBin, enterFacility, leaveFacility, lost, found };
+enum ScanEvents {dropOff, pickUp, takeFromVehicle, addToVehicle, delivered, addToBin, takeFromBin, enterFacility, leaveFacility, lost, found};
 
 /**
- * 
+ * Represents a scan of a package or bin at a certain time, made by an employee at one of the occasions a scan needs to be made.
  *
  * Duncan Willcock
  */
@@ -20,7 +20,7 @@ class Scan {
 	final ScanEvents event;
 
 	/**
-	 * 
+	 * Creates a new scan at the current time, with the input event and scanner.
 	 *
 	 * Duncan Willcock
 	 */
@@ -36,7 +36,7 @@ class Scan {
 	}
 
 	/**
-	 * 
+	 * Returns the default String representation of a Scan - time, event and employee id of the scanner.
 	 *
 	 * Duncan Willcock
 	 */

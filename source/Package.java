@@ -32,6 +32,7 @@ class Package {
 			this.awaitingPickup = false;
 		}
 		this.scanHistory.add(s);
+		// Extra checks and processing for lost and found events.
 		if (event == ScanEvents.lost) {
 			assert (this.lastScan().event != ScanEvents.lost);
 			DataAdapter.recordLostPackage(this);
@@ -43,7 +44,7 @@ class Package {
 	}
 
 	/**
-	 *
+	 * Applies a pre existing scan to the package. Intended for use when a bin is scanned and the scan applied to its contents.
 	 */
 	void scan(Scan s) {
 		if (s == null)
@@ -59,7 +60,6 @@ class Package {
 			 || streetAddress.length() == 0 || postcode.length() == 0 || destinationCity.length() == 0 || senderAddress.length() == 0)
 			throw new IllegalArgumentException();
 	
-
 		this.sender = sender;
 		this.addressee = addressee;
 		this.streetAddress = streetAddress;
@@ -76,7 +76,7 @@ class Package {
 	 * Changes the recieving address of the package to another associated with the addressee.
 	 */
 	boolean reroute(String[] address) {
-		if (this.addressee.hasAddress(address)) { //hasAddress contains all the necessary checking of the address parameter
+		if (this.addressee.hasAddress(address)) { // Client.hasAddress contains all the necessary checking of the address parameter
 			this.streetAddress = address[0];
 			this.postcode = address[1];
 			this.destinationCity = address[2];
@@ -86,7 +86,9 @@ class Package {
 	}
 
 	/**
+	 * Returns the last scan applied to this package.
 	 *
+	 * Duncan Willcock
 	 */
 	public Scan lastScan() {
 		if (this.scanHistory.size() == 0)
@@ -95,7 +97,9 @@ class Package {
 	}
 
 	/**
+	 * Returns the default String representation of a Package - ID number, Sender name and address.
 	 *
+	 * Duncan Willcock
 	 */
 	public String toString() {
 		String result = "";

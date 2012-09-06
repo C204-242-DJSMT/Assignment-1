@@ -9,11 +9,12 @@ import org.junit.runner.RunWith;
 import static org.junit.Assert.*;
 
 public class TMTesting {
-	ArrayList<Package> packages = new ArrayList<Package>();
+	
 	Calendar testTime = new GregorianCalendar();
 
 	// setup a small, simple set of data data to run tests on
 	 @Before public void init() throws InterruptedException {
+	 	ArrayList<Package> packages = new ArrayList<Package>();
 	 	if (DataAdapter.getPackageByID(0) == null) {
  			ArrayList<String[]> addresses = new ArrayList<String[]>();
  			String[] address = {"10 foo st", "3025", "Hamilton"};
@@ -35,13 +36,13 @@ public class TMTesting {
  			
  			//Scans need noticably differnet time stamps so comparisons can be effectively tested
  			packages.get(0).scan(ScanEvents.takeFromVehicle, e1);
- 			Thread.sleep(1000);
+ 			
  			packages.get(1).scan(ScanEvents.addToVehicle, e1);
- 			Thread.sleep(1000);
+ 			
  			packages.get(2).scan(ScanEvents.pickUp, e1);
  			Thread.sleep(1000);
  			packages.get(3).scan(ScanEvents.dropOff, e1);
- 			Thread.sleep(1000);
+ 			
  			packages.get(4).scan(ScanEvents.addToBin, e1);
  			Thread.sleep(1000);
 
@@ -55,7 +56,7 @@ public class TMTesting {
 		DataAdapter.getOlderPackages(testTime);
 	}
 
-	// Check the right number packages are returned when using the pre calculated test time and these are the right packages
+	// Check the right-number packages are returned when using the pre calculated test time and these are the right packages
 	@Test public void test3() {
 		ArrayList<Package> result = DataAdapter.getOlderPackages(testTime);
 		assertTrue(result.size() == 3);
@@ -74,9 +75,18 @@ public class TMTesting {
 
 	}
 
+	@Test (expected=IllegalArgumentException.class) public void test16() {
+		DataAdapter.getOlderPackages(null);
+	}
+
 	@Test public void test1() {
 		
 		assertTrue(DataAdapter.getPackageByID(0) != null);
+	}	
+
+	@Test public void test17() {
+		
+		assertTrue(DataAdapter.getPackageByID(100) == null);
 	}	
 
 	@Test public void test4() {

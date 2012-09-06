@@ -1,6 +1,9 @@
 import java.util.regex.*;
-/*
- * 
+
+/**
+ * Represents the four different relevant roles of employee users.
+ *
+ * Duncan Willcock
  */
 enum EmployeeRoles {Driver, AccountManager, Sorter, TransportManager}
 

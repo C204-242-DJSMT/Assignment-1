@@ -6,7 +6,9 @@ import java.awt.*;
 
 
 /**
- * 
+ * Gui and associated methods for a transport manager to interact with lost and potentially lost packages
+ *
+ * Duncan Willcock
  */
 public class TransportManagerSession extends JFrame {
     private Employee user;
@@ -22,7 +24,7 @@ public class TransportManagerSession extends JFrame {
     private ArrayList<Package> packages;
 
     /** 
-     *
+     * Creates a session associated with a Transport Manager user.
      */
     public TransportManagerSession(Employee user) {
         if (user == null || user.role != EmployeeRoles.TransportManager)
@@ -31,7 +33,10 @@ public class TransportManagerSession extends JFrame {
         initComponents();
     }
 
-
+    /**
+    * GUI element creating and arrangment.
+    * Partially generated using NetBeans IDE GUI utilities.
+    */
     @SuppressWarnings("unchecked")
     private void initComponents() {
         btnOldPackages = new JButton();
@@ -97,7 +102,7 @@ public class TransportManagerSession extends JFrame {
         jListPackages.setFixedCellWidth(400);
 
         jScrollPane1.setViewportView(jListScans);
-
+        // Layout 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -143,7 +148,7 @@ public class TransportManagerSession extends JFrame {
     }
 
     /**
-     *
+     * Requests and displays all packages older than the time out time.
      */
     private void buttonOldPackagesActionPerformed(ActionEvent event) {
         Calendar c = new GregorianCalendar();
@@ -156,17 +161,12 @@ public class TransportManagerSession extends JFrame {
     }
 
     /**
-     *
+     * Handles selected index change for the packages Jlist. Dsiplays the scan history of the selected package in the scans JList.
      */
     private void jListPackagesActionPertformed(ListSelectionEvent event) {
         int index = jListPackages.getSelectedIndex();
-        if (index >= 0) {
-            jListScans.setListData(new Vector(this.packages.get(index).scanHistory));
-            
-            
-        }
-        
-
+        if (index >= 0)
+            jListScans.setListData(new Vector(this.packages.get(index).scanHistory));            
     }
 
     /**

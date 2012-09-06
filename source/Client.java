@@ -2,7 +2,7 @@ import java.util.regex.*;
 import java.util.ArrayList;
 
 /**
- * 
+ * Represents one of the company's customers. Sends and recieves packages.
  *
  * Duncan Willcock
  */
@@ -32,6 +32,8 @@ class Client {
 
 	/**
 	 *
+	 *
+	 *
 	 */
 	public void deleteAddress() {
 		// Must not leave the Client with no addresses
@@ -39,9 +41,9 @@ class Client {
 	}
 
 	/**
-	 * Check if the client has an address associated with
+	 * Check if the client has an address associated with them.
 	 *
-	 * Duncan Willcock
+	 * 
 	 */
 	public boolean hasAddress(String[] address) {
 		if (address == null || address.length != 3 || address[0].length() == 0 || address[1].length() == 0 || address[2].length() == 0 || address[0] == null 
@@ -59,6 +61,8 @@ class Client {
 
 	/**
 	 * 
+	 *
+	 *
 	 */
 	public Client(String name, ArrayList<String[]> addresses) {
 		if (name != null && Pattern.matches(nameRegex, name))
@@ -80,13 +84,10 @@ class Client {
 	}
 
 	/**
-	 * returns a list of all packages addresses to this client
-	 */
-	// ArrayList<Package> findIncomingPackages() {
-
-	// 	return null;
-	// }
-
+	* Returns default String representation of the CLient - their name.
+	*
+	* Duncan Willcock
+	*/
 	public String toString() {
 		return this.name;
 	}
