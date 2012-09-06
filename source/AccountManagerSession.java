@@ -47,11 +47,11 @@ public class AccountManagerSession extends javax.swing.JFrame {
         label_address = new javax.swing.JLabel();
         label_package = new javax.swing.JLabel();
 
-        jList1.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
+        // jList1.setModel(new javax.swing.AbstractListModel() {
+        //     String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+        //     public int getSize() { return strings.length; }
+        //     public Object getElementAt(int i) { return strings[i]; }
+        // });
         jScrollPane1.setViewportView(jList1);
 
         jButton1.setText("jButton1");
@@ -80,26 +80,26 @@ public class AccountManagerSession extends javax.swing.JFrame {
 
         label_clientname.setText("Client Name");
 
-        listbox_clients.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane3.setViewportView(listbox_clients);
+        // listbox_clients.setModel(new javax.swing.AbstractListModel() {
+        //     String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+        //     public int getSize() { return strings.length; }
+        //     public Object getElementAt(int i) { return strings[i]; }
+        // });
+         jScrollPane3.setViewportView(listbox_clients);
 
-        listbox_address.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane4.setViewportView(listbox_address);
+        // listbox_address.setModel(new javax.swing.AbstractListModel() {
+        //     String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+        //     public int getSize() { return strings.length; }
+        //     public Object getElementAt(int i) { return strings[i]; }
+        // });
+         jScrollPane4.setViewportView(listbox_address);
 
-        listbox_package.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane5.setViewportView(listbox_package);
+        // listbox_package.setModel(new javax.swing.AbstractListModel() {
+        //     String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+        //     public int getSize() { return strings.length; }
+        //     public Object getElementAt(int i) { return strings[i]; }
+        // });
+         jScrollPane5.setViewportView(listbox_package);
 
         label_client.setText("Clients");
 
