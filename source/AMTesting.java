@@ -102,7 +102,12 @@ private static ArrayList<Employee> allEmployees = new ArrayList<Employee>();
 		@Test (expected=IllegalArgumentException.class) public void test10() {
 		DataAdapter.verifyEmployee(null,"null");
 	}
-
+	@Test  public void test11() {
+		assertTrue(DataAdapter.verifyEmployee("dmkw1","test001") == DataAdapter.getEmployeeByID(0));
+	}
+		@Test  public void test12() {
+		assertTrue(DataAdapter.verifyEmployee("dmkw1","test0") == null);
+	}
 	// // Check the right number packages are returned when using the pre calculated test time and these are the right packages
 	// @Test public void test3() {
 	// 	ArrayList<Package> result = DataAdapter.getOlderPackages(testTime);

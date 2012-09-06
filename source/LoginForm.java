@@ -106,6 +106,7 @@ public class LoginForm extends javax.swing.JFrame {
 
     private void button_loginActionPerformed(java.awt.event.ActionEvent evt) {
         
+        
         String usrnme=textbox_username.getText();
         String pwd= new String (textbox_password.getPassword());
          Employee user = DataAdapter.verifyEmployee(usrnme, pwd);
