@@ -12,6 +12,7 @@ import java.awt.*;
  */
 public class TransportManagerSession extends JFrame {
     private Employee user;
+    private JTextField jTextDate;
     private JButton btnOldPackages;
     private JButton jButtonSetLost;
     private JButton jButtonSetFound;
@@ -40,6 +41,7 @@ public class TransportManagerSession extends JFrame {
     @SuppressWarnings("unchecked")
     private void initComponents() {
         btnOldPackages = new JButton();
+        jTextDate = new JTextField();
         jButtonSetLost = new JButton();
         jButtonSetFound = new JButton();
         jButtonShowLost = new JButton();
@@ -114,6 +116,7 @@ public class TransportManagerSession extends JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(111, 111, 111)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextDate, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonSetLost, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnOldPackages, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButtonShowLost, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -128,6 +131,8 @@ public class TransportManagerSession extends JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(42, 42, 42)
+                        .addComponent(jTextDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnOldPackages)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonSetLost)

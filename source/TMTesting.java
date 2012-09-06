@@ -107,10 +107,6 @@ public class TMTesting {
 		new TransportManagerSession(null);
 	}
 
-	@Test (expected=IllegalArgumentException.class) public void test10() {
-		new TransportManagerSession(null);
-	}
-
 	// Test lost/found methods
 	@Test (expected=IllegalArgumentException.class) public void test8() {
 		DataAdapter.recordLostPackage(DataAdapter.getPackageByID(0));
