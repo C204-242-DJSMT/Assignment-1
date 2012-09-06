@@ -29,7 +29,7 @@ class Employee {
 	 * 
 	 */
 	public Employee(EmployeeRoles role, String username, String password) {
-		if (password == null || !Pattern.matches(regex, password) || username == null || username.length() == 0)
+		if (role == null || password == null || !Pattern.matches(regex, password) || username == null || username.length() == 0)
 			throw new IllegalArgumentException();
 		this.role = role;
 		this.username = username;
