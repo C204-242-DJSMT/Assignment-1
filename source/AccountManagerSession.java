@@ -3,6 +3,7 @@ import javax.swing.event.*;
 import java.util.*;
 import java.awt.event.*;
 import java.awt.*;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -10,7 +11,7 @@ import java.awt.*;
 //package loginsssss;
 
 /**
- *
+ * 
  * @author NT
  */
 public class AccountManagerSession extends javax.swing.JFrame {
@@ -48,9 +49,10 @@ public class AccountManagerSession extends javax.swing.JFrame {
         label_package = new javax.swing.JLabel();
 
         // jList1.setModel(new javax.swing.AbstractListModel() {
-        //     String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-        //     public int getSize() { return strings.length; }
-        //     public Object getElementAt(int i) { return strings[i]; }
+        // String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5"
+        // };
+        // public int getSize() { return strings.length; }
+        // public Object getElementAt(int i) { return strings[i]; }
         // });
         jScrollPane1.setViewportView(jList1);
 
@@ -65,41 +67,44 @@ public class AccountManagerSession extends javax.swing.JFrame {
             }
         });
 
-            ListSelectionListener listSelectionListener = new ListSelectionListener() {
+        ListSelectionListener listSelectionListener = new ListSelectionListener() {
             public void valueChanged(ListSelectionEvent event) {
                 jListPackagesActionPertformed(event);
             }
         };
-         ListSelectionListener listSelectionListener1 = new ListSelectionListener() {
+        ListSelectionListener listSelectionListener1 = new ListSelectionListener() {
             public void valueChanged(ListSelectionEvent event) {
                 listbox_packagesActionPertformed(event);
             }
         };
-    listbox_clients.addListSelectionListener(listSelectionListener);
-     listbox_address.addListSelectionListener(listSelectionListener1);
+        listbox_clients.addListSelectionListener(listSelectionListener);
+        listbox_address.addListSelectionListener(listSelectionListener1);
 
         label_clientname.setText("Client Name");
 
         // listbox_clients.setModel(new javax.swing.AbstractListModel() {
-        //     String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-        //     public int getSize() { return strings.length; }
-        //     public Object getElementAt(int i) { return strings[i]; }
+        // String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5"
+        // };
+        // public int getSize() { return strings.length; }
+        // public Object getElementAt(int i) { return strings[i]; }
         // });
-         jScrollPane3.setViewportView(listbox_clients);
+        jScrollPane3.setViewportView(listbox_clients);
 
         // listbox_address.setModel(new javax.swing.AbstractListModel() {
-        //     String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-        //     public int getSize() { return strings.length; }
-        //     public Object getElementAt(int i) { return strings[i]; }
+        // String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5"
+        // };
+        // public int getSize() { return strings.length; }
+        // public Object getElementAt(int i) { return strings[i]; }
         // });
-         jScrollPane4.setViewportView(listbox_address);
+        jScrollPane4.setViewportView(listbox_address);
 
         // listbox_package.setModel(new javax.swing.AbstractListModel() {
-        //     String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-        //     public int getSize() { return strings.length; }
-        //     public Object getElementAt(int i) { return strings[i]; }
+        // String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5"
+        // };
+        // public int getSize() { return strings.length; }
+        // public Object getElementAt(int i) { return strings[i]; }
         // });
-         jScrollPane5.setViewportView(listbox_package);
+        jScrollPane5.setViewportView(listbox_package);
 
         label_client.setText("Clients");
 
@@ -107,136 +112,213 @@ public class AccountManagerSession extends javax.swing.JFrame {
 
         label_package.setText("Package");
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(
+                getContentPane());
         getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label_client))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label_address))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label_package)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(label_clientname)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(textbox_clientname, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32)
-                        .addComponent(button_get, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(55, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(75, 75, 75)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(label_clientname)
-                    .addComponent(textbox_clientname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(button_get))
-                .addGap(59, 59, 59)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(label_package)
-                    .addComponent(label_client)
-                    .addComponent(label_address))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(82, Short.MAX_VALUE))
-        );
+        layout.setHorizontalGroup(layout
+                .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(
+                        layout.createSequentialGroup()
+                                .addGroup(
+                                        layout.createParallelGroup(
+                                                javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(
+                                                        layout.createSequentialGroup()
+                                                                .addContainerGap()
+                                                                .addGroup(
+                                                                        layout.createParallelGroup(
+                                                                                javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                .addComponent(
+                                                                                        jScrollPane3,
+                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                        207,
+                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                .addComponent(
+                                                                                        label_client))
+                                                                .addGap(18, 18,
+                                                                        18)
+                                                                .addGroup(
+                                                                        layout.createParallelGroup(
+                                                                                javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                .addComponent(
+                                                                                        jScrollPane4,
+                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                        194,
+                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                .addComponent(
+                                                                                        label_address))
+                                                                .addGap(18, 18,
+                                                                        18)
+                                                                .addGroup(
+                                                                        layout.createParallelGroup(
+                                                                                javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                .addComponent(
+                                                                                        jScrollPane5,
+                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                        196,
+                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                .addComponent(
+                                                                                        label_package)))
+                                                .addGroup(
+                                                        layout.createSequentialGroup()
+                                                                .addGap(38, 38,
+                                                                        38)
+                                                                .addComponent(
+                                                                        label_clientname)
+                                                                .addPreferredGap(
+                                                                        javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                .addComponent(
+                                                                        textbox_clientname,
+                                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                        65,
+                                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addGap(32, 32,
+                                                                        32)
+                                                                .addComponent(
+                                                                        button_get,
+                                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                        63,
+                                                                        javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addContainerGap(55, Short.MAX_VALUE)));
+        layout.setVerticalGroup(layout
+                .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(
+                        layout.createSequentialGroup()
+                                .addGap(75, 75, 75)
+                                .addGroup(
+                                        layout.createParallelGroup(
+                                                javax.swing.GroupLayout.Alignment.BASELINE)
+                                                .addComponent(label_clientname)
+                                                .addComponent(
+                                                        textbox_clientname,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(button_get))
+                                .addGap(59, 59, 59)
+                                .addGroup(
+                                        layout.createParallelGroup(
+                                                javax.swing.GroupLayout.Alignment.BASELINE)
+                                                .addComponent(label_package)
+                                                .addComponent(label_client)
+                                                .addComponent(label_address))
+                                .addPreferredGap(
+                                        javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(
+                                        layout.createParallelGroup(
+                                                javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(
+                                                        jScrollPane4,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                        344,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(
+                                                        jScrollPane5,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                        354,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(
+                                                        jScrollPane3,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                        344,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(82, Short.MAX_VALUE)));
 
         pack();
     }// </editor-fold>
 
     private void button_getActionPerformed(java.awt.event.ActionEvent evt) {
 
-        String name=textbox_clientname.getText();
+        String name = textbox_clientname.getText();
         clientlist = DataAdapter.findName(name);
         listbox_clients.setListData(new Vector(this.clientlist));
     }
 
-      private void jListPackagesActionPertformed(ListSelectionEvent event) {
-        
+    private void jListPackagesActionPertformed(ListSelectionEvent event) {
+
         Vector v = new Vector();
 
         int index = listbox_clients.getSelectedIndex();
         if (index >= 0)
-           // listbox_address.setListData(new Vector(DataAdapter.findName(name)));
-           // listbox_address.setListData(new Vector(this.clients.get(index)));
-          
+            // listbox_address.setListData(new
+            // Vector(DataAdapter.findName(name)));
+            // listbox_address.setListData(new Vector(this.clients.get(index)));
+
             this.addresses = clientlist.get(index).addresses;
-            Vector<String> formattedAddresses = new Vector<String>();
-            
-                for(String[] s : this.addresses )
-            {
+        Vector<String> formattedAddresses = new Vector<String>();
+
+        for (String[] s : this.addresses) {
             String line;
             assert (s.length == 3);
-            line = s[0] + " " +  s[1] + " " + s[2] ;
+            line = s[0] + " " + s[1] + " " + s[2];
             formattedAddresses.add(line);
 
-             listbox_address.setListData(formattedAddresses);
-            }
-                    
+            listbox_address.setListData(formattedAddresses);
+        }
 
-       //allclients
-       //getAddressByName()
+        // allclients
+        // getAddressByName()
 
     }
 
-     private void listbox_packagesActionPertformed(ListSelectionEvent event) {
+    private void listbox_packagesActionPertformed(ListSelectionEvent event) {
         System.out.println("HELLO:");
-                Vector<Package> temp = new Vector<Package>();
-              ArrayList<Package> packagess;
+        Vector<Package> temp = new Vector<Package>();
+        ArrayList<Package> packagess;
         int index = listbox_address.getSelectedIndex();
         int otherindex = listbox_clients.getSelectedIndex();
-        if (index >= 0){
-                   String[] address = this.addresses.get(index);
-                   packagess = DataAdapter.getPackageByAddress(clientlist.get(otherindex), address);
-                   for(Package p: packagess){
-                    temp.add(p);
-                   }
-                   listbox_package.setListData(temp);
+        if (index >= 0) {
+            String[] address = this.addresses.get(index);
+            packagess = DataAdapter.getPackageByAddress(
+                    clientlist.get(otherindex), address);
+            for (Package p : packagess) {
+                temp.add(p);
+            }
+            listbox_package.setListData(temp);
 
-        }   
-}
+        }
+    }
 
     /**
-     * @param args the command line arguments
+     * @param args
+     *            the command line arguments
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+        // <editor-fold defaultstate="collapsed"
+        // desc=" Look and feel setting code (optional) ">
+        /*
+         * If Nimbus (introduced in Java SE 6) is not available, stay with the
+         * default look and feel. For details see
+         * http://download.oracle.com/javase
+         * /tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager
+                    .getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AccountManagerSession.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(
+                    AccountManagerSession.class.getName()).log(
+                    java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AccountManagerSession.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(
+                    AccountManagerSession.class.getName()).log(
+                    java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AccountManagerSession.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(
+                    AccountManagerSession.class.getName()).log(
+                    java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AccountManagerSession.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(
+                    AccountManagerSession.class.getName()).log(
+                    java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
+        // </editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -245,6 +327,7 @@ public class AccountManagerSession extends javax.swing.JFrame {
             }
         });
     }
+
     // Variables declaration - do not modify
     private javax.swing.JButton button_get;
     private javax.swing.JButton jButton1;
@@ -261,7 +344,7 @@ public class AccountManagerSession extends javax.swing.JFrame {
     private javax.swing.JList listbox_clients;
     private javax.swing.JList listbox_package;
     private javax.swing.JTextField textbox_clientname;
-     private ArrayList<Client> clientlist;
-     private ArrayList<String[]> addresses;
+    private ArrayList<Client> clientlist;
+    private ArrayList<String[]> addresses;
     // End of variables declaration
 }
