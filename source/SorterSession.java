@@ -10,12 +10,15 @@ import java.awt.*;
 public class SorterSession extends javax.swing.JFrame {
 
     private ArrayList<PackageBin> packageBins;
-    private Employee user;
+    private static Employee user;
 
     /**
      * Creates new form SorterForm
      */
-    public SorterSession() {
+    public SorterSession(Employee user) {
+        if (user == null || user.role != EmployeeRoles.Sorter)
+            throw new IllegalArgumentException();
+        this.user = user;
         initComponents();
     }
 
@@ -239,7 +242,7 @@ public class SorterSession extends javax.swing.JFrame {
 
     private void RefreshButtonActionPerformed(java.awt.event.ActionEvent evt) {                                              
         // TODO add your handling code here:
-        PackageList.setListData(new Vector(DataAdapter.getAllPackage()));
+        PackageList.setListData(new Vector(DataAdapter.getUndeliveredPackages()));
         PackageBinList.setListData(new Vector(DataAdapter.getAllBin()));
     }                                             
 
@@ -273,7 +276,7 @@ public class SorterSession extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SorterSession().setVisible(true);
+                new SorterSession(user).setVisible(true);
             }
         });
     }
