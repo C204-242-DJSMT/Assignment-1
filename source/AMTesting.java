@@ -63,7 +63,7 @@ public class AMTesting {
 
 	
 
-	//
+	// 3 tests for findname method
 	@Test(expected = IllegalArgumentException.class)
 	public void test2() {
 
@@ -80,6 +80,7 @@ public class AMTesting {
 		assertTrue(DataAdapter.findName("M").size() == 0);
 	}
 
+	// 4 tests for getPackageByAddress method
 	@Test
 	public void test6() {
 
@@ -104,11 +105,13 @@ public class AMTesting {
 		DataAdapter.getPackageByAddress(DataAdapter.getClientByID(0), null);
 	}
 
+	// test constructor 
 	@Test
 	public void test3() {
 		new AccountManagerSession();
 	}
 
+	// 4 tests for verifyEmployee
 	@Test(expected = IllegalArgumentException.class)
 	public void test9() {
 		DataAdapter.verifyEmployee("dmkw1", null);
