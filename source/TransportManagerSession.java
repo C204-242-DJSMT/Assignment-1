@@ -3,7 +3,7 @@ import javax.swing.event.*;
 import java.util.*;
 import java.awt.event.*;
 import java.awt.*;
-
+import java.text.SimpleDateFormat;
 
 /**
  * Gui and associated methods for a transport manager to interact with lost and potentially lost packages
@@ -18,11 +18,14 @@ public class TransportManagerSession extends JFrame {
     private JButton jButtonSetFound;
     private JButton jButtonShowLost;
     private JButton jButtonExit;
+    private JButton jButtonReset;
     private JList jListPackages;
     private JScrollPane jScrollPane1;
     private JScrollPane jScrollPane2;
     private JList jListScans;
     private ArrayList<Package> packages;
+    private SimpleDateFormat dateFormatter = new SimpleDateFormat("ddMMyyyykkmm");
+    private Calendar queryTime = new GregorianCalendar();
 
     /** 
      * Creates a session associated with a Transport Manager user.
@@ -32,6 +35,7 @@ public class TransportManagerSession extends JFrame {
             throw new IllegalArgumentException();
         this.user = user;
         initComponents();
+        reset(null);
     }
 
     /**
@@ -46,6 +50,7 @@ public class TransportManagerSession extends JFrame {
         jButtonSetFound = new JButton();
         jButtonShowLost = new JButton();
         jButtonExit = new JButton();
+        jButtonReset = new JButton();
         jScrollPane1 = new JScrollPane();
         jListScans = new JList();
         jScrollPane2 = new JScrollPane();
@@ -92,12 +97,20 @@ public class TransportManagerSession extends JFrame {
                buttonShowLostActionPerformed(event);
           }
        });
+
+        jButtonReset.addActionListener(new ActionListener() {
+           public void actionPerformed(ActionEvent event) {
+               reset(event);
+          }
+       });
+        
     jListPackages.addListSelectionListener(listSelectionListener);
         
         jButtonSetLost.setText("List as Lost");
         jButtonShowLost.setText("Lost Packages");
         jButtonSetFound.setText("List as Found");
         jButtonExit.setText("Logout");
+        jButtonReset.setText("Reset");
 
         jScrollPane2.setViewportView(jListPackages);
         jScrollPane2.setPreferredSize(new Dimension(200,200));
@@ -121,7 +134,7 @@ public class TransportManagerSession extends JFrame {
                     .addComponent(btnOldPackages, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButtonShowLost, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButtonSetFound, javax.swing.GroupLayout.Alignment.TRAILING)
-
+                    .addComponent(jButtonReset, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButtonExit, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -141,6 +154,8 @@ public class TransportManagerSession extends JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonShowLost)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonReset)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonExit))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
@@ -153,16 +168,20 @@ public class TransportManagerSession extends JFrame {
     }
 
     /**
-     * Requests and displays all packages older than the time out time.
+     * Requests and displays all packages older than the date in the text field
      */
     private void buttonOldPackagesActionPerformed(ActionEvent event) {
-        Calendar c = new GregorianCalendar();
-        c.setTime(new Date());
-        this.packages = DataAdapter.getOlderPackages(c);
-        jListPackages.setListData(new Vector(this.packages)); 
-        jButtonSetLost.setEnabled(this.packages.size() > 0);
-        jButtonSetFound.setEnabled(false);
-        jListScans.setListData(new Vector());
+        try {
+            queryTime.setTime(dateFormatter.parse(jTextDate.getText().replace("-", "") + "2359"));
+            this.packages = DataAdapter.getOlderPackages(queryTime);
+            jListPackages.setListData(new Vector(this.packages)); 
+            jButtonSetLost.setEnabled(this.packages.size() > 0);
+            jButtonSetFound.setEnabled(false);
+            jListScans.setListData(new Vector());
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this,"Invalid date entered");
+        }
+
     }
 
     /**
@@ -175,7 +194,7 @@ public class TransportManagerSession extends JFrame {
     }
 
     /**
-     *
+     * adds lost scan to a package
      */
     private void buttonSetLostActionPerformed(ActionEvent event) {
         int index = jListPackages.getSelectedIndex();
@@ -191,7 +210,7 @@ public class TransportManagerSession extends JFrame {
     }
 
     /**
-     * 
+     * adds a found scan to a seleceted lost package
      */
     private void buttonSetFoundActionPerformed(ActionEvent event) {
         int index = jListPackages.getSelectedIndex();
@@ -207,7 +226,7 @@ public class TransportManagerSession extends JFrame {
     }
 
     /**
-     *
+     * Requests the list of all lost packages
      */
     private void buttonShowLostActionPerformed(ActionEvent event) {
         this.packages = DataAdapter.getLostPackages();
@@ -215,5 +234,20 @@ public class TransportManagerSession extends JFrame {
         jButtonSetLost.setEnabled(false);
         jButtonSetFound.setEnabled(this.packages.size() > 0);
         jListScans.setListData(new Vector());
+    }
+
+    /**
+     * Resets controls to their initial state
+     */
+    private void reset (ActionEvent event) {
+        this.queryTime.setTime(new Date());
+        String day = String.format("%02d", queryTime.get(queryTime.DAY_OF_MONTH));
+        String month = String.format("%02d", queryTime.get(queryTime.MONTH) + 1);
+        jTextDate.setText(day + "-" + month + "-" + queryTime.get(queryTime.YEAR));
+
+        this.jButtonSetFound.setEnabled(false);
+        this.jButtonSetLost.setEnabled(false);
+        this.jListPackages.setListData(new Vector());
+        this.jListScans.setListData(new Vector());  
     }
 }
