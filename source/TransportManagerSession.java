@@ -13,7 +13,7 @@ import java.text.SimpleDateFormat;
 public class TransportManagerSession extends JFrame {
     private Employee user;
     private JTextField jTextDate;
-    private JButton btnOldPackages;
+    private JButton jButtonOldPackages;
     private JButton jButtonSetLost;
     private JButton jButtonSetFound;
     private JButton jButtonShowLost;
@@ -44,7 +44,7 @@ public class TransportManagerSession extends JFrame {
     */
     @SuppressWarnings("unchecked")
     private void initComponents() {
-        btnOldPackages = new JButton();
+        jButtonOldPackages = new JButton();
         jTextDate = new JTextField();
         jButtonSetLost = new JButton();
         jButtonSetFound = new JButton();
@@ -61,8 +61,8 @@ public class TransportManagerSession extends JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btnOldPackages.setText("Timed out packages");
-        btnOldPackages.addActionListener(new ActionListener() {
+        jButtonOldPackages.setText("Timed out packages");
+        jButtonOldPackages.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 buttonOldPackagesActionPerformed(event);
             }
@@ -131,7 +131,7 @@ public class TransportManagerSession extends JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextDate, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonSetLost, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnOldPackages, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButtonOldPackages, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButtonShowLost, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButtonSetFound, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButtonReset, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -146,7 +146,7 @@ public class TransportManagerSession extends JFrame {
                         .addGap(42, 42, 42)
                         .addComponent(jTextDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnOldPackages)
+                        .addComponent(jButtonOldPackages)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonSetLost)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)

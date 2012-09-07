@@ -29,17 +29,6 @@ class Client {
 		this.addresses.add(address);
 		return true;
 	}
-
-	/**
-	 *
-	 *
-	 *
-	 */
-	public void deleteAddress() {
-		// Must not leave the Client with no addresses
-		assert (this.addresses.size() > 0);
-	}
-
 	/**
 	 * Check if the client has an address associated with them.
 	 *

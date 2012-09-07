@@ -73,19 +73,6 @@ class Package {
 	}
 
 	/**
-	 * Changes the recieving address of the package to another associated with the addressee.
-	 */
-	boolean reroute(String[] address) {
-		if (this.addressee.hasAddress(address)) { // Client.hasAddress contains all the necessary checking of the address parameter
-			this.streetAddress = address[0];
-			this.postcode = address[1];
-			this.destinationCity = address[2];
-			return true;
-		}
-		return false;
-	}
-
-	/**
 	 * Returns the last scan applied to this package.
 	 *
 	 * Duncan Willcock
