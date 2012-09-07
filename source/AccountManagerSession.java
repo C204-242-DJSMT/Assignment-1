@@ -12,7 +12,13 @@ import java.awt.*;
 
 /**
  * 
- * @author NT
+ * @author Nigel Thomas
+ */
+
+/**
+ * Gui and associated methods for the Account Manager
+ * 
+ * 
  */
 public class AccountManagerSession extends javax.swing.JFrame {
 
@@ -227,6 +233,10 @@ public class AccountManagerSession extends javax.swing.JFrame {
         pack();
     }// </editor-fold>
 
+    /**
+     * Gets the Client name or any alphabet from the textbox_clientname and
+     * displays all the clients associated in the clients list box
+     */
     private void button_getActionPerformed(java.awt.event.ActionEvent evt) {
 
         String name = textbox_clientname.getText();
@@ -234,48 +244,55 @@ public class AccountManagerSession extends javax.swing.JFrame {
         listbox_clients.setListData(new Vector(this.clientlist));
     }
 
+    /**
+     * gets the client name from list box of clients and displays all the
+     * addresses that that particular cleint has
+     */
     private void jListPackagesActionPertformed(ListSelectionEvent event) {
 
         Vector v = new Vector();
-
+        // Gets the selected index
         int index = listbox_clients.getSelectedIndex();
         if (index >= 0)
-            // listbox_address.setListData(new
-            // Vector(DataAdapter.findName(name)));
-            // listbox_address.setListData(new Vector(this.clients.get(index)));
 
             this.addresses = clientlist.get(index).addresses;
         Vector<String> formattedAddresses = new Vector<String>();
-
+        // Formats
         for (String[] s : this.addresses) {
             String line;
             assert (s.length == 3);
             line = s[0] + " " + s[1] + " " + s[2];
             formattedAddresses.add(line);
-
+            // adds the formattedAddresses into listbox_address
             listbox_address.setListData(formattedAddresses);
         }
 
-        // allclients
-        // getAddressByName()
-
     }
 
+    /**
+     * gets the address from list box of addresses and displays all the packages
+     * that are being sent to that particular address in the listbox packages
+     * 
+     */
     private void listbox_packagesActionPertformed(ListSelectionEvent event) {
-        System.out.println("HELLO:");
+
         Vector<Package> temp = new Vector<Package>();
         ArrayList<Package> packagess;
+        // gets index
         int index = listbox_address.getSelectedIndex();
         int otherindex = listbox_clients.getSelectedIndex();
+
         if (index >= 0) {
+            // calls getPackagebyAddress method
             String[] address = this.addresses.get(index);
             packagess = DataAdapter.getPackageByAddress(
                     clientlist.get(otherindex), address);
+
+            // loops through packagess and puts it into listbox_package
             for (Package p : packagess) {
                 temp.add(p);
             }
             listbox_package.setListData(temp);
-
         }
     }
 
@@ -328,6 +345,10 @@ public class AccountManagerSession extends javax.swing.JFrame {
         });
     }
 
+    /*
+     * global variable for this form Stores clientlist info Stores addresses
+     * info
+     */
     // Variables declaration - do not modify
     private javax.swing.JButton button_get;
     private javax.swing.JButton jButton1;

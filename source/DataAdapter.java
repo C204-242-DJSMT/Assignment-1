@@ -253,7 +253,7 @@ class DataAdapter {
 	/**
 	 *
 	 *
-	 *
+	 *Nigel Thomas
 	 */
 
 	public static Employee verifyEmployee(String username, String password) {
@@ -276,7 +276,7 @@ class DataAdapter {
 		//System.out.println(employeePasswords.size());
 	}
 	/**
-	  *N
+	  *Nigel Thomas
 	  */ 
 	public static ArrayList<Client> findName(String name)
 	{	
@@ -290,7 +290,7 @@ class DataAdapter {
 				}
 	return result;
 }
-//N
+//Nigel Thomas
 	public static ArrayList<Package> getPackageByAddress(Client c, String[] a){
 		if (c == null || a == null || a.length != 3)
 		throw new IllegalArgumentException();
