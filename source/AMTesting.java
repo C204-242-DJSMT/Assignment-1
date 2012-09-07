@@ -58,18 +58,12 @@ public class AMTesting {
 			// Thread.sleep(1000);
 
 		}
-		// testTime.setTime(DataAdapter.getPackageByID(3).lastScan().time.getTime());
-
+		
 	}
 
-	// tests to test normal function of query methods
-	// @Test public void test1() {
+	
 
-	// //DataAdapter.getOlderPackages(testTime);
-	// assertTrueDataAdapter.verifyEmployee(username,password) != null);
-
-	// }
-
+	//
 	@Test(expected = IllegalArgumentException.class)
 	public void test2() {
 
