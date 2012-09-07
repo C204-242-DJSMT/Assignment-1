@@ -3,15 +3,15 @@ import java.util.regex.*;
 /**
  * Represents the four different relevant roles of employee users.
  *
- * Duncan Willcock
+ * Duncan Willcock, Nigel Thomas
  */
 enum EmployeeRoles {Driver, AccountManager, Sorter, TransportManager}
 
 
 
 /**
- * 
- *
+ * Employee class takes a employee role username and password
+ *checks to see if they are null
  * 
  */
 class Employee {
