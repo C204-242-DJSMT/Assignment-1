@@ -197,14 +197,33 @@ public class SorterSession extends javax.swing.JFrame {
         // TODO add your handling code here:
         // Moving the bin onto the Delivery vehicle
         // Change the scan history of the Bin and all the packages in it
-        int index = PackageBinList.getSelectedIndex();   
+        int index = PackageBinList.getSelectedIndex();  
+        if (index >= 0) {
+            PackageBin b = this.packageBins.get(index);
+            if(b.lastScan().event != ScanEvents.addToVehicle) {
+                b.scan(ScanEvents.addToVehicle, this.user);
+                this.packageBins.remove(b);
+                this.PackageBinList.setListData(new Vector(this.packageBins));
+            }
+        }
+
     }                                              
 
     private void AddtoBinButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                    
         // TODO add your handling code here:
         // Adding Selected Package to selected Bin
-        int selectedPackage = PackageList.getSelectedIndex();
-        int selectedBin = PackageBinList.getSelectedIndex();
+
+        int indexPackage = PackageList.getSelectedIndex();
+        int indexBin = PackageBinList.getSelectedIndex();
+
+        // if (indexPackage >= 0){
+        //     this.pid = packagelist.get(indexPackage).id;
+        // }
+        // if (indexPackageBin >= 0){
+        //     this.bid = packagebinlist.get(indexBin).id;
+        // }
+
+            
         // add selectedPackage into selectedBin
     }                                                   
 
@@ -215,6 +234,7 @@ public class SorterSession extends javax.swing.JFrame {
 
     private void RemoveButtonActionPerformed(java.awt.event.ActionEvent evt) {                                             
         // TODO add your handling code here:
+        int index = PackageBinList.getSelectedIndex();  
     }                                            
 
     private void RefreshButtonActionPerformed(java.awt.event.ActionEvent evt) {                                              
@@ -271,5 +291,7 @@ public class SorterSession extends javax.swing.JFrame {
     private javax.swing.JButton RemoveButton;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+     private ArrayList<PackageBin> packagebinlist;
+     private ArrayList<Package> packagelist;
     // End of variables declaration
 }
