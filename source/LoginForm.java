@@ -175,7 +175,7 @@ public class LoginForm extends javax.swing.JFrame {
             }
             if (user.role == EmployeeRoles.Sorter) {
                 // this.setVisible(false);
-                new SorterSession().setVisible(true);
+               new SorterSession(user).setVisible(true);
             } else {
                 System.out.println("s");
             }
