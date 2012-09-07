@@ -47,6 +47,12 @@ public class SorterSession extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+
+  ListSelectionListener listSelectionListener = new ListSelectionListener() {
+            public void valueChanged(ListSelectionEvent event) {
+                PackageBinListActionPertformed(event);
+            }
+        };
         ListSelectionListener listSelectionListener1 = new ListSelectionListener() {
             public void valueChanged(ListSelectionEvent event) {
                 PackageListActionPertformed(event);
@@ -113,6 +119,8 @@ public class SorterSession extends javax.swing.JFrame {
             public Object getElementAt(int i) { return strings[i]; }
         });
         jScrollPane3.setViewportView(PackageList);
+        
+        PackageBinList.addListSelectionListener(listSelectionListener);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -189,23 +197,30 @@ public class SorterSession extends javax.swing.JFrame {
     }// </editor-fold>
 
     private void PackageListActionPertformed(ListSelectionEvent event) { 
-    
+        int index = PackageList.getSelectedIndex();
     }
 
-    private void PackageBinListActionPertformed(ListSelectionEvent event) { 
-    
+   
+      private void PackageBinListActionPertformed(ListSelectionEvent event) {
+        int index = PackageBinList.getSelectedIndex();
+       
+                       
     }
-
     private void MovetoVehicleButtonActionPerformed(java.awt.event.ActionEvent evt) {                                               
         // TODO add your handling code here:
         // Moving the bin onto the Delivery vehicle
         // Change the scan history of the Bin and all the packages in it
+        
+       
         int index = PackageBinList.getSelectedIndex();  
-        if (index >= 0) {
-            PackageBin b = this.packageBins.get(index);
+        if (index >= 0) { 
+
+            PackageBin b = this.packageBins.get(index); 
+            System.out.println("1");
             if(b.lastScan().event != ScanEvents.addToVehicle) {
+
                 b.scan(ScanEvents.addToVehicle, this.user);
-                this.packageBins.remove(b);
+                // this.packageBins.remove(b);
                 this.PackageBinList.setListData(new Vector(this.packageBins));
             }
         }
@@ -238,6 +253,17 @@ public class SorterSession extends javax.swing.JFrame {
     private void RemoveButtonActionPerformed(java.awt.event.ActionEvent evt) {                                             
         // TODO add your handling code here:
         int index = PackageBinList.getSelectedIndex();  
+        if (index >= 0) { 
+
+            PackageBin b = this.packageBins.get(index); 
+            System.out.println("2");
+            if(b.lastScan().event != ScanEvents.takeFromVehicle) {
+
+                b.scan(ScanEvents.takeFromVehicle, this.user);
+                // this.packageBins.remove(b);
+                this.PackageBinList.setListData(new Vector(this.packageBins));
+            }
+        } 
     }                                            
 
     private void RefreshButtonActionPerformed(java.awt.event.ActionEvent evt) {                                              

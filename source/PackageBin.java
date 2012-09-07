@@ -63,7 +63,7 @@ class PackageBin {
 	public String toString() {
 		String result = "";
 		result += this.id + " ";
-		result += this.vehicleID + " " + this.contents + " " + this.scanHistory;
+		result += this.destinationCities +" " + this.vehicleID + " " + this.contents + " " + this.scanHistory;
 
 		return result;
 	}
