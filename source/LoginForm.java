@@ -146,7 +146,9 @@ public class LoginForm extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>
-
+    /*
+    * verifies the username and password and Displays the appropriate Form 
+    */    
     private void button_loginActionPerformed(java.awt.event.ActionEvent evt) {
 
         String usrnme = textbox_username.getText();
@@ -182,7 +184,9 @@ public class LoginForm extends javax.swing.JFrame {
         // make a string
 
     }
-
+    /*
+    * closes the form 
+    */    
     private void button_closeActionPerformed(java.awt.event.ActionEvent evt) {
         System.exit(0);
     }
