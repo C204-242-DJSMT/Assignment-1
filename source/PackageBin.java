@@ -60,6 +60,7 @@ class PackageBin {
 		return this.contents.contains(p);
 	}
 
+	//Janik
 	public String toString() {
 		String result = "";
 		result += this.id + " ";
@@ -68,6 +69,7 @@ class PackageBin {
 		return result;
 	}
 
+	//Janik
 	public Scan lastScan() {
 		if (this.scanHistory.size() == 0)
 			return null;

@@ -302,17 +302,9 @@ class DataAdapter {
 		}
 		return result;	
 	}
-		
-	public static ArrayList<PackageBin> findBin()
-	{	
-		ArrayList<PackageBin> result = new ArrayList<PackageBin>();
-			for(PackageBin d : allPackageBins )
-			{
-					result.add(d);
-			}
-	return result;
-	}
 
+
+	//Janik Singh
 	public static ArrayList<Package> getAllPackage(){
 		ArrayList<Package> result = new ArrayList<Package>();
 		for(Package p: allPackages){
@@ -333,7 +325,7 @@ class DataAdapter {
 		}
 		return result;	
 	}
-
+	//Janik Singh
 	public static ArrayList<PackageBin> getAllBin(){
 			return new ArrayList <PackageBin> (allPackageBins);
 	}

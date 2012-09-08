@@ -222,6 +222,9 @@ public class SorterSession extends javax.swing.JFrame {
                 b.scan(ScanEvents.addToVehicle, this.user);
                 // this.packageBins.remove(b);
                 this.PackageBinList.setListData(new Vector(this.packageBins));
+                //foreach (Package in Bin){
+                    //set scan history to "addToVehicle"
+                //}
             }
         }
 
@@ -240,9 +243,7 @@ public class SorterSession extends javax.swing.JFrame {
         // if (indexPackageBin >= 0){
         //     this.bid = packagebinlist.get(indexBin).id;
         // }
-
-            
-        // add selectedPackage into selectedBin
+        // add indexPackage into indexBins 
     }                                                   
 
     private void CreateButtonActionPerformed(java.awt.event.ActionEvent evt) {                                             
@@ -262,6 +263,9 @@ public class SorterSession extends javax.swing.JFrame {
                 b.scan(ScanEvents.takeFromVehicle, this.user);
                 // this.packageBins.remove(b);
                 this.PackageBinList.setListData(new Vector(this.packageBins));
+                //foreach (Package in Bin){
+                    //set scan history to "takeFromVehicle"
+                //}
             }
         } 
     }                                            
