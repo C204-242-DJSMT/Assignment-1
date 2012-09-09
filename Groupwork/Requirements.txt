@@ -18,4 +18,5 @@ Identified unstated requirements
 - register new customer 
 - Flexible interface for transport managers record lost packages
 - Simliar interface to above for transport managers to restore previously lost packages
-- employee login to access functions appropriate to that employee's role 
+- employee login to access functions appropriate to that employee's role
+- Data should be shared for many users and locations.
