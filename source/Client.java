@@ -4,7 +4,7 @@ import java.util.ArrayList;
 /**
  * Represents one of the company's customers. Sends and recieves packages.
  *
- * Duncan Willcock
+ * Duncan Willcock 159081
  */
 class Client {
 	static private long NextID = 0;

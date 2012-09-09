@@ -8,7 +8,7 @@ import java.text.SimpleDateFormat;
 /**
  * Gui and associated methods for a transport manager to interact with lost and potentially lost packages
  *
- * Duncan Willcock
+ * Duncan Willcock 1159081
  */
 public class TransportManagerSession extends JFrame {
     private Employee user;

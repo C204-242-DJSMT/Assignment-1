@@ -60,16 +60,14 @@ class PackageBin {
 		return this.contents.contains(p);
 	}
 
-	//Janik
 	public String toString() {
 		String result = "";
 		result += this.id + " ";
-		result += this.destinationCities +" " + this.vehicleID + " " + this.contents + " " + this.scanHistory;
+		result += this.vehicleID + " " + this.contents + " " + this.scanHistory;
 
 		return result;
 	}
 
-	//Janik
 	public Scan lastScan() {
 		if (this.scanHistory.size() == 0)
 			return null;
