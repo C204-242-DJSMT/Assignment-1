@@ -2,7 +2,7 @@ import java.util.*;
 
 
 /*
- * 
+ * Janik  1159963
  */
 //Package and PackageBin may be able/need to support a common superclass or interface
 class PackageBin {

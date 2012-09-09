@@ -5,7 +5,7 @@ import java.awt.event.*;
 import java.awt.*;
 /**
  *
- * @author Janik
+ * @author Janik 1159963
  */
 public class SorterSession extends javax.swing.JFrame {
 
