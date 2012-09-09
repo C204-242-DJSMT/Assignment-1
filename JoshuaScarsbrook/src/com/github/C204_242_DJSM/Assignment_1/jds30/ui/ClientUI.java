@@ -17,7 +17,8 @@ import javax.swing.JList;
 import javax.swing.ListModel;
 
 import com.github.C204_242_DJSM.Assignment_1.jds30.adaptors.CurrentPackagesListModel;
-import com.github.C204_242_DJSM.Assignment_1.jds30.adaptors.PackagesDataAdaptor;
+import com.github.C204_242_DJSM.Assignment_1.jds30.adaptors.DataAdaptor;
+import com.github.C204_242_DJSM.Assignment_1.jds30.adaptors.dummy.DummyDataAdaptor;
 import com.github.C204_242_DJSM.Assignment_1.jds30.session.ClientSession;
 
 public class ClientUI extends JFrame {
@@ -67,7 +68,7 @@ public class ClientUI extends JFrame {
 		});
 		this.add(exitButton);
 		
-		currentPackagesModel = new CurrentPackagesListModel(PackagesDataAdaptor.getDummyAdaptor());
+		currentPackagesModel = new CurrentPackagesListModel(DummyDataAdaptor.getInstance());
 		currentPackages = new JList(currentPackagesModel);
 	}
 	
