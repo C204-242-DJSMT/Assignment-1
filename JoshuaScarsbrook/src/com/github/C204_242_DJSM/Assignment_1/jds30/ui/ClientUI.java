@@ -19,6 +19,8 @@ import javax.swing.JTextPane;
 
 import com.github.C204_242_DJSM.Assignment_1.jds30.adaptors.CurrentPackagesListModel;
 import com.github.C204_242_DJSM.Assignment_1.jds30.session.ClientSession;
+import com.github.C204_242_DJSM.Assignment_1.jds30.session.ClientSession.ClientPrivileges;
+
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.AbstractListModel;
@@ -34,6 +36,8 @@ public class ClientUI extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = -2940065613694823984L;
+	
+	private ClientSession _session;
 
 	/**
 	 * ClientUI Constructor
@@ -41,17 +45,30 @@ public class ClientUI extends JFrame {
 	public ClientUI(ClientSession ses) {
 		super("Client UI"); // TODO better title
 		
+		_session = ses;
+		
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.setSize(640, 480);
 		this.setResizable(false);
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		getContentPane().add(tabbedPane, BorderLayout.CENTER);
 		
+		JPanel panel = new JPanel();
+		tabbedPane.addTab("Welcome", null, panel, null);
+		panel.setLayout(null);
+		
+		JTextPane txtpnwelcome = new JTextPane();
+		txtpnwelcome.setContentType("text/html");
+		txtpnwelcome.setText("<html>\r\n<body>\r\n\t<h1 style=\"font-size: 48px; text-align: center;font-family:sans-serif;\">Welcome</h1>\r\n</body>\r\n</html>");
+		txtpnwelcome.setBounds(10, 5, 609, 407);
+		panel.add(txtpnwelcome);
+		
 		JPanel userManagerPane = new JPanel();
 		tabbedPane.addTab("User Manager", null, userManagerPane, null);
 		userManagerPane.setLayout(null);
 		
-		JList clientList = new JList();
+		JList<String> clientList = new JList<>();
 		clientList.setBounds(10, 11, 190, 391);
 		userManagerPane.add(clientList);
 		
@@ -104,7 +121,7 @@ public class ClientUI extends JFrame {
 		lblUserAddresses.setBounds(210, 37, 72, 14);
 		userManagerPane.add(lblUserAddresses);
 		
-		JComboBox cboxUserAddress = new JComboBox();
+		JComboBox<String> cboxUserAddress = new JComboBox<>();
 		cboxUserAddress.setBounds(293, 34, 316, 20);
 		userManagerPane.add(cboxUserAddress);
 		
@@ -174,6 +191,12 @@ public class ClientUI extends JFrame {
 		passwordManagerPane2.add(lblPassConfirm);
 		
 		JButton btnChangePassword = new JButton("Change Password");
+		btnChangePassword.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+			}
+		});
 		btnChangePassword.setBounds(123, 84, 119, 23);
 		passwordManagerPane2.add(btnChangePassword);
 		
@@ -193,11 +216,17 @@ public class ClientUI extends JFrame {
 		tabbedPane.addTab("Package Manager", null, packageManagerPane, null);
 		packageManagerPane.setLayout(null);
 		
-		JList packageList = new JList();
+		JList<String> packageList = new JList<>();
 		packageList.setBounds(10, 11, 190, 401);
 		packageManagerPane.add(packageList);
 		
 		JButton btnPackageSend = new JButton("Send");
+		btnPackageSend.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+			}
+		});
 		btnPackageSend.setBounds(530, 389, 89, 23);
 		packageManagerPane.add(btnPackageSend);
 		
@@ -245,32 +274,33 @@ public class ClientUI extends JFrame {
 		packageManagerPane.add(lblPackageStatus);
 		
 		JList<String> packageStatusList = new JList<>();
-		packageStatusList.setModel(new AbstractListModel() {
+		packageStatusList.setModel(new AbstractListModel<String>() {
+			private static final long serialVersionUID = -5646358450388813726L;
 			String[] values = new String[] {};
 			public int getSize() {
 				return values.length;
 			}
-			public Object getElementAt(int index) {
+			public String getElementAt(int index) {
 				return values[index];
 			}
 		});
 		packageStatusList.setBounds(316, 122, 303, 254);
 		packageManagerPane.add(packageStatusList);
-		this.initControls();
-	}
-	
-	/**
-	 * Create all window controls
-	 */
-	private void initControls() {
-		this.setSize(640, 480);
 		
-		currentPackagesModel = new CurrentPackagesListModel();
-		currentPackages = new JList<String>(currentPackagesModel);
+		if (!_session.hasPrivilege(ClientPrivileges.CHANGEPASSWORD)) {
+			tabbedPane.setEnabledAt(2, false);
+		}
+		
+		if (!_session.hasPrivilege(ClientPrivileges.CHECKPACKAGES)) {
+			tabbedPane.setEnabledAt(3, false);
+		}
+		
+		if (!_session.hasPrivilege(ClientPrivileges.LISTUSERS)) {
+			tabbedPane.setEnabledAt(1, false);
+		}
+		
 	}
 	
-	private CurrentPackagesListModel currentPackagesModel;
-	private JList<String> currentPackages;
 	private JPasswordField passUserPassword;
 	private JPasswordField passPassCurrent;
 	private JPasswordField passPassNew;
@@ -278,7 +308,6 @@ public class ClientUI extends JFrame {
 	private JTextField txtPackageStreetAddress;
 	private JTextField txtPackagePostCode;
 	private JTextField txtPackageCity;
-	private final Action action = new SwingAction();
 	
 	// static methods
 
@@ -289,13 +318,5 @@ public class ClientUI extends JFrame {
 	 */
 	public static void main(String[] args) throws InterruptedException {
 		ClientLogin.main(args); // you should run login anyway
-	}
-	private class SwingAction extends AbstractAction {
-		public SwingAction() {
-			putValue(NAME, "SwingAction");
-			putValue(SHORT_DESCRIPTION, "Some short description");
-		}
-		public void actionPerformed(ActionEvent e) {
-		}
 	}
 }

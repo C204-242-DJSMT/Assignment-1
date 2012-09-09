@@ -7,11 +7,6 @@ import com.github.C204_242_DJSM.Assignment_1.jds30.adaptors.LoginClientDataAdapt
 import com.github.C204_242_DJSM.Assignment_1.jds30.models.ClientLoginSupport;
 import com.github.C204_242_DJSM.Assignment_1.jds30.models.ClientPrivilegeLevel;
 import com.github.C204_242_DJSM.Assignment_1.jds30.session.ClientLoginResponce.SuccessState;
-import com.github.C204_242_DJSM.Assignment_1.jds30.ui.ClientUI;
-import com.sun.org.apache.xpath.internal.operations.Bool;
-
-import external.Client;
-import external.DataAdapter;
 
 public class ClientSession {
 
@@ -19,7 +14,9 @@ public class ClientSession {
 	
 	public enum ClientPrivileges {
 		SENDPACKAGE,
-		CHANGEPASSWORD
+		CHANGEPASSWORD,
+		CHECKPACKAGES,
+		LISTUSERS
 	}
 	
 	private HashMap<ClientSession.ClientPrivileges, Boolean> _privileges = new HashMap<ClientSession.ClientPrivileges, Boolean>();
@@ -30,10 +27,25 @@ public class ClientSession {
 		case DEBUG:
 			this._privileges.put(ClientSession.ClientPrivileges.CHANGEPASSWORD, true);
 			this._privileges.put(ClientSession.ClientPrivileges.SENDPACKAGE, true);
+			this._privileges.put(ClientSession.ClientPrivileges.CHECKPACKAGES, true);
+			this._privileges.put(ClientSession.ClientPrivileges.LISTUSERS, true);
 			break;
 		case FULLMANAGER:
 			this._privileges.put(ClientSession.ClientPrivileges.CHANGEPASSWORD, true);
 			this._privileges.put(ClientSession.ClientPrivileges.SENDPACKAGE, true);
+			this._privileges.put(ClientSession.ClientPrivileges.CHECKPACKAGES, true);
+			this._privileges.put(ClientSession.ClientPrivileges.LISTUSERS, true);
+			break;
+		case MANAGER:
+			this._privileges.put(ClientSession.ClientPrivileges.CHANGEPASSWORD, true);
+			this._privileges.put(ClientSession.ClientPrivileges.SENDPACKAGE, true);
+			this._privileges.put(ClientSession.ClientPrivileges.CHECKPACKAGES, true);
+			this._privileges.put(ClientSession.ClientPrivileges.LISTUSERS, true);
+			break;
+		case EMPLOYEE:
+			this._privileges.put(ClientSession.ClientPrivileges.CHANGEPASSWORD, true);
+			this._privileges.put(ClientSession.ClientPrivileges.SENDPACKAGE, true);
+			this._privileges.put(ClientSession.ClientPrivileges.CHECKPACKAGES, true);
 			break;
 		}
 	}

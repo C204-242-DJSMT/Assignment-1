@@ -18,9 +18,9 @@ public class LoginClientDataAdaptor {
 			"1231",
 			"Hello World"
 		});
-		Client testingCli = new Client("Hello World", clientAddressTest, false);
-		DataAdapter.addClient(testingCli);
-		linkClientToLoginClient(testingCli, "testing", ClientPrivilegeLevel.FULLMANAGER);
+		linkClientToLoginClient(new Client("Hello World", clientAddressTest, false), "testing", ClientPrivilegeLevel.FULLMANAGER);
+		linkClientToLoginClient(new Client("Hello Again", clientAddressTest, false), "testing", ClientPrivilegeLevel.MANAGER);
+		linkClientToLoginClient(new Client("Hello Blah", clientAddressTest, false), "testing", ClientPrivilegeLevel.EMPLOYEE);
 	}
 	
 	// static methods

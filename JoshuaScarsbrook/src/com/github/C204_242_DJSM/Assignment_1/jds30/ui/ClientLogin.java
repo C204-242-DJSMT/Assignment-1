@@ -11,6 +11,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 import com.github.C204_242_DJSM.Assignment_1.jds30.session.ClientLoginResponce;
 import com.github.C204_242_DJSM.Assignment_1.jds30.session.ClientSession;
@@ -113,6 +115,13 @@ public class ClientLogin extends JFrame {
 	// Static Methods
 	
 	public static void main(String[] args) throws InterruptedException {
+		try {
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		} catch (ClassNotFoundException | InstantiationException
+				| IllegalAccessException | UnsupportedLookAndFeelException e) {
+			e.printStackTrace();
+		}
+		
 		ClientLogin login = new ClientLogin();
 		login.setVisible(true);
 	}
