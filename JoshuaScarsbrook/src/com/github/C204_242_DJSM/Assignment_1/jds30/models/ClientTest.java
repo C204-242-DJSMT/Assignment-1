@@ -5,6 +5,8 @@ package com.github.C204_242_DJSM.Assignment_1.jds30.models;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+
 import org.junit.Test;
 
 import com.github.C204_242_DJSM.Assignment_1.jds30.exceptions.NotPrivException;
@@ -19,13 +21,25 @@ public class ClientTest {
 
 	@Test
 	public void testCheckPassword() {
-		assertTrue(new Client("hello", "world", ClientPrivilegeLevel.DEBUG).checkPassword("world"));
-		assertFalse(new Client("hello", "world", ClientPrivilegeLevel.DEBUG).checkPassword("testing"));
+		ArrayList<String[]> clientAddressTest = new ArrayList<>();
+		clientAddressTest.add(new String[] {
+			"Testing",
+			"1231",
+			"Hello World"
+		});
+		assertTrue(new ClientLoginSupport("hello world", clientAddressTest, "world", ClientPrivilegeLevel.DEBUG).checkPassword("world"));
+		assertFalse(new ClientLoginSupport("hello world", clientAddressTest, "world", ClientPrivilegeLevel.DEBUG).checkPassword("testing"));
 	}
 	
 	@Test
 	public void testChangePassword() {
-		Client testing = new Client("hello", "world", ClientPrivilegeLevel.DEBUG);
+		ArrayList<String[]> clientAddressTest = new ArrayList<>();
+		clientAddressTest.add(new String[] {
+			"Testing",
+			"1231",
+			"Hello World"
+		});
+		ClientLoginSupport testing = new ClientLoginSupport("hello world", clientAddressTest, "world", ClientPrivilegeLevel.DEBUG);
 		ClientSession sess = ClientSession.CreateDummySession(testing);
 		assertTrue(sess.getSelf().checkPassword("world"));
 		try {

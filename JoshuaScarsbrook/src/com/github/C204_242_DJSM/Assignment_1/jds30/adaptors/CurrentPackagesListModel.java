@@ -5,13 +5,12 @@ import java.util.ArrayList;
 import javax.swing.ListModel;
 import javax.swing.event.ListDataListener;
 
+import external.*;
+
 public class CurrentPackagesListModel implements ListModel<String> {
-	
-	private DataAdaptor _pda;
 	private ArrayList<String> _items = new ArrayList<String>();
 	
-	public CurrentPackagesListModel(DataAdaptor pda) {
-		_pda = pda;
+	public CurrentPackagesListModel() {
 		loadAllFromDataAdaptor();
 	}
 	

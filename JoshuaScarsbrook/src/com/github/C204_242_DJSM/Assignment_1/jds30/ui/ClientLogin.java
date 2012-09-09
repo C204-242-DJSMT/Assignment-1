@@ -1,13 +1,10 @@
 package com.github.C204_242_DJSM.Assignment_1.jds30.ui;
 
-import java.awt.Container;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 import javax.swing.JButton;
-import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -15,13 +12,15 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import com.github.C204_242_DJSM.Assignment_1.jds30.adaptors.DataAdaptor;
-import com.github.C204_242_DJSM.Assignment_1.jds30.adaptors.dummy.DummyDataAdaptor;
-import com.github.C204_242_DJSM.Assignment_1.jds30.models.Client;
 import com.github.C204_242_DJSM.Assignment_1.jds30.session.ClientLoginResponce;
 import com.github.C204_242_DJSM.Assignment_1.jds30.session.ClientSession;
 
 public class ClientLogin extends JFrame {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 194318670400250775L;
+
 	public ClientLogin() {
 		
 		initControls();
@@ -30,6 +29,7 @@ public class ClientLogin extends JFrame {
 	public void initControls() {
 		this.setSize(320, 100);
 		this.setResizable(false);
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 		paneContent = new JPanel();
 		this.setContentPane(paneContent);

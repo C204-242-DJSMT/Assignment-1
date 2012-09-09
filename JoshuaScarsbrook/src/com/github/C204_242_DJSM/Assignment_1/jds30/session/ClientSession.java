@@ -3,17 +3,19 @@ package com.github.C204_242_DJSM.Assignment_1.jds30.session;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import com.github.C204_242_DJSM.Assignment_1.jds30.adaptors.DataAdaptor;
-import com.github.C204_242_DJSM.Assignment_1.jds30.adaptors.dummy.DummyDataAdaptor;
-import com.github.C204_242_DJSM.Assignment_1.jds30.models.Client;
+import com.github.C204_242_DJSM.Assignment_1.jds30.adaptors.LoginClientDataAdaptor;
+import com.github.C204_242_DJSM.Assignment_1.jds30.models.ClientLoginSupport;
 import com.github.C204_242_DJSM.Assignment_1.jds30.models.ClientPrivilegeLevel;
 import com.github.C204_242_DJSM.Assignment_1.jds30.session.ClientLoginResponce.SuccessState;
 import com.github.C204_242_DJSM.Assignment_1.jds30.ui.ClientUI;
 import com.sun.org.apache.xpath.internal.operations.Bool;
 
+import external.Client;
+import external.DataAdapter;
+
 public class ClientSession {
 
-	private Client _self;
+	private ClientLoginSupport _self;
 	
 	public enum ClientPrivileges {
 		SENDPACKAGE,
@@ -22,7 +24,7 @@ public class ClientSession {
 	
 	private HashMap<ClientSession.ClientPrivileges, Boolean> _privileges = new HashMap<ClientSession.ClientPrivileges, Boolean>();
 	
-	private ClientSession(Client user, ClientPrivilegeLevel level) {
+	private ClientSession(ClientLoginSupport user, ClientPrivilegeLevel level) {
 		this._self = user;
 		switch (level) {
 		case DEBUG:
@@ -40,7 +42,7 @@ public class ClientSession {
 		return _privileges.containsKey(priv) && _privileges.get(priv);
 	}
 	
-	public Client getSelf() {
+	public ClientLoginSupport getSelf() {
 		return _self;
 	}
 	
@@ -50,20 +52,26 @@ public class ClientSession {
 	 * @return A valid client session
 	 */
 	public static ClientSession CreateDummySession() {
-		return new ClientSession(new Client("ERROR", "", ClientPrivilegeLevel.DEBUG), ClientPrivilegeLevel.DEBUG);
+		ArrayList<String[]> clientAddressTest = new ArrayList<>();
+		clientAddressTest.add(new String[] {
+			"Testing",
+			"1231",
+			"Hello World"
+		});
+		return new ClientSession(new ClientLoginSupport("ERROR", clientAddressTest, "", ClientPrivilegeLevel.DEBUG), ClientPrivilegeLevel.DEBUG);
 	}
 	
-	public static ClientSession CreateDummySession(Client client) {
+	public static ClientSession CreateDummySession(ClientLoginSupport client) {
 		return new ClientSession(client, client.getPrivLevel());
 	}
 	
 	public static ClientLoginResponce Login(String _username, String _password) {
-		DataAdaptor ada = DummyDataAdaptor.getInstance();
-		ArrayList<Client> clients = ada.getClientByName(_username);
+		LoginClientDataAdaptor ada = LoginClientDataAdaptor.getInstance();
+		ArrayList<ClientLoginSupport> clients = ada.getLoginClientsByName(_username);
 		if (clients.size() == 0) {
 			return new ClientLoginResponce(null, SuccessState.USERNAMEINCORRECT);
 		}
-		Client client = clients.get(0);
+		ClientLoginSupport client = clients.get(0);
 		if (client.checkPassword(_password)) {
 			return new ClientLoginResponce(new ClientSession(client, client.getPrivLevel()), SuccessState.SUCCESS);
 		} else {
