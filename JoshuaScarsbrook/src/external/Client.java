@@ -1,12 +1,14 @@
+package external;
+
 import java.util.regex.*;
 import java.util.ArrayList;
 
 /**
  * Represents one of the company's customers. Sends and recieves packages.
  *
- * Duncan Willcock 159081
+ * Duncan Willcock
  */
-class Client {
+public class Client {
 	static private long NextID = 0;
 	static String nameRegex = "^(\\w)+ ((\\w)+)+$"; // Clients must be identified by at least 2 words
 	final long id;
@@ -47,13 +49,24 @@ class Client {
 		}
 		return false;
 	}
+	
+	/**
+	 * Creates a Client
+	 * 
+	 * Joshua Scarsbrook
+	 * Also from the group work, there were no other names specified
+	 */
+	public Client(String name, ArrayList<String[]> addresses) {
+		this(name, addresses, true);
+	}
 
 	/**
 	 * 
 	 *
-	 *
+	 * Joshua Scarsbrook
+	 * Also from the group work, there were no other names specified
 	 */
-	public Client(String name, ArrayList<String[]> addresses) {
+	public Client(String name, ArrayList<String[]> addresses, Boolean add) {
 		if (name != null && Pattern.matches(nameRegex, name))
 			this.name = name;
 		else
@@ -66,10 +79,30 @@ class Client {
 		}
 		assert (this.addresses.size() > 0);
 
-		
 		this.id = NextID;
 		NextID++;
-		DataAdapter.addClient(this);
+		
+		if (add) {
+			DataAdapter.addClient(this);
+		}
+	}
+	
+	/**
+	 * Returns the Client's Addresses
+	 * 
+	 * Joshua Scarsbrook
+	 */
+	public ArrayList<String[]> getAddresses() {
+		return this.addresses;
+	}
+	
+	/**
+	 * 
+	 * Joshua Scarsbrook
+	 * @return The client's name
+	 */
+	public String getName() {
+		return this.name;
 	}
 
 	/**

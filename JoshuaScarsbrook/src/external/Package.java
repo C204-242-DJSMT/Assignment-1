@@ -1,9 +1,11 @@
+package external;
+
 import java.util.ArrayList;
  
 /**
  *
  *
- * Duncan Willcock 1159081
+ * Duncan Willcock
  */
 class Package {
 	static private long NextID = 0;

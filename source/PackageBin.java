@@ -2,7 +2,7 @@ import java.util.*;
 
 
 /*
- * 
+ * Janik  1159963
  */
 //Package and PackageBin may be able/need to support a common superclass or interface
 class PackageBin {
@@ -63,7 +63,7 @@ class PackageBin {
 	public String toString() {
 		String result = "";
 		result += this.id + " ";
-		result += this.destinationCities +" " + this.vehicleID + " " + this.contents + " " + this.scanHistory;
+		result += this.vehicleID + " " + this.contents + " " + this.scanHistory;
 
 		return result;
 	}

@@ -4,7 +4,7 @@ import java.util.*;
  * Static interface class for retrieving/storing data in the system.
  * Internal implementation should in fact be a set of database interactions, but externally this class is complete
  *
- * Duncan Willcock, Nigel Thomas, Mathew Andela
+ * Duncan Willcock 1159081, Nigel Thomas, Mathew Andela, Janik Singh 1159963
  */
 class DataAdapter {
 	private static ArrayList<Package> allPackages = new ArrayList<Package>();

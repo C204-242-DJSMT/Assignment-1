@@ -1,9 +1,11 @@
+package external;
+
 import java.util.*;
 
 /**
  * Enumeration for each occassion a package may or must be scanned.
  * 
- * Duncan Willcock 1159081
+ * Duncan Willcock
  */
 enum ScanEvents {dropOff, pickUp, takeFromVehicle, addToVehicle, delivered, addToBin, takeFromBin, enterFacility, leaveFacility, lost, found};
 

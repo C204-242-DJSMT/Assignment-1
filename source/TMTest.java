@@ -1,6 +1,6 @@
 class TMTest {
-/**
-     * @param args the command line arguments
+    /**
+     * entry point for testing Transport manager functions manually.
      */
     public static void main(String args[]) {
 		//TEST

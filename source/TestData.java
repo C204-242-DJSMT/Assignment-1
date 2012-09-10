@@ -17,7 +17,7 @@ class TestData {
 		ArrayList<String> destinationCities = new ArrayList<String>();
 		destinationCities.add("Auckland");
 		ArrayList<String> scanHistory = new ArrayList<String>();
-		scanHistory.add("enterFacility");
+		scanHistory.add("Here or there");
 
 		ArrayList<String[]> addresses = new ArrayList<String[]>();
 		String[] address = {"10 ab", "3025", "Hamilton"};

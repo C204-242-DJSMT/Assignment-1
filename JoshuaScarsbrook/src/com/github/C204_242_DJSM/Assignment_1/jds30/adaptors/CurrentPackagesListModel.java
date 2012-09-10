@@ -5,19 +5,17 @@ import java.util.ArrayList;
 import javax.swing.ListModel;
 import javax.swing.event.ListDataListener;
 
+import external.*;
+
 public class CurrentPackagesListModel implements ListModel<String> {
-	
-	private PackagesDataAdaptor _pda;
 	private ArrayList<String> _items = new ArrayList<String>();
 	
-	public CurrentPackagesListModel(PackagesDataAdaptor pda) {
-		_pda = pda;
+	public CurrentPackagesListModel() {
 		loadAllFromDataAdaptor();
 	}
 	
 	private void loadAllFromDataAdaptor() {
 		_items.clear();
-		PackageDataQuery query = _pda.getPackages();
 	}
 
 	@Override

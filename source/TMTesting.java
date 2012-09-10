@@ -4,6 +4,11 @@ import org.junit.Before;
 import org.junit.runner.RunWith;
 import static org.junit.Assert.*;
 
+/**
+ * testing for transport manager functions
+ *
+ * Duncan willcock 1159081
+ */
 public class TMTesting {
 	Calendar testTime = new GregorianCalendar();
 
